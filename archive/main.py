@@ -43,7 +43,7 @@ web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
 usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
 
 # Generate or load wallets
-def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encryption_key.txt"):
+def generate_wallets(num_wallets=1, wallets_file="wallets.enc", key_file="encryption_key.txt"):
     if os.path.exists(wallets_file) and os.path.exists(key_file):
         logging.info("Loading existing wallets")
         with open(key_file, "rb") as f:
