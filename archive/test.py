@@ -1,0 +1,127 @@
+import os
+import json
+import time
+import logging
+from web3 import Web3
+from eth_account import Account
+from cryptography.fernet import Fernet
+from dotenv import load_dotenv
+
+# Set up logging
+logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Load environment variables
+load_dotenv()
+INFURA_API_KEY = os.getenv('INFURA_API_KEY')
+print(f"INFURA_API_KEY: {INFURA_API_KEY}")  # Debugging line to check if the key is loaded  
+'''
+MASTER_PRIVATE_KEY = os.getenv('MASTER_PRIVATE_KEY')
+MASTER_WALLET_ADDRESS = Account.from_key(MASTER_PRIVATE_KEY).address if MASTER_PRIVATE_KEY else None
+'''
+
+
+# Ethereum mainnet configuration
+MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
+USDC_CONTRACT_ADDRESS = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"  # USDC on Ethereum mainnet
+USDC_ABI = [
+    {
+        "constant": True,
+        "inputs": [{"name": "_owner", "type": "address"}],
+        "name": "balanceOf",
+        "outputs": [{"name": "balance", "type": "uint256"}],
+        "type": "function"
+    },
+    {
+        "constant": False,
+        "inputs": [{"name": "_to", "type": "address"}, {"name": "_value", "type": "uint256"}],
+        "name": "transfer",
+        "outputs": [{"name": "", "type": "bool"}],
+        "type": "function"
+    }
+]
+
+# Connect to Ethereum mainnet
+web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
+usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
+
+# Generate or load wallets
+def generate_wallets(num_wallets=3, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
+    print("Generating wallets...")
+    # If user_data is not provided, create placeholder name/email pairs
+    if user_data is None:
+        user_data = [{"name": f"User{i+1}", "email": f"user{i+1}@example.com"} for i in range(num_wallets)]
+    else:
+        # Ensure user_data length matches num_wallets
+        if len(user_data) != num_wallets:
+            raise ValueError(f"Provided user_data length ({len(user_data)}) does not match num_wallets ({num_wallets})")
+        # Validate user_data entries
+        for data in user_data:
+            if not isinstance(data, dict) or "name" not in data or "email" not in data:
+                raise ValueError("Each user_data entry must be a dict with 'name' and 'email' keys")
+
+    # Load existing wallets if files exist
+    if os.path.exists(wallets_file) and os.path.exists(key_file):
+        logging.info("Loading existing wallets")
+        with open(key_file, "rb") as f:
+            key = f.read()
+        cipher = Fernet(key)
+        with open(wallets_file, "rb") as f:
+            encrypted_data = f.read()
+        wallets = json.loads(cipher.decrypt(encrypted_data).decode())
+        return wallets
+
+    # Generate new wallets
+    logging.info("Generating new wallets")
+    Account.enable_unaudited_hdwallet_features()
+    mnemonic = Account.create_with_mnemonic().mnemonic
+    wallets = []
+    for i in range(num_wallets):
+        account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/{i}")
+        wallets.append({
+            "address": account.address,
+            "private_key": account.key.hex(),
+            "mnemonic": mnemonic,
+            "name": user_data[i]["name"],
+            "email": user_data[i]["email"]
+        })
+
+    # Save wallets securely
+    key = Fernet.generate_key()
+    cipher = Fernet(key)
+    with open(wallets_file, "wb") as f:
+        f.write(cipher.encrypt(json.dumps(wallets).encode()))
+    with open(key_file, "wb") as f:
+        f.write(key)
+    
+    logging.info(f"Generated {num_wallets} wallets. Mnemonic: {mnemonic}. Store mnemonic securely offline!")
+    print(f"Generated {num_wallets} wallets. Mnemonic: {mnemonic}")
+    print("Store mnemonic securely offline (e.g., paper or encrypted USB). Do not share!")
+    return wallets
+
+# Schedule transfers
+def main():
+    '''
+    if not INFURA_API_KEY or not MASTER_PRIVATE_KEY:
+        logging.error("Missing INFURA_API_KEY or MASTER_PRIVATE_KEY in .env file")
+        raise ValueError("Please set INFURA_API_KEY and MASTER_PRIVATE_KEY in .env file")
+    '''
+    
+    if not web3.is_connected():
+        print("Failed to connect to Ethereum mainnet")
+        logging.error("Failed to connect to Ethereum mainnet")
+        raise ConnectionError("Cannot connect to Ethereum mainnet")
+
+    # Generate or load wallets
+    print("Starting wallet generation...")
+    wallets = generate_wallets()
+    
+    # Fund wallets (manual step)
+    # fund_wallets(wallets)
+    
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        logging.error(f"Script failed: {str(e)}")

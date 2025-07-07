@@ -1,0 +1,22 @@
+2025-07-07 14:53:19,906 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 14:53:19,906 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 14:54:14,651 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 14:54:14,651 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 14:54:37,927 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 14:54:37,927 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 14:56:37,388 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 14:56:37,388 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 14:57:01,162 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 14:57:01,162 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 15:08:10,743 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 15:08:10,744 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 15:08:24,997 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 15:08:24,997 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 15:10:00,730 - ERROR - Failed to connect to Ethereum mainnet
+2025-07-07 15:10:00,730 - ERROR - Script failed: Cannot connect to Ethereum mainnet
+2025-07-07 15:10:54,809 - INFO - Generating new wallets
+2025-07-07 15:10:54,822 - ERROR - Script failed: 'tuple' object has no attribute 'mnemonic'
+2025-07-07 15:55:42,962 - INFO - Generating new wallets
+2025-07-07 15:55:42,975 - ERROR - Script failed: 'tuple' object has no attribute 'mnemonic'
+2025-07-07 16:12:17,407 - INFO - Generating new wallets
+2025-07-07 16:12:17,448 - INFO - Generated 3 wallets. Mnemonic: enhance typical nothing egg survey sound mouse tiny suggest fortune hidden tray. Store mnemonic securely offline!

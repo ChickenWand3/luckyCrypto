@@ -2,7 +2,6 @@ import os
 import json
 import time
 import logging
-import schedule
 from web3 import Web3
 from eth_account import Account
 from cryptography.fernet import Fernet
@@ -43,7 +42,8 @@ web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
 usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
 
 # Generate or load wallets
-def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
+def generate_wallets(num_wallets=3, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
+    print("Generating wallets...")
     # If user_data is not provided, create placeholder name/email pairs
     if user_data is None:
         user_data = [{"name": f"User{i+1}", "email": f"user{i+1}@example.com"} for i in range(num_wallets)]
@@ -70,7 +70,7 @@ def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encr
     # Generate new wallets
     logging.info("Generating new wallets")
     Account.enable_unaudited_hdwallet_features()
-    mnemonic = Account.create_with_mnemonic().mnemonic
+    acct, mnemonic = Account.create_with_mnemonic()
     wallets = []
     for i in range(num_wallets):
         account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/{i}")
@@ -189,27 +189,23 @@ def transfer_all_usdc():
 
 # Schedule transfers
 def main():
+    '''
     if not INFURA_API_KEY or not MASTER_PRIVATE_KEY:
         logging.error("Missing INFURA_API_KEY or MASTER_PRIVATE_KEY in .env file")
         raise ValueError("Please set INFURA_API_KEY and MASTER_PRIVATE_KEY in .env file")
+    '''
     
     if not web3.is_connected():
         logging.error("Failed to connect to Ethereum mainnet")
         raise ConnectionError("Cannot connect to Ethereum mainnet")
 
     # Generate or load wallets
+    print("Starting wallet generation...")
     wallets = generate_wallets()
     
     # Fund wallets (manual step)
-    fund_wallets(wallets)
+    # fund_wallets(wallets)
     
-    # Schedule transfers at midnight PST
-    schedule.every().day.at("00:00", "America/Los_Angeles").do(transfer_all_usdc)
-    
-    logging.info("Starting transfer schedule")
-    while True:
-        schedule.run_pending()
-        time.sleep(60)
 
 if __name__ == "__main__":
     try:
