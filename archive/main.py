@@ -43,7 +43,20 @@ web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
 usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
 
 # Generate or load wallets
-def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encryption_key.txt"):
+def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
+    # If user_data is not provided, create placeholder name/email pairs
+    if user_data is None:
+        user_data = [{"name": f"User{i+1}", "email": f"user{i+1}@example.com"} for i in range(num_wallets)]
+    else:
+        # Ensure user_data length matches num_wallets
+        if len(user_data) != num_wallets:
+            raise ValueError(f"Provided user_data length ({len(user_data)}) does not match num_wallets ({num_wallets})")
+        # Validate user_data entries
+        for data in user_data:
+            if not isinstance(data, dict) or "name" not in data or "email" not in data:
+                raise ValueError("Each user_data entry must be a dict with 'name' and 'email' keys")
+
+    # Load existing wallets if files exist
     if os.path.exists(wallets_file) and os.path.exists(key_file):
         logging.info("Loading existing wallets")
         with open(key_file, "rb") as f:
@@ -54,6 +67,7 @@ def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encr
         wallets = json.loads(cipher.decrypt(encrypted_data).decode())
         return wallets
 
+    # Generate new wallets
     logging.info("Generating new wallets")
     Account.enable_unaudited_hdwallet_features()
     mnemonic = Account.create_with_mnemonic().mnemonic
@@ -63,7 +77,9 @@ def generate_wallets(num_wallets=100, wallets_file="wallets.enc", key_file="encr
         wallets.append({
             "address": account.address,
             "private_key": account.key.hex(),
-            "mnemonic": mnemonic
+            "mnemonic": mnemonic,
+            "name": user_data[i]["name"],
+            "email": user_data[i]["email"]
         })
 
     # Save wallets securely
