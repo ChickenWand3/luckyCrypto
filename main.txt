@@ -17,6 +17,5 @@ other helpful funcs:
 
 async def main():
     load all users' info from file
-    create async queue 
-    gather workers to transfer and such
+    gather workers to transfer
     call them asynchronously 

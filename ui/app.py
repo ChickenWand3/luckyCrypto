@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import time
 
 app = Flask(__name__)
 
@@ -12,6 +13,7 @@ def process():
     user_input = data.get('user_input')
     button_clicked = data.get('button')
     result = f"You entered: {user_input} and clicked: {button_clicked}"
+    time.sleep(2)  # Simulate a long-running process
     return jsonify({"result": result})
 
 #@app.route('/menu1')
