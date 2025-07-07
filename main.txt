@@ -1,0 +1,22 @@
+import async
+import crypto
+import logging
+import others
+
+**
+contsants - keys and addresses
+**
+
+async def transfer_usdc_from_individual_acct_to_company_acct:
+
+async def load_individual_acct_with_gas:
+
+other helpful funcs:
+    check_individual_walllet_balance
+    
+
+async def main():
+    load all users' info from file
+    create async queue 
+    gather workers to transfer and such
+    call them asynchronously 
