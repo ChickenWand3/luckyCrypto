@@ -26,6 +26,12 @@ def verifyUserData(user_data, highest_index, num_wallets):
 def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
     logging.info("Generating wallets...")
 
+    if wallets_file is "masterWallets.enc":
+        logging.info("Generating master wallets...")
+        if os.path.exists(wallets_file) and os.path.exists(key_file):
+            logging.error("Master wallet already exists. Stopping override.")
+            return False
+
     # Check if wallets file and key file exist
     if os.path.exists(wallets_file) and os.path.exists(key_file):
         logging.info("Loading existing wallets")
