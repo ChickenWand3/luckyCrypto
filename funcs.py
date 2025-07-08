@@ -6,39 +6,7 @@ from eth_account import Account
 from cryptography.fernet import Fernet
 from dotenv import load_dotenv
 
-# Set up logging
-logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
-                    format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Load environment variables
-load_dotenv()
-INFURA_API_KEY = os.getenv('INFURA_API_KEY')
-MASTER_PRIVATE_KEY = os.getenv('MASTER_PRIVATE_KEY')
-MASTER_WALLET_ADDRESS = Account.from_key(MASTER_PRIVATE_KEY).address if MASTER_PRIVATE_KEY else None
-
-# Ethereum mainnet configuration
-MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
-USDC_CONTRACT_ADDRESS = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"  # USDC on Ethereum mainnet
-USDC_ABI = [
-    {
-        "constant": True,
-        "inputs": [{"name": "_owner", "type": "address"}],
-        "name": "balanceOf",
-        "outputs": [{"name": "balance", "type": "uint256"}],
-        "type": "function"
-    },
-    {
-        "constant": False,
-        "inputs": [{"name": "_to", "type": "address"}, {"name": "_value", "type": "uint256"}],
-        "name": "transfer",
-        "outputs": [{"name": "", "type": "bool"}],
-        "type": "function"
-    }
-]
-
-# Connect to Ethereum mainnet
-web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
-usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
 
 def verifyUserData(user_data, highest_index, num_wallets):
     # If user_data is not provided, create placeholder name/email pairs
@@ -179,6 +147,39 @@ def disable_wallet(wallet_email, wallets_file="wallets.enc", key_file="encryptio
 
 # Schedule transfers
 def main():
+    # Set up logging
+    logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+    
+    # Load environment variables
+    load_dotenv()
+    INFURA_API_KEY = os.getenv('INFURA_API_KEY')
+    MASTER_PRIVATE_KEY = os.getenv('MASTER_PRIVATE_KEY')
+    MASTER_WALLET_ADDRESS = Account.from_key(MASTER_PRIVATE_KEY).address if MASTER_PRIVATE_KEY else None
+    
+    # Ethereum mainnet configuration
+    MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
+    USDC_CONTRACT_ADDRESS = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"  # USDC on Ethereum mainnet
+    USDC_ABI = [
+        {
+            "constant": True,
+            "inputs": [{"name": "_owner", "type": "address"}],
+            "name": "balanceOf",
+            "outputs": [{"name": "balance", "type": "uint256"}],
+            "type": "function"
+        },
+        {
+            "constant": False,
+            "inputs": [{"name": "_to", "type": "address"}, {"name": "_value", "type": "uint256"}],
+            "name": "transfer",
+            "outputs": [{"name": "", "type": "bool"}],
+            "type": "function"
+        }
+    ]
+    
+    # Connect to Ethereum mainnet
+    web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
+    usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
     '''
     if not INFURA_API_KEY or not MASTER_PRIVATE_KEY:
         logging.error("Missing INFURA_API_KEY or MASTER_PRIVATE_KEY in .env file")
