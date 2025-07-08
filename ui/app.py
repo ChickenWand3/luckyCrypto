@@ -24,77 +24,75 @@ def home():
 async def action():
     data = request.json
     if not data:
-        return jsonify({"Error": "No data provided"}), 400
-    user_input = data.get('user_input')
+        return jsonify({"result": "No data provided"}), 400
     button_clicked = data.get('button')
     if button_clicked == "generate":
         user_name = data.get('name')
         user_email = data.get('email')
         if not user_name or not user_email:
-            return jsonify({"Error": "Name and email are both required"}), 400
+            return jsonify({"result": "Name and email are both required"}), 400
         else:
             user_data = [{"name": user_name, "email": user_email}]
             try:
-                print("Gen")
+                #print("Gen")
                 gen = generate_wallets(num_wallets=len(user_data), user_data=user_data)
                 if gen:
-                    print(f"Wallets generated successfully with attributes: {user_name} & {user_email}")
+                    #print(f"Wallets generated successfully with attributes: {user_name} & {user_email}")
                     return jsonify({"result": f"Wallets generated successfully with attributes: {user_name} & {user_email}"}), 200
                 else:
-                    return jsonify({"Error": f"Failed to generate wallets: {gen}"}), 500
+                    return jsonify({"result": f"Failed to generate wallets: {gen}"}), 500
             except Exception as e:
-                return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+                return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "search_one":
         search_email = data.get('email')
         search_name = data.get('name')
         if not search_email and not search_name:
-            return jsonify({"Error": "At least one of name or email is required for search"}), 400
+            return jsonify({"result": "At least one of name or email is required for search"}), 400
         try:
             search_results = search_wallets(wallet_name=search_name, wallet_email=search_email)
             if search_results:
-                print(f"Search results: {search_results}")
+                #print(f"Search results: {search_results}")
                 return jsonify({"result": f"Search results: {search_results}"}), 200
             else:
-                return jsonify({"Error": "No wallets found matching the search criteria"}), 404
+                return jsonify({"result": "No wallets found matching the search criteria"}), 404
         except Exception as e:
-            return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+            return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "delete":
         delete_email = data.get('email')
         delete_name = data.get('name')
         if not delete_email and not delete_name:
-            return jsonify({"Error": "At least one of name or email is required for deletion"}), 400
+            return jsonify({"result": "At least one of name or email is required for deletion"}), 400
         try:
             deleted = disable_wallet(wallet_email=delete_email, wallet_name=delete_name)
             if deleted:
                 return jsonify({"result": "Wallet disabled successfully"}), 200
             else:
-                return jsonify({"Error": "No matching wallet found to disable"}), 404
+                return jsonify({"result": "No matching wallet found to disable"}), 404
         except Exception as e:
-            return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+            return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "list_all":
         try:
             wallets = get_wallets()
+            wallets = [wallet for wallet in wallets if wallet.get("enabled", True)]  # Filter enabled wallets
             if wallets:
                 #print(f"All wallets: {wallets}")
                 return jsonify({"result": f"All wallets: {wallets}"}), 200
             else:
-                return jsonify({"Error": "No wallets found"}), 404
+                return jsonify({"result": "No wallets found"}), 404
         except Exception as e:
-            return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+            return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "force_sweep":
         try:
-            print("Sweeping wallets to main wallet")
+            #print("Sweeping wallets to main wallet")
             swept = await async_sweep_to_main()
             if swept:
                 return jsonify({"result": "Sweep operation completed successfully"}), 200
             else:
-                return jsonify({"Error": "Sweep operation failed"}), 500
+                return jsonify({"result": "Sweep operation failed"}), 500
         except Exception as e:
-            return jsonify({"Error": f"An internal error occurred during sweep: {str(e)}"}), 500
+            return jsonify({"result": f"An internal error occurred during sweep: {str(e)}"}), 500
     #result = f"You entered: {user_input} and clicked: {button_clicked}"
-    
-    time.sleep(2)  # Simulate a long-running process
-    print(data)
+    return jsonify({"result": "Undefined Action"}), 400
     
     #return jsonify({"result": result})
 
