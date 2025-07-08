@@ -157,20 +157,12 @@ def get_wallets(wallets_file="wallets.enc", key_file="encryption_key.txt"):
     return wallets
 
 def disable_wallet(wallet_email, wallets_file="wallets.enc", key_file="encryption_key.txt"):
-    if not os.path.exists(wallets_file) or not os.path.exists(key_file):
-        logging.error("Wallets file or key file does not exist")
-        return False
-    with open(key_file, "rb") as f:
-        key = f.read()
-    cipher = Fernet(key)
-    with open(wallets_file, "rb") as f:
-        encrypted_data = f.read()
-    data = json.loads(cipher.decrypt(encrypted_data).decode())
-    wallets = data["wallets"]
+    wallets = get_wallets(wallets_file, key_file)
     for wallet in wallets:
         if wallet["email"] == wallet_email:
             #LOOOOOK
             #ALSO NEED TO TRANSFER USDC TO MASTER WALLET IF ABOVE 1 USDC
+            #CHECK IF ENOUGH GAS TO TRANSFER IF NOT SEND GAS
             #FUNCTIONALITY STILL NEEDED
             wallet["enabled"] = False
             logging.info(f"Disabled wallet for email: {wallet_email}")
