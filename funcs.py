@@ -138,16 +138,19 @@ def search_wallets(wallet_name, wallet_email, wallets_file="wallets.enc", key_fi
         logging.info("No wallets found matching search criteria")
     return results
 
-def disable_wallet(wallet_email, wallets_file="wallets.enc", key_file="encryption_key.txt"):
+def disable_wallet(wallet_email, wallet_name, wallets_file="wallets.enc", key_file="encryption_key.txt"):
     wallets = get_wallets(wallets_file, key_file)
     for wallet in wallets:
-        if wallet["email"] == wallet_email:
+        if wallet["email"] == wallet_email or wallet["name"] == wallet_name:
             #LOOOOOK
             #ALSO NEED TO TRANSFER USDC TO MASTER WALLET IF ABOVE 1 USDC
             #CHECK IF ENOUGH GAS TO TRANSFER IF NOT SEND GAS
             #FUNCTIONALITY STILL NEEDED
             wallet["enabled"] = False
-            logging.info(f"Disabled wallet for email: {wallet_email}")
+            if wallet["name"] == wallet_name:
+                logging.info(f"Disabled wallet for name: {wallet_name}")
+            elif wallet["email"] == wallet_email:
+                logging.info(f"Disabled wallet for email: {wallet_email}")
             return True
     return False #Couldn't find wallet
 

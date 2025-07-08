@@ -3,7 +3,7 @@ import time
 import sys, os
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets, get_wallets
+from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet
 
 import asyncio
 from sweep_to_main import main as sweep_to_main
@@ -58,6 +58,19 @@ async def action():
                 return jsonify({"Error": "No wallets found matching the search criteria"}), 404
         except Exception as e:
             return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+    elif button_clicked == "delete":
+        delete_email = data.get('email')
+        delete_name = data.get('name')
+        if not delete_email and not delete_name:
+            return jsonify({"Error": "At least one of name or email is required for deletion"}), 400
+        try:
+            deleted = disable_wallet(wallet_email=delete_email, wallet_name=delete_name)
+            if deleted:
+                return jsonify({"result": "Wallet disabled successfully"}), 200
+            else:
+                return jsonify({"Error": "No matching wallet found to disable"}), 404
+        except Exception as e:
+            return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "list_all":
         try:
             wallets = get_wallets()
@@ -78,8 +91,6 @@ async def action():
                 return jsonify({"Error": "Sweep operation failed"}), 500
         except Exception as e:
             return jsonify({"Error": f"An internal error occurred during sweep: {str(e)}"}), 500
-    elif button_clicked == "delete":
-        return None
     #result = f"You entered: {user_input} and clicked: {button_clicked}"
     
     time.sleep(2)  # Simulate a long-running process
