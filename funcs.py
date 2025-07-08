@@ -153,7 +153,7 @@ def disable_wallet(wallet_email, wallet_name, wallets_file="wallets.enc", key_fi
             # Save wallets securely
             data = {
                 "metadata": {
-                    "mnemonic": wallets["metadata"]["mnemonic"]
+                    "mnemonic": wallet["mnemonic"]
                 },
                 "wallets": wallets
             }
@@ -218,8 +218,8 @@ def main():
     #generate_wallets(num_wallets=5)
     #wallets = get_wallets()
 
-    generate_wallets(num_wallets=1, user_data=[{"name": "Ashton", "email": "cgservicesofficial@gmail.com"}]) # Generate a masterWallet for testing
-    wallets = get_wallets()
+    generate_wallets(num_wallets=1, wallets_file="masterWallets.enc", key_file="masterEncryption_key.txt", user_data=[{"name": "Ashton", "email": "cgservicesofficial@gmail.com"}]) # Generate a masterWallet for testing
+    wallets = get_wallets(wallets_file="masterWallets.enc", key_file="masterEncryption_key.txt")
 
     for wallet in wallets:
         logging.info(f"Wallet: {wallet['address']} - {wallet['name']} ({wallet['email']}) - Balance: {usdc_contract.functions.balanceOf(wallet['address']).call() / 10**6} USDC")

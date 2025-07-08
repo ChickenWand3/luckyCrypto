@@ -1,6 +1,6 @@
-2025-07-07 23:28:50,345 - INFO - Generating wallets...
-2025-07-07 23:28:50,345 - INFO - Generating new wallets
-2025-07-07 23:28:50,360 - INFO - Generated mnemonic: salad concert gold meat truck marriage good misery lonely stumble convince urban
-2025-07-07 23:28:50,369 - INFO - Generated wallet with address_index 0: 0x874dFAa290F98D5bca10d45b255cAc3006F09714
-2025-07-07 23:28:50,371 - INFO - Loaded 1 wallets from file
-2025-07-07 23:28:50,617 - INFO - Wallet: 0x874dFAa290F98D5bca10d45b255cAc3006F09714 - User1 (user1@example.com) - Balance: 0.0 USDC
+2025-07-07 23:56:31,206 - INFO - Generating wallets...
+2025-07-07 23:56:31,206 - INFO - Generating new wallets
+2025-07-07 23:56:31,219 - INFO - Generated mnemonic: situate always margin wheel surge property shallow cluster curve guard number ready
+2025-07-07 23:56:31,228 - INFO - Generated wallet with address_index 0: 0x2da1fCFE9e303A39866D76399D80eC37C5adf8E6
+2025-07-07 23:56:31,230 - INFO - Loaded 1 wallets from file
+2025-07-07 23:56:31,473 - INFO - Wallet: 0x2da1fCFE9e303A39866D76399D80eC37C5adf8E6 - Ashton (cgservicesofficial@gmail.com) - Balance: 0.0 USDC
