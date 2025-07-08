@@ -168,3 +168,6 @@
 2025-07-07 19:00:15,305 - INFO - Wallet: 0xCE8D1C09C58E0C211611B61Ed20Bc6Aeb9404F88 - User64 (user64@example.com) - Balance: 0.0 USDC
 2025-07-07 19:00:15,533 - INFO - Wallet: 0xAaaD2555E64829e9F383ef68827C560f3C100ADe - User65 (user65@example.com) - Balance: 0.0 USDC
 2025-07-07 19:00:15,761 - INFO - Wallet: 0x6878eD00AE55E7DFbBE529B33F9A6b03F26B3779 - User66 (user66@example.com) - Balance: 0.0 USDC
+2025-07-07 23:35:19,687 - WARNING -  * Debugger is active!
+2025-07-07 23:35:19,692 - INFO -  * Debugger PIN: 129-261-600
+2025-07-07 23:35:38,901 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\funcs.py', reloading
