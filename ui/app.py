@@ -1,19 +1,27 @@
 from flask import Flask, render_template, request, jsonify
 import time
-
 import sys, os
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets
+from funcs import generate_wallets, search_wallets, get_wallets
+
+import asyncio
+from sweep_to_main import main as sweep_to_main
 
 app = Flask(__name__)
+
+async def async_sweep_to_main():
+    #loop = asyncio.get_event_loop()
+    #return await loop.run_in_executor(None, sweep_to_main)
+    await asyncio.sleep(5)
+    return await sweep_to_main()
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
 @app.route('/api/action', methods=['POST'])
-def action():
+async def action():
     data = request.json
     if not data:
         return jsonify({"Error": "No data provided"}), 400
@@ -50,6 +58,28 @@ def action():
                 return jsonify({"Error": "No wallets found matching the search criteria"}), 404
         except Exception as e:
             return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+    elif button_clicked == "list_all":
+        try:
+            wallets = get_wallets()
+            if wallets:
+                #print(f"All wallets: {wallets}")
+                return jsonify({"result": f"All wallets: {wallets}"}), 200
+            else:
+                return jsonify({"Error": "No wallets found"}), 404
+        except Exception as e:
+            return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
+    elif button_clicked == "force_sweep":
+        try:
+            print("Sweeping wallets to main wallet")
+            swept = await async_sweep_to_main()
+            if swept:
+                return jsonify({"result": "Sweep operation completed successfully"}), 200
+            else:
+                return jsonify({"Error": "Sweep operation failed"}), 500
+        except Exception as e:
+            return jsonify({"Error": f"An internal error occurred during sweep: {str(e)}"}), 500
+    elif button_clicked == "delete":
+        return None
     #result = f"You entered: {user_input} and clicked: {button_clicked}"
     
     time.sleep(2)  # Simulate a long-running process
