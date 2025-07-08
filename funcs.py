@@ -81,6 +81,7 @@ def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryp
         acct, mnemonic = Account.create_with_mnemonic() #Tuple so getting mnemonic
         wallets = []
         user_data = verifyUserData(user_data, 0, num_wallets)
+        logging.info(f"Generated mnemonic: {mnemonic}")
         for i in range(num_wallets):
             account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/{i}")
             wallets.append({
@@ -148,6 +149,20 @@ def disable_wallet(wallet_email, wallets_file="wallets.enc", key_file="encryptio
             #FUNCTIONALITY STILL NEEDED
             wallet["enabled"] = False
             logging.info(f"Disabled wallet for email: {wallet_email}")
+
+            # Save wallets securely
+            data = {
+                "metadata": {
+                    "mnemonic": wallets["metadata"]["mnemonic"]
+                },
+                "wallets": wallets
+            }
+            key = Fernet.generate_key()
+            cipher = Fernet(key)
+            with open(wallets_file, "wb") as f:
+                f.write(cipher.encrypt(json.dumps(data).encode()))
+            with open(key_file, "wb") as f:
+                f.write(key)
             return True
     return False #Couldn't find wallet
 
@@ -196,7 +211,10 @@ def main():
         logging.error("Failed to connect to Ethereum mainnet")
         raise ConnectionError("Cannot connect to Ethereum mainnet")
 
-    generate_wallets(num_wallets=30)
+    #generate_wallets(num_wallets=5)
+    #wallets = get_wallets()
+
+    generate_wallets(num_wallets=1, user_data=[{"name": "Ashton", "email": "cgservicesofficial@gmail.com"}]) # Generate a masterWallet for testing
     wallets = get_wallets()
 
     for wallet in wallets:

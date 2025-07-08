@@ -7,7 +7,7 @@
 # for wallet in wallets:
 #     if wallet["enabled"]:
 #         if needGas(wallet):  # Check if balance is less than 0.01 ETH
-#             send_gas(wallet["address"], 0.01)  # Send 0.01 ETH to the wallet
+#             send_gas(wallet["address"], 0.01)  # Send $5 of ETH to the wallet
 
 
 
