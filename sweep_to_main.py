@@ -145,6 +145,7 @@ async def main():
     # Create tasks and run them concurrently
     tasks = [transfer_usdc(wallet) for wallet in wallets]
     await asyncio.gather(*tasks)
+    return True
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

@@ -1,2 +1,4 @@
 web3
 dotenv
+flask
+flask[async]
