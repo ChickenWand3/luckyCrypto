@@ -30,6 +30,9 @@ def action():
             search_query = "name"
         if not search_data:
             return jsonify({"Error": "Either name or email is required"}), 400
+        #else:
+            # search = search()
+            # response = search
     #result = f"You entered: {user_input} and clicked: {button_clicked}"
     
     time.sleep(2)  # Simulate a long-running process
