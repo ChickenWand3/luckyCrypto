@@ -1,6 +1,5 @@
 import os
 import json
-import time
 import logging
 from web3 import Web3
 from eth_account import Account
@@ -41,12 +40,10 @@ USDC_ABI = [
 web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
 usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
 
-# Generate or load wallets
-def generate_wallets(num_wallets=3, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
-    print("Generating wallets...")
+def verifyUserData(user_data, highest_index, num_wallets):
     # If user_data is not provided, create placeholder name/email pairs
     if user_data is None:
-        user_data = [{"name": f"User{i+1}", "email": f"user{i+1}@example.com"} for i in range(num_wallets)]
+        user_data = [{"name": f"User{highest_index+i+1}", "email": f"user{highest_index+i+1}@example.com"} for i in range(num_wallets)]
     else:
         # Ensure user_data length matches num_wallets
         if len(user_data) != num_wallets:
@@ -55,8 +52,13 @@ def generate_wallets(num_wallets=3, wallets_file="wallets.enc", key_file="encryp
         for data in user_data:
             if not isinstance(data, dict) or "name" not in data or "email" not in data:
                 raise ValueError("Each user_data entry must be a dict with 'name' and 'email' keys")
+    return user_data
 
-    # Load existing wallets if files exist
+# Generate wallets with mnemonic and user data
+def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
+    logging.info("Generating wallets...")
+
+    # Check if wallets file and key file exist
     if os.path.exists(wallets_file) and os.path.exists(key_file):
         logging.info("Loading existing wallets")
         with open(key_file, "rb") as f:
@@ -64,128 +66,95 @@ def generate_wallets(num_wallets=3, wallets_file="wallets.enc", key_file="encryp
         cipher = Fernet(key)
         with open(wallets_file, "rb") as f:
             encrypted_data = f.read()
-        wallets = json.loads(cipher.decrypt(encrypted_data).decode())
-        return wallets
+        data = json.loads(cipher.decrypt(encrypted_data).decode())
+        wallets = data["wallets"]
+        mnemonic = data["metadata"]["mnemonic"]
+        highest_index = len(wallets) - 1
+        user_data = verifyUserData(user_data, highest_index+1, num_wallets)
+        
+        # Generate new wallets with incremented address_index
+        logging.info(f"Appending {num_wallets} new wallets starting at address_index {highest_index + 1}")
+        Account.enable_unaudited_hdwallet_features()
+        new_wallets = []
+        for i in range(num_wallets):
+            account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/{highest_index + 1 + i}")
+            new_wallets.append({
+                "address": account.address,
+                "private_key": account.key.hex(),
+                "mnemonic": mnemonic,
+                "name": user_data[i]["name"],
+                "email": user_data[i]["email"],
+                "enabled": True
+            })
+            logging.info(f"Generated new wallet with address_index {highest_index + 1 + i}: {account.address}")
+        
+        # Append new wallets to existing list
+        wallets.extend(new_wallets)
+        # Create JSON structure with metadata
+        data = {
+            "metadata": {
+                "mnemonic": mnemonic
+            },
+            "wallets": wallets
+        }
 
-    # Generate new wallets
-    logging.info("Generating new wallets")
-    Account.enable_unaudited_hdwallet_features()
-    acct, mnemonic = Account.create_with_mnemonic()
-    wallets = []
-    for i in range(num_wallets):
-        account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/{i}")
-        wallets.append({
-            "address": account.address,
-            "private_key": account.key.hex(),
-            "mnemonic": mnemonic,
-            "name": user_data[i]["name"],
-            "email": user_data[i]["email"]
-        })
+        # Save wallets securely
+        key = Fernet.generate_key()
+        cipher = Fernet(key)
+        with open(wallets_file, "wb") as f:
+            f.write(cipher.encrypt(json.dumps(data).encode()))
+        with open(key_file, "wb") as f:
+            f.write(key)
+    else:
+        # Generate new wallets and mnemonic
+        logging.info("Generating new wallets")
+        Account.enable_unaudited_hdwallet_features()
+        acct, mnemonic = Account.create_with_mnemonic() #Tuple so getting mnemonic
+        wallets = []
+        user_data = verifyUserData(user_data, 0, num_wallets)
+        for i in range(num_wallets):
+            account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/{i}")
+            wallets.append({
+                "address": account.address,
+                "private_key": account.key.hex(),
+                "mnemonic": mnemonic,
+                "name": user_data[i]["name"],
+                "email": user_data[i]["email"],
+                "enabled": True
+            })
 
-    # Save wallets securely
-    key = Fernet.generate_key()
+            logging.info(f"Generated wallet with address_index {i}: {account.address}")
+        
+        # Create JSON structure with metadata
+        data = {
+            "metadata": {
+                "mnemonic": mnemonic
+            },
+            "wallets": wallets
+        }
+
+        # Save wallets securely
+        key = Fernet.generate_key()
+        cipher = Fernet(key)
+        with open(wallets_file, "wb") as f:
+            f.write(cipher.encrypt(json.dumps(data).encode()))
+        with open(key_file, "wb") as f:
+            f.write(key)
+
+
+def get_wallets(wallets_file="wallets.enc", key_file="encryption_key.txt"):
+    if not os.path.exists(wallets_file) or not os.path.exists(key_file):
+        logging.error("Wallets file or key file does not exist")
+        return []
+    with open(key_file, "rb") as f:
+        key = f.read()
     cipher = Fernet(key)
-    with open(wallets_file, "wb") as f:
-        f.write(cipher.encrypt(json.dumps(wallets).encode()))
-    with open(key_file, "wb") as f:
-        f.write(key)
-    
-    logging.info(f"Generated {num_wallets} wallets. Mnemonic: {mnemonic}. Store mnemonic securely offline!")
-    print(f"Generated {num_wallets} wallets. Mnemonic: {mnemonic}")
-    print("Store mnemonic securely offline (e.g., paper or encrypted USB). Do not share!")
+    with open(wallets_file, "rb") as f:
+        encrypted_data = f.read()
+    data = json.loads(cipher.decrypt(encrypted_data).decode())
+    wallets = data["wallets"]
+    logging.info(f"Loaded {len(wallets)} wallets from file")
     return wallets
-
-# Fund wallets with ETH and USDC
-def fund_wallets(wallets, eth_amount=0.01, usdc_amount=1000, max_attempts=3):
-    logging.info("Funding wallets with ETH and USDC")
-    for wallet in wallets:
-        for attempt in range(max_attempts):
-            try:
-                # Fund ETH
-                nonce = web3.eth.get_transaction_count(MASTER_WALLET_ADDRESS)
-                eth_tx = {
-                    'to': wallet['address'],
-                    'value': web3.to_wei(eth_amount, 'ether'),
-                    'gas': 21000,
-                    'gasPrice': web3.to_wei(50, 'gwei'),
-                    'nonce': nonce,
-                    'chainId': 1
-                }
-                signed_eth = web3.eth.account.sign_transaction(eth_tx, MASTER_PRIVATE_KEY)
-                eth_tx_hash = web3.eth.send_raw_transaction(signed_eth.raw_transaction)
-                eth_receipt = web3.eth.wait_for_transaction_receipt(eth_tx_hash, timeout=120)
-                if eth_receipt["status"] == 1:
-                    logging.info(f"Funded {eth_amount} ETH to {wallet['address']}. Tx: {eth_tx_hash.hex()}")
-                else:
-                    logging.error(f"ETH funding failed for {wallet['address']}. Tx: {eth_tx_hash.hex()}")
-                    continue
-
-                # Fund USDC
-                nonce += 1
-                usdc_tx = usdc_contract.functions.transfer(wallet['address'], int(usdc_amount * 10**6)).build_transaction({
-                    'from': MASTER_WALLET_ADDRESS,
-                    'gas': 100000,
-                    'gasPrice': web3.to_wei(50, 'gwei'),
-                    'nonce': nonce,
-                    'chainId': 1
-                })
-                signed_usdc = web3.eth.account.sign_transaction(usdc_tx, MASTER_PRIVATE_KEY)
-                usdc_tx_hash = web3.eth.send_raw_transaction(signed_usdc.raw_transaction)
-                usdc_receipt = web3.eth.wait_for_transaction_receipt(usdc_tx_hash, timeout=120)
-                if usdc_receipt["status"] == 1:
-                    logging.info(f"Funded {usdc_amount} USDC to {wallet['address']}. Tx: {usdc_tx_hash.hex()}")
-                    break
-                else:
-                    logging.error(f"USDC funding failed for {wallet['address']}. Tx: {usdc_tx_hash.hex()}")
-            except Exception as e:
-                if attempt == max_attempts - 1:
-                    logging.error(f"Failed to fund {wallet['address']} after {max_attempts} attempts: {str(e)}")
-                time.sleep(2 ** attempt)
-
-# Transfer USDC to master wallet with retry mechanism
-def transfer_usdc(wallet, max_attempts=3):
-    try:
-        balance = usdc_contract.functions.balanceOf(wallet["address"]).call()
-        if balance == 0:
-            logging.info(f"No USDC in wallet {wallet['address']}")
-            return
-
-        nonce = web3.eth.get_transaction_count(wallet["address"])
-        gas_estimate = usdc_contract.functions.transfer(MASTER_WALLET_ADDRESS, balance).estimate_gas({"from": wallet["address"]})
-        tx = usdc_contract.functions.transfer(MASTER_WALLET_ADDRESS, balance).build_transaction({
-            "chainId": 1,  # Ethereum mainnet chain ID
-            "gas": int(gas_estimate * 1.2),  # 20% buffer
-            "gasPrice": web3.eth.gas_price,
-            "nonce": nonce
-        })
-
-        for attempt in range(max_attempts):
-            try:
-                signed_tx = web3.eth.account.sign_transaction(tx, wallet["private_key"])
-                tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
-                receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=120)
-                if receipt["status"] == 1:
-                    logging.info(f"Transferred {balance / 10**6} USDC from {wallet['address']} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
-                    return
-                else:
-                    logging.error(f"Transaction failed for {wallet['address']}. Tx: {tx_hash.hex()}")
-                    return
-            except Exception as e:
-                if attempt == max_attempts - 1:
-                    logging.error(f"Failed to transfer from {wallet['address']} after {max_attempts} attempts: {str(e)}")
-                    return
-                time.sleep(2 ** attempt)  # Exponential backoff
-
-    except Exception as e:
-        logging.error(f"Error processing wallet {wallet['address']}: {str(e)}")
-
-# Main transfer function
-def transfer_all_usdc():
-    logging.info("Starting daily USDC transfer at midnight PST")
-    wallets = generate_wallets()
-    for wallet in wallets:
-        transfer_usdc(wallet)
-    logging.info("Completed daily USDC transfer")
 
 # Schedule transfers
 def main():
@@ -199,13 +168,11 @@ def main():
         logging.error("Failed to connect to Ethereum mainnet")
         raise ConnectionError("Cannot connect to Ethereum mainnet")
 
-    # Generate or load wallets
-    print("Starting wallet generation...")
-    wallets = generate_wallets()
-    
-    # Fund wallets (manual step)
-    # fund_wallets(wallets)
-    
+    generate_wallets(num_wallets=30)
+    wallets = get_wallets()
+
+    for wallet in wallets:
+        logging.info(f"Wallet: {wallet['address']} - {wallet['name']} ({wallet['email']}) - Balance: {usdc_contract.functions.balanceOf(wallet['address']).call() / 10**6} USDC")
 
 if __name__ == "__main__":
     try:
