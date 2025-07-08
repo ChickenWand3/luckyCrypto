@@ -3,3 +3,4 @@ dotenv
 flask
 flask[async]
 pycoingecko
+krakenex
