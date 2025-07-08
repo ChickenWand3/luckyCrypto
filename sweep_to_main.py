@@ -7,6 +7,7 @@ from web3 import Web3
 from eth_account import Account
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
+from funcs import get_wallets, verifyUserData
 
 
 # This script sweeps USDC from many individual wallets to a master wallet.
@@ -129,7 +130,7 @@ async def transfer_usdc(wallet, max_attempts=3):
             logging.error(f"Error processing wallet {wallet['address']}: {str(e)}")
             logging.error(traceback.format_exc())
 
-def gather_wallets() -> list: # Gather wallets from a config file
+# Use get_wallets func to gather wallets
     logging.info("Gathering wallets")
     logging.info(f"Gathered wallets")
     return None
@@ -137,8 +138,10 @@ def gather_wallets() -> list: # Gather wallets from a config file
 # Runner
 async def main():
     # Gather all wallets
-    wallets = gather_wallets()
-
+    wallets = get_wallets()
+    if not wallets:
+        logging.error("No wallets found. Exiting.")
+        return
     # Create tasks and run them concurrently
     tasks = [transfer_usdc(wallet) for wallet in wallets]
     await asyncio.gather(*tasks)

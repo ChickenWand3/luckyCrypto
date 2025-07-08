@@ -1,185 +1,271 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" id="htmlRoot">
 <head>
-    <meta charset="UTF-8">
-    <title>Flask Dark UI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap Dark Theme -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        .navbar {
-            background-color: #1f1f1f;
-        }
-        .form-control, .btn, .alert {
-            border-radius: 0.5rem;
-        }
-        .form-control {
-            background-color: #2a2a2a;
-            color: #fff;
-            border: 1px solid #444;
-        }
-        .form-control:focus {
-            background-color: #333;
-            border-color: #777;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Wallet Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .navbar {
+      background-color: #1f1f1f;
+    }
+    .form-control, .btn, .alert {
+      border-radius: 0.5rem;
+    }
+    .form-control {
+      background-color: #2a2a2a;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    .form-control:focus {
+      background-color: #333;
+      border-color: #777;
+    }
+    .btn-active {
+      box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.5);
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body class="p-4">
 
 <nav class="navbar navbar-expand-lg navbar-dark mb-4">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Home</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!--<li class="nav-item"><a class="nav-link" href="/menu1">Menu 1</a></li>-->
-        <!--<li class="nav-item"><a class="nav-link" href="/menu2">Menu 2</a></li>-->
-      </ul>
+    <div class="d-flex ms-auto">
+      <button id="themeToggleBtn" class="btn btn-outline-light invisible">Toggle Theme</button>
     </div>
   </div>
 </nav>
 
 <div class="container">
-    <h2 class="mb-4">Wallet Operations</h2>
+  <h2 class="mb-4">Wallet Operations</h2>
 
-    <div class="mb-3" id="form-group">
-        <label for="userInput" id="inputLabel" class="form-label fs-4">Input:</label><br>
-        <small id="inputDesc" class="form-text text-muted"></small>
-        <input type="text" id="userInput" class="form-control" placeholder="Type something...">
-    </div>
+  <!-- Input selectors -->
+  <div class="mb-3 d-none" id="selectInputGroup">
+    <label for="searchType" class="form-label">Search By:</label>
+    <select id="searchType" class="form-select mb-2" onchange="updateSearchPlaceholder()">
+      <option value="name">Name</option>
+      <option value="email">Email</option>
+    </select>
+    <input type="text" id="userInput" class="form-control" placeholder="Enter name or email..." />
+  </div>
 
-    <div class="mb-3">
-        <button class="btn btn-outline-primary me-2" onclick="showForm('generate')">Generate New Wallet</button>
-        <button class="btn btn-outline-danger me-2" onclick="showForm('delete')">Delete Wallet</button>
-        <button class="btn btn-outline-warning me-2" onclick="showForm('search_one')">Search Wallet</button>
-        <button class="btn btn-outline-success" onclick="showForm('list_all')">List All Wallets</button>
-    </div>
+  <!-- Generate inputs -->
+  <div class="mb-3 d-none" id="extraInputs">
+    <input type="text" id="userName" class="form-control mb-2" placeholder="Enter name" />
+    <input type="email" id="userEmail" class="form-control" placeholder="Enter email" />
+  </div>
 
-    <div class="mb-3 d-none" id="submit-group">
-        <button class="btn btn-info" onclick="sendData()">Submit Action</button>
-    </div>
-    <!-- Spinner -->
-    <div id="loadingSpinner" class="d-none text-center my-3">
-      <div class="spinner-border text-info" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-    <div id="result" class="alert alert-info d-none"></div>
+  <!-- Action buttons -->
+  <div class="mb-3" id="actionButtons">
+    <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'generate')">Generate New Wallet</button>
+    <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'delete')">Delete Wallet</button>
+    <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search Wallet</button>
+    <button class="btn btn-outline-success me-2" onclick="showForm(event, 'list_all')">List All Wallets</button>
+    <button class="btn btn-outline-primary" onclick="showForm(event, 'force_sweep')">Sweep Wallets To Main Now</button>
+  </div>
+
+  <!-- Dynamic action description -->
+  <div id="actionDesc" class="mb-3 text-muted"></div>
+
+  <!-- Submit button -->
+  <div class="mb-3 d-none" id="submit-group">
+    <button class="btn btn-info" onclick="sendData()">Submit Action</button>
+  </div>
+
+  <!-- Validation error -->
+  <div id="validationError" class="alert alert-danger d-none" role="alert">
+    ❌ Please fill out all required fields.
+  </div>
+
+  <!-- Spinner -->
+  <div id="loadingSpinner" class="d-none text-center my-3">
+    <div class="spinner-border text-info" role="status"><span class="visually-hidden">Loading...</span></div>
+  </div>
+
+  <div id="result" class="alert alert-info d-none"></div>
 </div>
 
-<!-- Delete Confirmation Modal -->
+<!-- Modal -->
 <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-light">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteConfirmLabel">Confirm Deletion</h5>
+        <h5 class="modal-title" id="deleteConfirmLabel">Confirm</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Are you sure you want to delete wallet "<span id="walletToDelete" class="fw-bold"></span>"?
-      </div>
+      <div class="modal-body" id="deleteConfirmMessage"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Yes, Delete</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirm</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-let currentAction = null;
-let pendingInput = null;
+  let currentAction = null;
+  let pendingInput = null;
+  let pendingSearchType = 'name';
+  let activeBtn = null;
 
-function showForm(action) {
+  function showForm(event, action) {
     currentAction = action;
 
-    const label = document.getElementById('inputLabel');
-    const input = document.getElementById('userInput');
-    const formGroup = document.getElementById('form-group');
+    const selectInputGroup = document.getElementById('selectInputGroup');
+    const extraInputs = document.getElementById('extraInputs');
     const submitGroup = document.getElementById('submit-group');
-    const inputDesc = document.getElementById('inputDesc');
+    const actionDesc = document.getElementById('actionDesc');
+    const userInput = document.getElementById('userInput');
 
-    input.value = '';
-    input.classList.remove('d-none');
-    label.classList.remove('d-none');
+    // Reset inputs
+    userInput.value = '';
+    document.getElementById('userName').value = '';
+    document.getElementById('userEmail').value = '';
+    selectInputGroup.classList.add('d-none');
+    extraInputs.classList.add('d-none');
     submitGroup.classList.remove('d-none');
-    formGroup.classList.remove('d-none');
+    actionDesc.textContent = '';
+    hideValidationError();
+
+    // Highlight selected
+    if (activeBtn) activeBtn.classList.remove('btn-active');
+    activeBtn = event.target;
+    activeBtn.classList.add('btn-active');
 
     switch (action) {
-        case 'generate':
-            label.innerText = 'Generate:';
-            input.placeholder = 'Enter label for new wallet';
-            inputDesc.innerText = 'This label will be used to identify your new wallet.';
-            break;
-        case 'delete':
-            label.innerText = 'Delete:';
-            input.placeholder = 'Enter wallet label';
-            inputDesc.innerText = 'This label will be used to find and delete the wallet.';
-            break;
-        case 'search_one':
-            label.innerText = 'Search:';
-            input.placeholder = 'Enter wallet label';
-            inputDesc.innerText = 'This label will be used to find the wallet.';
-            break;
-        case 'list_all':
-            label.classList.add('d-none');
-            input.classList.add('d-none');
-            inputDesc.innerText = "This action will list all wallets. It may take a while.";
-            break;
+      case 'generate':
+        extraInputs.classList.remove('d-none');
+        break;
+      case 'delete':
+      case 'search_one':
+        selectInputGroup.classList.remove('d-none');
+        updateSearchPlaceholder();
+        break;
+      case 'list_all':
+        actionDesc.textContent = "This action will list all wallets. It may take a while depending on how many exist.";
+        break;
+      case 'force_sweep':
+        actionDesc.textContent = "This action will sweep all wallets into the main wallet immediately.";
+        break;
     }
-}
+  }
 
-function sendData() {
-    const input = document.getElementById('userInput').value;
+  function updateSearchPlaceholder() {
+    const input = document.getElementById('userInput');
+    const searchType = document.getElementById('searchType').value;
+    pendingSearchType = searchType;
+    input.placeholder = `Enter ${searchType}...`;
+  }
 
-    // For delete, show modal
+  function sendData() {
+    hideValidationError();
+
+    const userInput = document.getElementById('userInput').value.trim();
+    const name = document.getElementById('userName').value.trim();
+    const email = document.getElementById('userEmail').value.trim();
+    const searchTypeValue = document.getElementById('searchType')?.value;
+
+    if (currentAction === 'generate' && (!name || !email)) {
+      return showValidationError();
+    }
+
+    if ((currentAction === 'delete' || currentAction === 'search_one') && !userInput) {
+      return showValidationError();
+    }
+
+    const modal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+    const title = document.getElementById('deleteConfirmLabel');
+    const msg = document.getElementById('deleteConfirmMessage');
+    const btn = document.getElementById('confirmDeleteBtn');
+
     if (currentAction === 'delete') {
-        pendingInput = input;
-        document.getElementById('walletToDelete').textContent = input;
-        const deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
-        deleteModal.show();
-        return;
+      title.textContent = "Confirm Deletion";
+      msg.innerHTML = `Are you sure you want to delete wallet by <strong>${searchTypeValue}</strong>: "<strong>${userInput}</strong>"?`;
+      btn.textContent = "Yes, Delete";
+      pendingInput = userInput;
+      modal.show();
+      return;
     }
 
-    // Otherwise, send immediately
-    sendToServer(input);
-}
+    if (currentAction === 'force_sweep') {
+      title.textContent = "Sweep Wallets";
+      msg.textContent = "Are you sure you want to sweep all wallets to the main wallet?";
+      btn.textContent = "Sweep All Wallets";
+      modal.show();
+      return;
+    }
 
-// Final confirm delete handler
-document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+    sendToServer();
+  }
+
+  function showValidationError() {
+    const alert = document.getElementById('validationError');
+    alert.classList.remove('d-none');
+    setTimeout(() => alert.classList.add('d-none'), 2500);
+  }
+
+  function hideValidationError() {
+    document.getElementById('validationError').classList.add('d-none');
+  }
+
+  document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
     const modal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal'));
     modal.hide();
-    sendToServer(pendingInput);
-});
+    sendToServer();
+  });
 
-function sendToServer(input) {
+  function sendToServer() {
     const resultDiv = document.getElementById('result');
     resultDiv.textContent = "Waiting for server response...";
     resultDiv.classList.remove('d-none', 'alert-success', 'alert-danger');
     resultDiv.classList.add('alert-info');
 
-    fetch('/process', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_input: input, button: currentAction })
+    const payload = { button: currentAction };
+
+    if (currentAction === 'generate') {
+      payload.name = document.getElementById('userName').value.trim();
+      payload.email = document.getElementById('userEmail').value.trim();
+    } else if (currentAction === 'delete' || currentAction === 'search_one') {
+      payload[pendingSearchType] = document.getElementById('userInput').value.trim();
+    }
+
+    fetch('/api/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     })
-    .then(res => res.json())
-    .then(data => {
+      .then(res => res.json())
+      .then(data => {
         resultDiv.textContent = "✅ Server response: " + data.result;
         resultDiv.classList.remove('alert-info');
         resultDiv.classList.add('alert-success');
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         resultDiv.textContent = "❌ Error communicating with server.";
         resultDiv.classList.remove('alert-info');
         resultDiv.classList.add('alert-danger');
-    });
-}
+      });
+  }
+
+  document.getElementById('themeToggleBtn').addEventListener('click', () => {
+    const html = document.getElementById('htmlRoot');
+    const newTheme = html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-bs-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.getElementById('htmlRoot').setAttribute('data-bs-theme', savedTheme);
+    }
+  });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
