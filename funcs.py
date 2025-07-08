@@ -73,6 +73,7 @@ def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryp
             f.write(cipher.encrypt(json.dumps(data).encode()))
         with open(key_file, "wb") as f:
             f.write(key)
+        return True
     else:
         # Generate new wallets and mnemonic
         logging.info("Generating new wallets")
@@ -108,6 +109,7 @@ def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryp
             f.write(cipher.encrypt(json.dumps(data).encode()))
         with open(key_file, "wb") as f:
             f.write(key)
+        return True
 
 
 def get_wallets(wallets_file="wallets.enc", key_file="encryption_key.txt"):
@@ -123,6 +125,18 @@ def get_wallets(wallets_file="wallets.enc", key_file="encryption_key.txt"):
     wallets = data["wallets"]
     logging.info(f"Loaded {len(wallets)} wallets from file")
     return wallets
+
+def search_wallets(wallet_name, wallet_email, wallets_file="wallets.enc", key_file="encryption_key.txt"):
+    wallets = get_wallets(wallets_file, key_file)
+    results = []
+    for wallet in wallets:
+        if (wallet_name and wallet["name"] == wallet_name) or (wallet_email and wallet["email"] == wallet_email):
+            results.append(wallet)
+    if results:
+        logging.info(f"Found {len(results)} wallets matching search criteria")
+    else:
+        logging.info("No wallets found matching search criteria")
+    return results
 
 def disable_wallet(wallet_email, wallets_file="wallets.enc", key_file="encryption_key.txt"):
     wallets = get_wallets(wallets_file, key_file)

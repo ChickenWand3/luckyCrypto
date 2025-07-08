@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import time
 
+import sys, os
+sys.path.append("..")  # Adjust the path to import from the parent directory
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from funcs import generate_wallets, search_wallets
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,20 +24,32 @@ def action():
         user_email = data.get('email')
         if not user_name or not user_email:
             return jsonify({"Error": "Name and email are both required"}), 400
-        #else:
-        # gen = generate()
-        # response = gen
+        else:
+            user_data = [{"name": user_name, "email": user_email}]
+            try:
+                print("Gen")
+                gen = generate_wallets(num_wallets=len(user_data), user_data=user_data)
+                if gen:
+                    print(f"Wallets generated successfully with attributes: {user_name} & {user_email}")
+                    return jsonify({"result": f"Wallets generated successfully with attributes: {user_name} & {user_email}"}), 200
+                else:
+                    return jsonify({"Error": f"Failed to generate wallets: {gen}"}), 500
+            except Exception as e:
+                return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "search_one":
-        search_data = data.get('email')
-        search_query = "email"
-        if not search_data:
-            search_data = data.get("name")
-            search_query = "name"
-        if not search_data:
-            return jsonify({"Error": "Either name or email is required"}), 400
-        #else:
-            # search = search()
-            # response = search
+        search_email = data.get('email')
+        search_name = data.get('name')
+        if not search_email and not search_name:
+            return jsonify({"Error": "At least one of name or email is required for search"}), 400
+        try:
+            search_results = search_wallets(wallet_name=search_name, wallet_email=search_email)
+            if search_results:
+                print(f"Search results: {search_results}")
+                return jsonify({"result": f"Search results: {search_results}"}), 200
+            else:
+                return jsonify({"Error": "No wallets found matching the search criteria"}), 404
+        except Exception as e:
+            return jsonify({"Error": f"An internal error occurred: {str(e)}"}), 500
     #result = f"You entered: {user_input} and clicked: {button_clicked}"
     
     time.sleep(2)  # Simulate a long-running process
