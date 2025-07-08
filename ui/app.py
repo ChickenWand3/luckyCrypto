@@ -5,15 +5,11 @@ sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet
 
-import asyncio
 from sweep_to_main import main as sweep_to_main
 
 app = Flask(__name__)
 
 async def async_sweep_to_main():
-    #loop = asyncio.get_event_loop()
-    #return await loop.run_in_executor(None, sweep_to_main)
-    await asyncio.sleep(5)
     return await sweep_to_main()
 
 @app.route('/')
@@ -25,6 +21,7 @@ async def action():
     data = request.json
     if not data:
         return jsonify({"result": "No data provided"}), 400
+    
     button_clicked = data.get('button')
     if button_clicked == "generate":
         user_name = data.get('name')
@@ -91,10 +88,7 @@ async def action():
                 return jsonify({"result": "Sweep operation failed"}), 500
         except Exception as e:
             return jsonify({"result": f"An internal error occurred during sweep: {str(e)}"}), 500
-    #result = f"You entered: {user_input} and clicked: {button_clicked}"
     return jsonify({"result": "Undefined Action"}), 400
-    
-    #return jsonify({"result": result})
 
 #@app.route('/menu1')
 #def menu1():
