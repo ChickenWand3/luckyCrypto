@@ -36,7 +36,7 @@ def needGas(wallet):
         eth_price_data = cg.get_price(ids='ethereum', vs_currencies='usd')
         eth_price_usd = eth_price_data['ethereum']['usd']
 
-        balance_usd = balance_eth * eth_price_usd
+        balance_usd = float(balance_eth) * eth_price_usd
         is_below_5_usd = balance_usd < 5.0
         logging.info(f"Wallet {address}: {balance_eth:.6f} ETH (${balance_usd:.2f}), Below $5: {is_below_5_usd}")
         return is_below_5_usd
@@ -57,10 +57,12 @@ def sendGas(to_address, nickname, usd_amount=5.0):
         # Initiate withdrawal via Kraken API
         withdrawal_info = {
             'asset': 'ETH',
-            'key': nickname,  # Withdrawal key name configured in Kraken
+            'key': str(nickname)+"!",  # Withdrawal key name configured in Kraken
             'amount': str(eth_amount),
-            'address': to_address
+            'address': str(to_address).lower()
         }
+
+        logging.info(f"Preparing to send {eth_amount:.6f} ETH to {to_address} via Kraken account '{nickname}'")
 
         # Send withdrawal request
         response = kraken.query_private('Withdraw', withdrawal_info)
@@ -89,7 +91,7 @@ def refillGas():
             if needGas(wallet):
                 success = sendGas(wallet["address"], wallet["kraken_nickname"], 5.0)
                 if success:
-                    logging.info(f"Successfully initiated gas transfer to {wallet['address']}")
+                    logging.info(f"Successfully initiated gas transfer to {wallet['address']} - Owner: {wallet['name']} ({wallet['email']})")
                 else:
                     logging.error(f"Failed to initiate gas transfer to {wallet['address']}")
                 # Avoid rate limiting
