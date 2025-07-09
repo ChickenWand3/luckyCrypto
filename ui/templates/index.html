@@ -240,57 +240,149 @@
   });
 
   function sendToServer() {
-    const resultDiv = document.getElementById('result');
-    resultDiv.textContent = "Waiting for server response...";
-    resultDiv.classList.remove('d-none', 'alert-success', 'alert-danger');
-    resultDiv.classList.add('alert-info');
+  const resultDiv = document.getElementById('result');
+  resultDiv.textContent = "Waiting for server response...";
+  resultDiv.classList.remove('d-none', 'alert-success', 'alert-danger');
+  resultDiv.classList.add('alert-info');
 
-    const payload = { button: currentAction };
+  const payload = { button: currentAction };
 
-    if (currentAction === 'generate') {
-      payload.name = document.getElementById('userName').value.trim();
-      payload.email = document.getElementById('userEmail').value.trim();
-    } else if (currentAction === 'delete') {
-      // For delete, send searchType and value in an object
-      payload.searchType = pendingInput?.searchType || 'name';
-      payload.value = pendingInput?.value || '';
-    } else if (currentAction === 'search_one') {
-      payload[pendingSearchType] = document.getElementById('userInput').value.trim();
-    } else if (currentAction === 'list_all' || currentAction === 'list_all_balances') {
-      payload.scope = document.getElementById('scopeSelect').value;
-    }
-
-    fetch('/api/action', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(res => res.json())
-      .then(data => {
-        resultDiv.textContent = "✅ Server response: " + data.result;
-        resultDiv.classList.remove('alert-info');
-        resultDiv.classList.add('alert-success');
-      })
-      .catch(err => {
-        resultDiv.textContent = "❌ Error communicating with server.";
-        resultDiv.classList.remove('alert-info');
-        resultDiv.classList.add('alert-danger');
-      });
+  if (currentAction === 'generate') {
+    payload.name = document.getElementById('userName').value.trim();
+    payload.email = document.getElementById('userEmail').value.trim();
+  } else if (currentAction === 'delete') {
+    payload.searchType = pendingInput?.searchType || 'name';
+    payload.value = pendingInput?.value || '';
+  } else if (currentAction === 'search_one') {
+    payload[pendingSearchType] = document.getElementById('userInput').value.trim();
+  } else if (currentAction === 'list_all' || currentAction === 'list_all_balances') {
+    payload.scope = document.getElementById('scopeSelect').value;
   }
 
-  document.getElementById('themeToggleBtn').addEventListener('click', () => {
-    const html = document.getElementById('htmlRoot');
-    const newTheme = html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-bs-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  });
+  fetch('/api/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (Array.isArray(data.result)) {
+        // If result is an array, render as table
+        resultDiv.innerHTML = renderTable(data.result);
+      } else {
+        // Otherwise just show text
+        resultDiv.textContent = "✅ Server response: " + data.result;
+      }
+      resultDiv.classList.remove('alert-info', 'alert-danger');
+      resultDiv.classList.add('alert-success');
+      resultDiv.classList.remove('d-none');
+    })
+    .catch(err => {
+      resultDiv.textContent = "❌ Error communicating with server.";
+      resultDiv.classList.remove('alert-info', 'alert-success');
+      resultDiv.classList.add('alert-danger');
+      resultDiv.classList.remove('d-none');
+    });
+}
 
-  window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.getElementById('htmlRoot').setAttribute('data-bs-theme', savedTheme);
-    }
+/**
+ * Helper: render an array of objects as a Bootstrap table HTML string.
+ */
+function renderTable(dataArray) {
+  if (dataArray.length === 0) return "<p>No data found.</p>";
+
+  const headers = Object.keys(dataArray[0]);
+
+  const thead = headers.map(h => `<th scope="col">${escapeHtml(h)}</th>`).join('');
+
+  const tbody = dataArray.map((item, rowIndex) => {
+    const cells = headers.map((key, colIndex) => {
+      let value = item[key];
+
+      // Format numbers nicely
+      if (typeof value === 'number') {
+        value = value.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+        return `<td>${escapeHtml(String(value))}</td>`;
+      }
+
+      // If value is null or undefined
+      if (value === null || value === undefined) {
+        return `<td><em>null</em></td>`;
+      }
+
+      // If value is an object or array, stringify and make expandable
+      if (typeof value === 'object') {
+        const jsonString = JSON.stringify(value, null, 2);
+        const preview = escapeHtml(jsonString).slice(0, 60).replace(/\n/g, ' ') + (jsonString.length > 60 ? '...' : '');
+
+        // Unique id for the expandable section
+        const collapseId = `collapse-${rowIndex}-${colIndex}`;
+
+        return `
+          <td style="max-width:300px; white-space: normal;">
+            <div>
+              <a href="#" onclick="toggleCollapse('${collapseId}'); return false;" style="color:#0d6efd; text-decoration: underline; cursor: pointer;">
+                Show JSON
+              </a>
+              <pre id="${collapseId}" class="collapse-json" style="display:none; max-height: 150px; overflow: auto; background:#2a2a2a; border-radius: 5px; padding: 5px; margin-top: 5px; white-space: pre-wrap; font-size: 0.9em;">
+${escapeHtml(jsonString)}
+              </pre>
+              <span class="json-preview">${preview}</span>
+            </div>
+          </td>
+        `;
+      }
+
+      // Otherwise, treat as normal text with max width and wrap
+      const text = escapeHtml(String(value));
+      return `<td style="max-width:300px; white-space: normal; overflow-wrap: break-word;">${text}</td>`;
+    }).join('');
+
+    return `<tr>${cells}</tr>`;
+  }).join('');
+
+  return `
+    <style>
+      .collapse-json {
+        font-family: monospace;
+      }
+      .json-preview {
+        font-family: monospace;
+        font-size: 0.9em;
+        color: #ccc;
+      }
+    </style>
+    <div class="table-responsive">
+      <table class="table table-striped table-dark table-hover">
+        <thead><tr>${thead}</tr></thead>
+        <tbody>${tbody}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function toggleCollapse(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.style.display === 'none' || el.style.display === '') {
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// Basic escaping to avoid HTML injection
+function escapeHtml(text) {
+  return text.replace(/[&<>"']/g, function(m) {
+    return ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[m];
   });
+}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

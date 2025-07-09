@@ -216,3 +216,146 @@
 2025-07-08 17:32:44,917 - INFO - 127.0.0.1 - - [08/Jul/2025 17:32:44] "POST /api/action HTTP/1.1" 200 -
 2025-07-08 17:32:57,043 - INFO - Loaded 2 wallets from file
 2025-07-08 17:32:57,044 - INFO - 127.0.0.1 - - [08/Jul/2025 17:32:57] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:34:53,474 - INFO - Loaded 2 wallets from file
+2025-07-08 17:34:53,474 - INFO - 127.0.0.1 - - [08/Jul/2025 17:34:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:34:58,159 - INFO - Loaded 2 wallets from file
+2025-07-08 17:34:59,674 - INFO - 127.0.0.1 - - [08/Jul/2025 17:34:59] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:37:54,559 - INFO - 127.0.0.1 - - [08/Jul/2025 17:37:54] "GET / HTTP/1.1" 200 -
+2025-07-08 17:37:56,543 - INFO - Loaded 2 wallets from file
+2025-07-08 17:37:56,544 - INFO - 127.0.0.1 - - [08/Jul/2025 17:37:56] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:38:02,077 - INFO - 127.0.0.1 - - [08/Jul/2025 17:38:02] "GET / HTTP/1.1" 200 -
+2025-07-08 17:38:04,820 - INFO - Loaded 2 wallets from file
+2025-07-08 17:38:04,821 - INFO - 127.0.0.1 - - [08/Jul/2025 17:38:04] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:38:17,677 - INFO - 127.0.0.1 - - [08/Jul/2025 17:38:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-08 17:38:56,181 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:38:56,293 - INFO -  * Restarting with stat
+2025-07-08 17:38:57,675 - WARNING -  * Debugger is active!
+2025-07-08 17:38:57,679 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:39:10,109 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:39:10,229 - INFO -  * Restarting with stat
+2025-07-08 17:39:11,713 - WARNING -  * Debugger is active!
+2025-07-08 17:39:11,719 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:39:13,724 - INFO - 127.0.0.1 - - [08/Jul/2025 17:39:13] "GET / HTTP/1.1" 200 -
+2025-07-08 17:39:15,631 - INFO - Loaded 2 wallets from file
+2025-07-08 17:39:15,631 - INFO - 127.0.0.1 - - [08/Jul/2025 17:39:15] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:39:29,693 - INFO - Loaded 2 wallets from file
+2025-07-08 17:39:31,197 - INFO - 127.0.0.1 - - [08/Jul/2025 17:39:31] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:41:33,939 - INFO - 127.0.0.1 - - [08/Jul/2025 17:41:33] "GET / HTTP/1.1" 200 -
+2025-07-08 17:41:36,111 - INFO - Loaded 2 wallets from file
+2025-07-08 17:41:36,111 - INFO - 127.0.0.1 - - [08/Jul/2025 17:41:36] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:41:43,353 - INFO - Loaded 2 wallets from file
+2025-07-08 17:41:44,853 - INFO - 127.0.0.1 - - [08/Jul/2025 17:41:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:41:47,245 - INFO - Loaded 2 wallets from file
+2025-07-08 17:41:47,245 - INFO - 127.0.0.1 - - [08/Jul/2025 17:41:47] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:43:21,174 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:43:21,274 - INFO -  * Restarting with stat
+2025-07-08 17:43:22,607 - WARNING -  * Debugger is active!
+2025-07-08 17:43:22,610 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:43:29,430 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:43:29,531 - INFO -  * Restarting with stat
+2025-07-08 17:43:30,924 - WARNING -  * Debugger is active!
+2025-07-08 17:43:30,929 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:43:33,944 - INFO - Loaded 2 wallets from file
+2025-07-08 17:43:35,507 - INFO - 127.0.0.1 - - [08/Jul/2025 17:43:35] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:43:45,716 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:43:45,825 - INFO -  * Restarting with stat
+2025-07-08 17:43:47,196 - WARNING -  * Debugger is active!
+2025-07-08 17:43:47,200 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:43:51,630 - INFO - Loaded 2 wallets from file
+2025-07-08 17:43:53,189 - INFO - 127.0.0.1 - - [08/Jul/2025 17:43:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:44:07,476 - INFO - Loaded 2 wallets from file
+2025-07-08 17:44:08,563 - INFO - 127.0.0.1 - - [08/Jul/2025 17:44:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:44:10,708 - INFO - Loaded 2 wallets from file
+2025-07-08 17:44:11,801 - INFO - 127.0.0.1 - - [08/Jul/2025 17:44:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:44:22,009 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:44:22,108 - INFO -  * Restarting with stat
+2025-07-08 17:44:23,420 - WARNING -  * Debugger is active!
+2025-07-08 17:44:23,424 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:44:47,973 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:44:48,056 - INFO -  * Restarting with stat
+2025-07-08 17:44:49,523 - WARNING -  * Debugger is active!
+2025-07-08 17:44:49,527 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:45:18,291 - INFO - Loaded 2 wallets from file
+2025-07-08 17:45:18,292 - INFO - 127.0.0.1 - - [08/Jul/2025 17:45:18] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:45:19,952 - INFO - Loaded 2 wallets from file
+2025-07-08 17:45:21,458 - INFO - 127.0.0.1 - - [08/Jul/2025 17:45:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:45:46,262 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:45:46,349 - INFO -  * Restarting with stat
+2025-07-08 17:45:47,726 - WARNING -  * Debugger is active!
+2025-07-08 17:45:47,731 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:45:54,303 - INFO - Generating wallets...
+2025-07-08 17:45:54,303 - INFO - Loading existing wallets
+2025-07-08 17:45:54,305 - INFO - Appending 1 new wallets starting at address_index 2
+2025-07-08 17:45:54,390 - INFO - Generated new wallet with address_index 2: 0x8c3A96740D3445E29e63278c6c33120Cf6ed8dD3
+2025-07-08 17:45:54,392 - INFO - 127.0.0.1 - - [08/Jul/2025 17:45:54] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:45:56,117 - INFO - Loaded 3 wallets from file
+2025-07-08 17:45:56,118 - INFO - 127.0.0.1 - - [08/Jul/2025 17:45:56] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:02,074 - INFO - Loaded 3 wallets from file
+2025-07-08 17:46:02,074 - INFO - Found 1 wallets matching search criteria
+2025-07-08 17:46:02,075 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:02] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:08,951 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:08] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:46:11,615 - INFO - Loaded 3 wallets from file
+2025-07-08 17:46:11,616 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:18,118 - INFO - Loaded 3 wallets from file
+2025-07-08 17:46:18,119 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:18] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:21,730 - INFO - Loaded 3 wallets from file
+2025-07-08 17:46:21,730 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:27,584 - INFO - Loaded 3 wallets from file
+2025-07-08 17:46:27,584 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:33,095 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:33] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:46:35,207 - INFO - Loaded 3 wallets from file
+2025-07-08 17:46:35,208 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:35] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:46:47,780 - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:47] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:47:17,946 - INFO - Loaded 3 wallets from file
+2025-07-08 17:47:19,899 - INFO - 127.0.0.1 - - [08/Jul/2025 17:47:19] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:47:23,799 - INFO - Loaded 3 wallets from file
+2025-07-08 17:47:25,215 - INFO - 127.0.0.1 - - [08/Jul/2025 17:47:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:48:08,624 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 17:48:08,624 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 17:48:08,627 - INFO -  * Restarting with stat
+2025-07-08 17:48:09,959 - WARNING -  * Debugger is active!
+2025-07-08 17:48:09,964 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:48:15,337 - INFO - 127.0.0.1 - - [08/Jul/2025 17:48:15] "GET / HTTP/1.1" 200 -
+2025-07-08 17:48:19,180 - INFO - Loaded 3 wallets from file
+2025-07-08 17:48:19,180 - INFO - 127.0.0.1 - - [08/Jul/2025 17:48:19] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:48:21,544 - INFO - Loaded 3 wallets from file
+2025-07-08 17:48:23,412 - INFO - 127.0.0.1 - - [08/Jul/2025 17:48:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:48:27,302 - INFO - 127.0.0.1 - - [08/Jul/2025 17:48:27] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:48:31,099 - INFO - 127.0.0.1 - - [08/Jul/2025 17:48:31] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:48:33,887 - INFO - Loaded 3 wallets from file
+2025-07-08 17:48:33,888 - INFO - 127.0.0.1 - - [08/Jul/2025 17:48:33] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:49:08,109 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 17:49:08,109 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 17:49:08,111 - INFO -  * Restarting with stat
+2025-07-08 17:49:09,412 - WARNING -  * Debugger is active!
+2025-07-08 17:49:09,416 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:49:11,574 - INFO - 127.0.0.1 - - [08/Jul/2025 17:49:11] "GET / HTTP/1.1" 200 -
+2025-07-08 17:49:15,061 - INFO - Loaded 3 wallets from file
+2025-07-08 17:49:15,061 - INFO - Found 1 wallets matching search criteria
+2025-07-08 17:49:15,062 - INFO - 127.0.0.1 - - [08/Jul/2025 17:49:15] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:49:21,030 - INFO - Loaded 3 wallets from file
+2025-07-08 17:49:21,031 - INFO - 127.0.0.1 - - [08/Jul/2025 17:49:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:55:35,834 - INFO - 127.0.0.1 - - [08/Jul/2025 17:55:35] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:56:07,514 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:56:07,626 - INFO -  * Restarting with stat
+2025-07-08 17:56:09,114 - WARNING -  * Debugger is active!
+2025-07-08 17:56:09,121 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:56:10,684 - INFO - 127.0.0.1 - - [08/Jul/2025 17:56:10] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-08 17:57:25,815 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:57:25,918 - INFO -  * Restarting with stat
+2025-07-08 17:57:27,329 - WARNING -  * Debugger is active!
+2025-07-08 17:57:27,335 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:57:35,291 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:57:35,393 - INFO -  * Restarting with stat
+2025-07-08 17:57:36,805 - WARNING -  * Debugger is active!
+2025-07-08 17:57:36,809 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:57:39,696 - INFO - Loaded 3 wallets from file
+2025-07-08 17:57:40,758 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-08 17:57:40,759 - INFO - Transferred USDC from 0x8c3A96740D3445E29e63278c6c33120Cf6ed8dD3 to master wallet before disabling
+2025-07-08 17:57:40,759 - INFO - Disabled wallet for email: None
+2025-07-08 17:57:40,759 - INFO - Disabled wallet for name: 123
+2025-07-08 17:57:40,760 - INFO - 127.0.0.1 - - [08/Jul/2025 17:57:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:57:43,637 - INFO - Loaded 3 wallets from file
+2025-07-08 17:57:43,638 - INFO - 127.0.0.1 - - [08/Jul/2025 17:57:43] "POST /api/action HTTP/1.1" 200 -

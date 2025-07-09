@@ -19,6 +19,7 @@ def home():
 
 @app.route('/api/action', methods=['POST'])
 async def action():
+    print("Received request:", request.json)
     data = request.json
     if not data:
         return jsonify({"result": "No data provided"}), 400
@@ -32,10 +33,8 @@ async def action():
         else:
             user_data = [{"name": user_name, "email": user_email}]
             try:
-                #print("Gen")
                 gen = generate_wallets(num_wallets=len(user_data), user_data=user_data)
                 if gen:
-                    #print(f"Wallets generated successfully with attributes: {user_name} & {user_email}")
                     return jsonify({"result": f"Wallets generated successfully with attributes: {user_name} & {user_email}"}), 200
                 else:
                     return jsonify({"result": f"Failed to generate wallets: {gen}"}), 500
@@ -49,15 +48,20 @@ async def action():
         try:
             search_results = search_wallets(wallet_name=search_name, wallet_email=search_email)
             if search_results:
-                #print(f"Search results: {search_results}")
-                return jsonify({"result": f"Search results: {search_results}"}), 200
+                return jsonify({"result": search_results}), 200
             else:
                 return jsonify({"result": "No wallets found matching the search criteria"}), 404
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "delete":
-        delete_email = data.get('email')
-        delete_name = data.get('name')
+        if data.get('searchType') == 'name':
+            delete_email = None
+            delete_name = data.get('value')
+        elif data.get('searchType') == 'email':
+            delete_name = None
+            delete_email = data.get('value')
+        else:
+            return jsonify({"result": "Invalid search type provided"}), 400
         if not delete_email and not delete_name:
             return jsonify({"result": "At least one of name or email is required for deletion"}), 400
         try:
@@ -77,14 +81,13 @@ async def action():
             elif scope.lower() == 'disabled':
                 wallets = [wallet for wallet in wallets if not wallet.get("enabled", True)]
             if wallets:
-                return jsonify({"result": f"All wallets: {wallets}"}), 200
+                return jsonify({"result": wallets}), 200
             else:
                 return jsonify({"result": "No wallets found"}), 404
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "force_sweep":
         try:
-            #print("Sweeping wallets to main wallet")
             swept = await async_sweep_to_main()
             if swept:
                 return jsonify({"result": "Sweep operation completed successfully"}), 200
@@ -104,18 +107,11 @@ async def action():
             if not wallets_balances["wallets"]:
                 return jsonify({"result": "No wallets found or no balances available"}), 404
             else:
-                return jsonify({"result": str(wallets_balances)}), 200
+                return jsonify({"result": wallets_balances["wallets"]}), 200
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     return jsonify({"result": "Undefined Action"}), 400
 
-#@app.route('/menu1')
-#def menu1():
-#    return "<h1>Menu 1 Page</h1><p>This is Menu 1 content.</p><a href='/'>Go Back</a>"
-#
-#@app.route('/menu2')
-#def menu2():
-#    return "<h1>Menu 2 Page</h1><p>This is Menu 2 content.</p><a href='/'>Go Back</a>"
 
 if __name__ == '__main__':
     # Set up logging
