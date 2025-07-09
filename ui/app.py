@@ -1,17 +1,30 @@
 from flask import Flask, render_template, request, jsonify
-import time
+import time, threading
 import sys, os
 import logging
+from dotenv import load_dotenv
+from web3 import Web3
+from pycoingecko import CoinGeckoAPI
+import krakenex
+
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances
 
+from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
 
 app = Flask(__name__)
 
-async def async_sweep_to_main():
+async def sweep_to_main_async():
     return await sweep_to_main()
+def run_refill_gas_async():
+    try:
+        refillGas()
+        logging.info("Gas refill completed.")
+    except Exception as e:
+        logging.error(f"Error during refillGas: {str(e)}")
+
 
 @app.route('/')
 def home():
@@ -88,7 +101,7 @@ async def action():
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "force_sweep":
         try:
-            swept = await async_sweep_to_main()
+            swept = await sweep_to_main_async()
             if swept:
                 return jsonify({"result": "Sweep operation completed successfully"}), 200
             else:
@@ -110,6 +123,13 @@ async def action():
                 return jsonify({"result": wallets_balances["wallets"]}), 200
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
+    elif button_clicked == "refill_gas":
+       try:
+           #thread = threading.Thread(target=run_refill_gas_async)
+           #thread.start()
+           return jsonify({"result": "Gas refill operation started"}), 200
+       except Exception as e:
+           return jsonify({"result": f"An internal error occurred during gas refill: {str(e)}"}), 500
     return jsonify({"result": "Undefined Action"}), 400
 
 
@@ -117,4 +137,16 @@ if __name__ == '__main__':
     # Set up logging
     logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
                         format='%(asctime)s - %(levelname)s - %(message)s')
+    # Load environment variables
+    load_dotenv()
+    INFURA_API_KEY = os.getenv('INFURA_API_KEY')
+    KRAKEN_API_KEY = os.getenv('KRAKEN_API_KEY')
+    KRAKEN_API_SECRET = os.getenv('KRAKEN_API_SECRET')
+
+    MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
+
+    # Initialize web3, CoinGecko, and Kraken
+    web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
+    cg = CoinGeckoAPI()
+    kraken = krakenex.API(key=KRAKEN_API_KEY, secret=KRAKEN_API_SECRET)
     app.run(debug=True)
