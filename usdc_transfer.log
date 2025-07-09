@@ -179,3 +179,36 @@ TypeError: verifyUserData() missing 2 required positional arguments: 'highest_in
 2025-07-08 20:18:21,078 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:21] "POST /api/action HTTP/1.1" 200 -
 2025-07-08 20:57:53,232 - INFO - Loaded 2 wallets from file
 2025-07-08 20:57:55,329 - INFO - 127.0.0.1 - - [08/Jul/2025 20:57:55] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 21:29:14,663 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 21:29:14,663 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 21:29:14,664 - INFO -  * Restarting with stat
+2025-07-08 21:29:15,350 - WARNING -  * Debugger is active!
+2025-07-08 21:29:15,353 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 21:29:16,619 - INFO - Loaded 2 wallets from file
+2025-07-08 21:29:17,593 - INFO - 127.0.0.1 - - [08/Jul/2025 21:29:17] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 21:33:35,267 - INFO - Loaded 2 wallets from file
+2025-07-08 21:33:36,206 - INFO - 127.0.0.1 - - [08/Jul/2025 21:33:36] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 21:35:39,201 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 21:35:39,273 - INFO -  * Restarting with stat
+2025-07-08 21:35:39,945 - WARNING -  * Debugger is active!
+2025-07-08 21:35:39,947 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 21:35:48,591 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-08 21:35:48,667 - INFO -  * Restarting with stat
+2025-07-08 21:35:49,368 - WARNING -  * Debugger is active!
+2025-07-08 21:35:49,370 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 21:36:02,349 - INFO - Starting USDC sweep script
+2025-07-08 21:36:02,660 - INFO - Gathering wallets
+2025-07-08 21:36:02,663 - INFO - Loaded 2 wallets from file
+2025-07-08 21:36:02,663 - INFO - Found 1 valid and enabled wallets
+2025-07-08 21:36:03,124 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 10.100000 USDC
+2025-07-08 21:36:23,974 - INFO - Transferred 10.100000 USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x41eebB38301e8D06E44f135cBFEA876630E60e27. Tx: ebebbfb1c2dfac32e320f16f8862f0e83c15bb80fdd05ff8fab609b47c1aad84
+2025-07-08 21:36:23,974 - INFO - USDC sweep completed
+2025-07-08 21:37:07,342 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 21:37:07,342 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 21:37:07,343 - INFO -  * Restarting with stat
+2025-07-08 21:37:08,063 - WARNING -  * Debugger is active!
+2025-07-08 21:37:08,066 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 21:37:11,830 - INFO - Loaded 2 wallets from file
+2025-07-08 21:37:12,808 - INFO - 127.0.0.1 - - [08/Jul/2025 21:37:12] "POST /api/action HTTP/1.1" 200 -

@@ -122,7 +122,7 @@ async def transfer_usdc(wallet, max_attempts=3):
             balance_usdc = balance / 10**6  # Convert to USDC (6 decimals)
             logging.info(f"Wallet {address} has {balance_usdc:.6f} USDC")
 
-            if balance_usdc < 2.0:  # Minimum transfer amount
+            if balance_usdc < 8.0:  # Minimum transfer amount
                 logging.info(f"Skipping transfer for {address} due to low balance: {balance_usdc:.6f} USDC")
                 return
             print(3)
