@@ -72,3 +72,147 @@
 2025-07-08 16:39:12,689 - INFO - 127.0.0.1 - - [08/Jul/2025 16:39:12] "[33mPOST /api/action HTTP/1.1[0m" 404 -
 2025-07-08 16:40:20,192 - INFO - Loaded 2 wallets from file
 2025-07-08 16:40:20,193 - INFO - 127.0.0.1 - - [08/Jul/2025 16:40:20] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:01:36,697 - WARNING -  * Debugger is active!
+2025-07-08 17:01:36,704 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:02:03,627 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:02:05,146 - WARNING -  * Debugger is active!
+2025-07-08 17:02:05,149 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:02:22,363 - INFO - 127.0.0.1 - - [08/Jul/2025 17:02:22] "GET / HTTP/1.1" 200 -
+2025-07-08 17:02:55,378 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:02:56,961 - WARNING -  * Debugger is active!
+2025-07-08 17:02:56,965 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:03:02,688 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:03:04,348 - WARNING -  * Debugger is active!
+2025-07-08 17:03:04,352 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:03:05,064 - INFO - Loaded 2 wallets from file
+2025-07-08 17:03:05,065 - INFO - 127.0.0.1 - - [08/Jul/2025 17:03:05] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:03:13,783 - INFO - 127.0.0.1 - - [08/Jul/2025 17:03:13] "[35m[1mPOST /api/action HTTP/1.1[0m" 501 -
+2025-07-08 17:03:44,451 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:03:45,967 - WARNING -  * Debugger is active!
+2025-07-08 17:03:45,972 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:03:58,355 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:04:00,002 - WARNING -  * Debugger is active!
+2025-07-08 17:04:00,007 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:04:07,140 - INFO - 127.0.0.1 - - [08/Jul/2025 17:04:07] "[35m[1mPOST /api/action HTTP/1.1[0m" 501 -
+2025-07-08 17:04:18,045 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:04:19,630 - WARNING -  * Debugger is active!
+2025-07-08 17:04:19,634 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:04:22,638 - INFO - 127.0.0.1 - - [08/Jul/2025 17:04:22] "[35m[1mPOST /api/action HTTP/1.1[0m" 501 -
+2025-07-08 17:04:29,169 - INFO - Loaded 2 wallets from file
+2025-07-08 17:04:29,170 - INFO - 127.0.0.1 - - [08/Jul/2025 17:04:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:04:36,490 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:04:38,063 - WARNING -  * Debugger is active!
+2025-07-08 17:04:38,067 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:04:38,189 - INFO - Loaded 2 wallets from file
+2025-07-08 17:04:38,190 - INFO - 127.0.0.1 - - [08/Jul/2025 17:04:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:04:46,070 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:04:47,561 - WARNING -  * Debugger is active!
+2025-07-08 17:04:47,565 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:04:51,208 - INFO - Loaded 2 wallets from file
+2025-07-08 17:04:51,209 - INFO - 127.0.0.1 - - [08/Jul/2025 17:04:51] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:05:02,114 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:05:03,768 - WARNING -  * Debugger is active!
+2025-07-08 17:05:03,772 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:05:05,131 - INFO - Loaded 2 wallets from file
+2025-07-08 17:05:05,132 - INFO - 127.0.0.1 - - [08/Jul/2025 17:05:05] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:05:09,186 - INFO - Loaded 2 wallets from file
+2025-07-08 17:05:09,186 - INFO - 127.0.0.1 - - [08/Jul/2025 17:05:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:05:19,164 - INFO - Loaded 2 wallets from file
+2025-07-08 17:05:19,165 - INFO - 127.0.0.1 - - [08/Jul/2025 17:05:19] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:05:21,174 - INFO - Loaded 2 wallets from file
+2025-07-08 17:05:21,174 - INFO - 127.0.0.1 - - [08/Jul/2025 17:05:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:05:29,521 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:05:31,071 - WARNING -  * Debugger is active!
+2025-07-08 17:05:31,075 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:05:47,875 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:05:49,367 - WARNING -  * Debugger is active!
+2025-07-08 17:05:49,371 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:05:51,758 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:05:53,277 - WARNING -  * Debugger is active!
+2025-07-08 17:05:53,281 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:06:06,276 - INFO - Loaded 2 wallets from file
+2025-07-08 17:06:06,277 - INFO - 127.0.0.1 - - [08/Jul/2025 17:06:06] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:06:23,148 - INFO - 127.0.0.1 - - [08/Jul/2025 17:06:23] "[35m[1mPOST /api/action HTTP/1.1[0m" 501 -
+2025-07-08 17:06:30,046 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:06:31,529 - WARNING -  * Debugger is active!
+2025-07-08 17:06:31,533 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:26:34,534 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\funcs.py', reloading
+2025-07-08 17:26:36,057 - WARNING -  * Debugger is active!
+2025-07-08 17:26:36,061 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:27:19,332 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\funcs.py', reloading
+2025-07-08 17:27:20,737 - WARNING -  * Debugger is active!
+2025-07-08 17:27:20,740 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:27:59,575 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\funcs.py', reloading
+2025-07-08 17:28:01,166 - WARNING -  * Debugger is active!
+2025-07-08 17:28:01,170 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:28:10,199 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:28:11,814 - WARNING -  * Debugger is active!
+2025-07-08 17:28:11,819 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:28:38,633 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:28:40,144 - WARNING -  * Debugger is active!
+2025-07-08 17:28:40,148 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:28:44,815 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:28:46,277 - WARNING -  * Debugger is active!
+2025-07-08 17:28:46,282 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:29:05,289 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:29:06,799 - WARNING -  * Debugger is active!
+2025-07-08 17:29:06,805 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:29:11,893 - INFO - Loaded 2 wallets from file
+2025-07-08 17:29:12,574 - INFO - 127.0.0.1 - - [08/Jul/2025 17:29:12] "[35m[1mPOST /api/action HTTP/1.1[0m" 500 -
+2025-07-08 17:29:44,736 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:30:00,409 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 17:30:00,409 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 17:30:00,412 - INFO -  * Restarting with stat
+2025-07-08 17:30:01,843 - WARNING -  * Debugger is active!
+2025-07-08 17:30:01,848 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:30:05,220 - INFO - Loaded 2 wallets from file
+2025-07-08 17:30:05,859 - INFO - 127.0.0.1 - - [08/Jul/2025 17:30:05] "[35m[1mPOST /api/action HTTP/1.1[0m" 500 -
+2025-07-08 17:30:15,362 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:30:15,469 - INFO -  * Restarting with stat
+2025-07-08 17:30:16,771 - WARNING -  * Debugger is active!
+2025-07-08 17:30:16,775 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:30:20,355 - INFO - Loaded 2 wallets from file
+2025-07-08 17:30:21,161 - INFO - 127.0.0.1 - - [08/Jul/2025 17:30:21] "[35m[1mPOST /api/action HTTP/1.1[0m" 500 -
+2025-07-08 17:31:01,442 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\funcs.py', reloading
+2025-07-08 17:31:01,556 - INFO -  * Restarting with stat
+2025-07-08 17:31:03,010 - WARNING -  * Debugger is active!
+2025-07-08 17:31:03,016 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:31:03,142 - INFO - Loaded 2 wallets from file
+2025-07-08 17:31:04,769 - INFO - 127.0.0.1 - - [08/Jul/2025 17:31:04] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:31:39,782 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:31:39,886 - INFO -  * Restarting with stat
+2025-07-08 17:31:41,175 - WARNING -  * Debugger is active!
+2025-07-08 17:31:41,181 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:31:45,804 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:31:45,908 - INFO -  * Restarting with stat
+2025-07-08 17:31:47,287 - WARNING -  * Debugger is active!
+2025-07-08 17:31:47,292 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:32:07,450 - INFO -  * Detected change in 'e:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:32:07,539 - INFO -  * Restarting with stat
+2025-07-08 17:32:08,845 - WARNING -  * Debugger is active!
+2025-07-08 17:32:08,849 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:32:14,576 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:32:14,699 - INFO -  * Restarting with stat
+2025-07-08 17:32:16,112 - WARNING -  * Debugger is active!
+2025-07-08 17:32:16,116 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:32:24,077 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:32:24,167 - INFO -  * Restarting with stat
+2025-07-08 17:32:25,576 - WARNING -  * Debugger is active!
+2025-07-08 17:32:25,581 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:32:28,030 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:32:28,123 - INFO -  * Restarting with stat
+2025-07-08 17:32:29,474 - WARNING -  * Debugger is active!
+2025-07-08 17:32:29,479 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:32:31,939 - INFO -  * Detected change in 'E:\\nicol\\Github\\luckyCrypto\\ui\\app.py', reloading
+2025-07-08 17:32:32,045 - INFO -  * Restarting with stat
+2025-07-08 17:32:33,463 - WARNING -  * Debugger is active!
+2025-07-08 17:32:33,467 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 17:32:33,591 - INFO - Loaded 2 wallets from file
+2025-07-08 17:32:35,078 - INFO - 127.0.0.1 - - [08/Jul/2025 17:32:35] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:32:40,029 - INFO - Loaded 2 wallets from file
+2025-07-08 17:32:41,068 - INFO - 127.0.0.1 - - [08/Jul/2025 17:32:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:32:43,877 - INFO - Loaded 2 wallets from file
+2025-07-08 17:32:44,917 - INFO - 127.0.0.1 - - [08/Jul/2025 17:32:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 17:32:57,043 - INFO - Loaded 2 wallets from file
+2025-07-08 17:32:57,044 - INFO - 127.0.0.1 - - [08/Jul/2025 17:32:57] "POST /api/action HTTP/1.1" 200 -

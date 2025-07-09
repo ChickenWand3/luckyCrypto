@@ -61,13 +61,24 @@
     <input type="email" id="userEmail" class="form-control" placeholder="Enter email" />
   </div>
 
+  <!-- Scope select for list_all and list_all_balances -->
+  <div class="mb-3 d-none" id="scopeSelectGroup">
+    <label for="scopeSelect" class="form-label">Scope:</label>
+    <select id="scopeSelect" class="form-select">
+      <option value="all">All</option>
+      <option value="enabled">Enabled</option>
+      <option value="disabled">Disabled</option>
+    </select>
+  </div>
+
   <!-- Action buttons -->
   <div class="mb-3" id="actionButtons">
-    <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'generate')">Generate New Wallet</button>
+    <button class="btn btn-outline-success me-2" onclick="showForm(event, 'generate')">Generate New Wallet</button>
+    <button class="btn btn-outline-success" onclick="showForm(event, 'force_sweep')">Sweep Wallets To Main Now</button>
+    <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'list_all')">List All Wallets</button>
+    <button class="btn btn-outline-primary" onclick="showForm(event, 'list_all_balances')">List Wallets With Balances</button>
     <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'delete')">Delete (disable) Wallet</button>
     <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search Wallet</button>
-    <button class="btn btn-outline-success me-2" onclick="showForm(event, 'list_all')">List All Wallets</button>
-    <button class="btn btn-outline-primary" onclick="showForm(event, 'force_sweep')">Sweep Wallets To Main Now</button>
   </div>
 
   <!-- Dynamic action description -->
@@ -122,6 +133,7 @@
     const submitGroup = document.getElementById('submit-group');
     const actionDesc = document.getElementById('actionDesc');
     const userInput = document.getElementById('userInput');
+    const scopeSelectGroup = document.getElementById('scopeSelectGroup');
 
     // Reset inputs
     userInput.value = '';
@@ -129,6 +141,7 @@
     document.getElementById('userEmail').value = '';
     selectInputGroup.classList.add('d-none');
     extraInputs.classList.add('d-none');
+    scopeSelectGroup.classList.add('d-none');
     submitGroup.classList.remove('d-none');
     actionDesc.textContent = '';
     hideValidationError();
@@ -148,10 +161,15 @@
         updateSearchPlaceholder();
         break;
       case 'list_all':
-        actionDesc.textContent = "This action will list all wallets. It may take a while depending on how many exist.";
+        scopeSelectGroup.classList.remove('d-none');
+        actionDesc.textContent = "This action will list wallets based on selected scope.";
         break;
       case 'force_sweep':
         actionDesc.textContent = "This action will sweep all wallets into the main wallet immediately. It may take a while to execute all of the transactions.";
+        break;
+      case 'list_all_balances':
+        scopeSelectGroup.classList.remove('d-none');
+        actionDesc.textContent = "This action will list wallets with balances based on selected scope. It may take a while to retrieve all of the balances.";
         break;
     }
   }
@@ -170,6 +188,7 @@
     const name = document.getElementById('userName').value.trim();
     const email = document.getElementById('userEmail').value.trim();
     const searchTypeValue = document.getElementById('searchType')?.value;
+    const scopeValue = document.getElementById('scopeSelect')?.value;
 
     if (currentAction === 'generate' && (!name || !email)) {
       return showValidationError();
@@ -188,7 +207,7 @@
       title.textContent = "Confirm Deletion";
       msg.innerHTML = `Are you sure you want to delete wallet by <strong>${searchTypeValue}</strong>: "<strong>${userInput}</strong>"?`;
       btn.textContent = "Yes, Delete";
-      pendingInput = userInput;
+      pendingInput = { searchType: searchTypeValue, value: userInput };
       modal.show();
       return;
     }
@@ -231,8 +250,14 @@
     if (currentAction === 'generate') {
       payload.name = document.getElementById('userName').value.trim();
       payload.email = document.getElementById('userEmail').value.trim();
-    } else if (currentAction === 'delete' || currentAction === 'search_one') {
+    } else if (currentAction === 'delete') {
+      // For delete, send searchType and value in an object
+      payload.searchType = pendingInput?.searchType || 'name';
+      payload.value = pendingInput?.value || '';
+    } else if (currentAction === 'search_one') {
       payload[pendingSearchType] = document.getElementById('userInput').value.trim();
+    } else if (currentAction === 'list_all' || currentAction === 'list_all_balances') {
+      payload.scope = document.getElementById('scopeSelect').value;
     }
 
     fetch('/api/action', {

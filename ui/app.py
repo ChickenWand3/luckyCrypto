@@ -4,7 +4,7 @@ import sys, os
 import logging
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet
+from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances
 
 from sweep_to_main import main as sweep_to_main
 
@@ -69,11 +69,14 @@ async def action():
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "list_all":
+        scope = data.get('scope', 'all')
         try:
             wallets = get_wallets()
-            wallets = [wallet for wallet in wallets if wallet.get("enabled", True)]  # Filter enabled wallets
+            if scope.lower() == 'enabled':
+                wallets = [wallet for wallet in wallets if wallet.get("enabled", True)]  # Filter enabled wallets
+            elif scope.lower() == 'disabled':
+                wallets = [wallet for wallet in wallets if not wallet.get("enabled", True)]
             if wallets:
-                #print(f"All wallets: {wallets}")
                 return jsonify({"result": f"All wallets: {wallets}"}), 200
             else:
                 return jsonify({"result": "No wallets found"}), 404
@@ -89,6 +92,21 @@ async def action():
                 return jsonify({"result": "Sweep operation failed"}), 500
         except Exception as e:
             return jsonify({"result": f"An internal error occurred during sweep: {str(e)}"}), 500
+    elif button_clicked == "list_all_balances":
+        scope = data.get('scope', 'all')
+        try:
+            wallets = get_wallets()
+            if scope.lower() == 'enabled':
+                wallets = [wallet for wallet in wallets if wallet.get("enabled", True)]  # Filter enabled wallets
+            elif scope.lower() == 'disabled':
+                wallets = [wallet for wallet in wallets if not wallet.get("enabled", True)]
+            wallets_balances = jsonify_walletBalances(wallets=wallets)
+            if not wallets_balances["wallets"]:
+                return jsonify({"result": "No wallets found or no balances available"}), 404
+            else:
+                return jsonify({"result": str(wallets_balances)}), 200
+        except Exception as e:
+            return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     return jsonify({"result": "Undefined Action"}), 400
 
 #@app.route('/menu1')

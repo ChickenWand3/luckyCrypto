@@ -188,13 +188,12 @@ def jsonify_walletBalances(wallets_file="wallets.enc", key_file="encryption_key.
     
     message = {"wallets": []}
     for wallet in wallets:
-        if wallet.get("enabled", True): # Only include enabled wallets
-            message["result"].append({
-                "name": wallet["name"],
-                "USDC": getUSDC(wallet["address"], usdc_contract, web3),
-                "ETH": web3.from_wei(web3.eth.get_balance(wallet["address"]), 'ether'),
-                "Address": wallet["address"]
-            })
+        message["wallets"].append({
+            "name": wallet["name"],
+            "USDC": getUSDC(wallet["address"], usdc_contract, web3),
+            "ETH": web3.from_wei(web3.eth.get_balance(wallet["address"]), 'ether'),
+            "Address": wallet["address"],
+        })
     return message
     
 
