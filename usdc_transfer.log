@@ -139,3 +139,43 @@ TypeError: verifyUserData() missing 2 required positional arguments: 'highest_in
 2025-07-08 19:54:08,174 - INFO - 127.0.0.1 - - [08/Jul/2025 19:54:08] "POST /api/action HTTP/1.1" 200 -
 2025-07-08 19:54:17,495 - INFO - Loaded 2 wallets from file
 2025-07-08 19:54:18,416 - INFO - 127.0.0.1 - - [08/Jul/2025 19:54:18] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 20:07:03,406 - INFO - Starting USDC sweep script
+2025-07-08 20:07:04,160 - INFO - Gathering wallets
+2025-07-08 20:07:04,160 - INFO - Loaded 2 wallets from file
+2025-07-08 20:07:04,176 - INFO - Found 1 valid and enabled wallets
+2025-07-08 20:07:04,176 - ERROR - Error processing wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: verifyUserData() missing 2 required positional arguments: 'highest_index' and 'num_wallets'
+2025-07-08 20:07:04,176 - ERROR - Traceback (most recent call last):
+  File "c:\Users\nicol\Documents\GitHub\luckyCrypto\sweep_to_main.py", line 112, in transfer_usdc
+    if not verifyUserData(wallet):
+           ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: verifyUserData() missing 2 required positional arguments: 'highest_index' and 'num_wallets'
+
+2025-07-08 20:07:04,176 - INFO - USDC sweep completed
+2025-07-08 20:13:53,520 - INFO - Starting USDC sweep script
+2025-07-08 20:13:54,037 - INFO - Gathering wallets
+2025-07-08 20:13:54,037 - INFO - Loaded 2 wallets from file
+2025-07-08 20:13:54,037 - INFO - Found 1 valid and enabled wallets
+2025-07-08 20:13:54,769 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 3.000000 USDC
+2025-07-08 20:13:55,714 - WARNING - Retrying transfer for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D (attempt 1) due to error: 'SignedTransaction' object has no attribute 'rawTransaction'
+2025-07-08 20:13:56,717 - WARNING - Retrying transfer for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D (attempt 2) due to error: 'SignedTransaction' object has no attribute 'rawTransaction'
+2025-07-08 20:13:58,733 - ERROR - Failed to transfer from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D after 3 attempts: 'SignedTransaction' object has no attribute 'rawTransaction'
+2025-07-08 20:13:58,733 - INFO - USDC sweep completed
+2025-07-08 20:17:27,391 - INFO - Starting USDC sweep script
+2025-07-08 20:17:28,091 - INFO - Gathering wallets
+2025-07-08 20:17:28,100 - INFO - Loaded 2 wallets from file
+2025-07-08 20:17:28,100 - INFO - Found 1 valid and enabled wallets
+2025-07-08 20:17:28,853 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 3.000000 USDC
+2025-07-08 20:17:38,872 - INFO - Transferred 3.000000 USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x41eebB38301e8D06E44f135cBFEA876630E60e27. Tx: 4cb0a91c8d55c03e1e51cad11943ee6e2aaa8a82eb62103e11a0d3d639d14032
+2025-07-08 20:17:38,872 - INFO - USDC sweep completed
+2025-07-08 20:18:10,332 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 20:18:10,332 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 20:18:10,332 - INFO -  * Restarting with stat
+2025-07-08 20:18:12,827 - WARNING -  * Debugger is active!
+2025-07-08 20:18:12,832 - INFO -  * Debugger PIN: 584-074-894
+2025-07-08 20:18:15,219 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:15] "GET / HTTP/1.1" 200 -
+2025-07-08 20:18:15,604 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-08 20:18:19,605 - INFO - Loaded 2 wallets from file
+2025-07-08 20:18:21,078 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 20:57:53,232 - INFO - Loaded 2 wallets from file
+2025-07-08 20:57:55,329 - INFO - 127.0.0.1 - - [08/Jul/2025 20:57:55] "POST /api/action HTTP/1.1" 200 -
