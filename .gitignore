@@ -1,3 +1,6 @@
 .venv
 .venv/*
 *.exe
+__pycache__
+__pycache__/*
+*.pyc
