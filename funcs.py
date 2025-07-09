@@ -23,7 +23,7 @@ def verifyUserData(user_data, highest_index, num_wallets):
     return user_data
 
 # Generate wallets with mnemonic and user data
-def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
+def generate_wallets(num_wallets=1, wallets_file="wallets.enc", key_file="encryption_key.txt", user_data=None):
     logging.info("Generating wallets...")
 
     if wallets_file == "masterWallets.enc":
@@ -58,6 +58,7 @@ def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryp
                 "mnemonic": mnemonic,
                 "name": user_data[i]["name"],
                 "email": user_data[i]["email"],
+                "kraken_nickname": f"Wallet#{highest_index + 1 + i}",
                 "enabled": True
             })
             logging.info(f"Generated new wallet with address_index {highest_index + 1 + i}: {account.address}")
@@ -96,6 +97,7 @@ def generate_wallets(num_wallets=4, wallets_file="wallets.enc", key_file="encryp
                 "mnemonic": mnemonic,
                 "name": user_data[i]["name"],
                 "email": user_data[i]["email"],
+                "kraken_nickname": f"Wallet#{i}",
                 "enabled": True
             })
 
@@ -318,8 +320,8 @@ def main():
 
 
 
-    #for wallet in wallets:
-    #    logging.info(f"Wallet: {wallet['address']} - {wallet['name']} ({wallet['email']}) - Balance: {usdc_contract.functions.balanceOf(wallet['address']).call() / 10**6} USDC")
+    for wallet in wallets:
+        logging.info(f"Wallet: {wallet['address']} - {wallet['name']} ({wallet['email']}) - Nickname:{wallet['kraken_nickname']} ")
 
 if __name__ == "__main__":
     try:

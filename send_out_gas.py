@@ -17,6 +17,7 @@ load_dotenv()
 INFURA_API_KEY = os.getenv('INFURA_API_KEY')
 KRAKEN_API_KEY = os.getenv('KRAKEN_API_KEY')
 KRAKEN_API_SECRET = os.getenv('KRAKEN_API_SECRET')
+KRAKEN_ADDRESS = os.getenv('KRAKEN_ADDRESS')
 
 MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
 
@@ -43,7 +44,7 @@ def needGas(wallet):
         logging.error(f"Error checking balance for {wallet['address']}: {str(e)}")
         return False
 
-def sendGas(to_address, usd_amount=5.0):
+def sendGas(to_address, nickname, usd_amount=5.0):
     """Send ETH equivalent to ~$5 USD from Kraken account."""
     try:
         # Get ETH price
@@ -56,7 +57,7 @@ def sendGas(to_address, usd_amount=5.0):
         # Initiate withdrawal via Kraken API
         withdrawal_info = {
             'asset': 'ETH',
-            'key': 'default',  # Withdrawal key name configured in Kraken
+            'key': nickname,  # Withdrawal key name configured in Kraken
             'amount': str(eth_amount),
             'address': to_address
         }
@@ -86,7 +87,7 @@ def refillGas():
     for wallet in wallets:
         if wallet.get("enabled", False):
             if needGas(wallet):
-                success = sendGas(wallet["address"], 5.0)
+                success = sendGas(wallet["address"], wallet["kraken_nickname"], 5.0)
                 if success:
                     logging.info(f"Successfully initiated gas transfer to {wallet['address']}")
                 else:
