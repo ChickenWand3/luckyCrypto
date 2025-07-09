@@ -125,8 +125,8 @@ async def action():
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "refill_gas":
        try:
-           #thread = threading.Thread(target=run_refill_gas_async)
-           #thread.start()
+           thread = threading.Thread(target=run_refill_gas_async)
+           thread.start()
            return jsonify({"result": "Gas refill operation started"}), 200
        except Exception as e:
            return jsonify({"result": f"An internal error occurred during gas refill: {str(e)}"}), 500
