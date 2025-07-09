@@ -133,60 +133,21 @@ def get_wallets(wallets_file="wallets.enc", key_file="encryption_key.txt"):
     logging.info(f"Loaded {len(wallets)} wallets from file")
     return wallets
 
-def search_wallets(wallet_name, wallet_email, wallets_file="wallets.enc", key_file="encryption_key.txt"):
-    wallets = get_wallets(wallets_file, key_file)
-    results = []
-    for wallet in wallets:
-        if (wallet_name and wallet["name"] == wallet_name) or (wallet_email and wallet["email"] == wallet_email):
-            results.append(wallet)
-    if results:
-        logging.info(f"Found {len(results)} wallets matching search criteria")
-    else:
-        logging.info("No wallets found matching search criteria")
-    return results
-
-def disable_wallet(wallet_email, wallet_name, wallets_file="wallets.enc", key_file="encryption_key.txt"):
-    wallets = get_wallets(wallets_file, key_file)
-    for wallet in wallets:
-        if wallet["email"] == wallet_email or wallet["name"] == wallet_name:
-            #LOOOOOK
-            #ALSO NEED TO TRANSFER USDC TO MASTER WALLET IF ABOVE 1 USDC
-            #CHECK IF ENOUGH GAS TO TRANSFER IF NOT SEND GAS
-            #FUNCTIONALITY STILL NEEDED
-            wallet["enabled"] = False
-            logging.info(f"Disabled wallet for email: {wallet_email}")
-
-            # Save wallets securely
-            data = {
-                "metadata": {
-                    "mnemonic": wallet["mnemonic"]
-                },
-                "wallets": wallets
-            }
-            key = Fernet.generate_key()
-            cipher = Fernet(key)
-            with open(wallets_file, "wb") as f:
-                f.write(cipher.encrypt(json.dumps(data).encode()))
-            with open(key_file, "wb") as f:
-                f.write(key)
-            if wallet["name"] == wallet_name:
-                logging.info(f"Disabled wallet for name: {wallet_name}")
-            elif wallet["email"] == wallet_email:
-                logging.info(f"Disabled wallet for email: {wallet_email}")
-            return True
-    return False #Couldn't find wallet
-
-# Schedule transfers
-def main():
-    # Set up logging
-    logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
-                        format='%(asctime)s - %(levelname)s - %(message)s')
+def getUSDC(wallet_address, usdc_contract, web3):
+    """Get USDC balance for a given wallet address."""
+    try:
+        address = web3.to_checksum_address(wallet_address)
+        balance_wei = usdc_contract.functions.balanceOf(address).call()
+        balance_usdc = balance_wei / 10**6
+        return balance_usdc
+    except Exception as e:
+        logging.error(f"Error getting USDC balance for {wallet_address}: {str(e)}")
+        return 0.0
     
+def getUSDCContractAndWeb3():
     # Load environment variables
     load_dotenv()
     INFURA_API_KEY = os.getenv('INFURA_API_KEY')
-    MASTER_PRIVATE_KEY = os.getenv('MASTER_PRIVATE_KEY')
-    MASTER_WALLET_ADDRESS = Account.from_key(MASTER_PRIVATE_KEY).address if MASTER_PRIVATE_KEY else None
     
     # Ethereum mainnet configuration
     MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
@@ -211,24 +172,155 @@ def main():
     # Connect to Ethereum mainnet
     web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
     usdc_contract = web3.eth.contract(address=USDC_CONTRACT_ADDRESS, abi=USDC_ABI)
-    '''
-    if not INFURA_API_KEY or not MASTER_PRIVATE_KEY:
-        logging.error("Missing INFURA_API_KEY or MASTER_PRIVATE_KEY in .env file")
-        raise ValueError("Please set INFURA_API_KEY and MASTER_PRIVATE_KEY in .env file")
-    '''
     
     if not web3.is_connected():
         logging.error("Failed to connect to Ethereum mainnet")
         raise ConnectionError("Cannot connect to Ethereum mainnet")
+    
+    return usdc_contract, web3
 
-    #generate_wallets(num_wallets=5)
-    #wallets = get_wallets()
-
-    generate_wallets(num_wallets=1, wallets_file="masterWallets.enc", key_file="masterEncryption_key.txt", user_data=[{"name": "Ashton", "email": "cgservicesofficial@gmail.com"}]) # Generate a masterWallet for testing
-    wallets = get_wallets(wallets_file="masterWallets.enc", key_file="masterEncryption_key.txt")
-
+def jsonify_walletBalances(wallets_file="wallets.enc", key_file="encryption_key.txt", wallets=None):
+    if not wallets:
+        logging.info("No wallets found")
+        return {"wallets": []}
+    
+    usdc_contract, web3 = getUSDCContractAndWeb3()
+    
+    message = {"wallets": []}
     for wallet in wallets:
-        logging.info(f"Wallet: {wallet['address']} - {wallet['name']} ({wallet['email']}) - Balance: {usdc_contract.functions.balanceOf(wallet['address']).call() / 10**6} USDC")
+        if wallet.get("enabled", True): # Only include enabled wallets
+            message["result"].append({
+                "name": wallet["name"],
+                "USDC": getUSDC(wallet["address"], usdc_contract, web3),
+                "ETH": web3.from_wei(web3.eth.get_balance(wallet["address"]), 'ether'),
+                "Address": wallet["address"]
+            })
+    return message
+    
+
+def search_wallets(wallet_name, wallet_email, wallets_file="wallets.enc", key_file="encryption_key.txt"):
+    wallets = get_wallets(wallets_file, key_file)
+    results = []
+    for wallet in wallets:
+        if (wallet_name and wallet["name"] == wallet_name) or (wallet_email and wallet["email"] == wallet_email):
+            results.append(wallet)
+    if results:
+        logging.info(f"Found {len(results)} wallets matching search criteria")
+    else:
+        logging.info("No wallets found matching search criteria")
+    return results
+
+def transfer_usdc_if_above_one(wallet_address, private_key):
+    """Transfer USDC to Kraken wallet if balance > $1 and enough ETH for gas."""
+    # Load environment variables
+    load_dotenv()
+    KRAKEN_ADDRESS = os.getenv('KRAKEN_ADDRESS')
+    INFURA_API_KEY = os.getenv('INFURA_API_KEY')
+    if not KRAKEN_ADDRESS or not INFURA_API_KEY:
+        logging.error("Kraken address or Infura API key not set in environment variables")
+        return False
+    
+    usdc_contract, web3 = getUSDCContractAndWeb3()  # Need to send USDC
+
+    try:
+        # Convert addresses to checksum format
+        address = web3.to_checksum_address(wallet_address)
+        kraken_address = web3.to_checksum_address(KRAKEN_ADDRESS)
+
+        # Get USDC balance (USDC has 6 decimals)
+        usdc_balance = usdc_contract.functions.balanceOf(address).call()
+        usdc_balance_decimal = usdc_balance / 10**6  # Convert to human-readable USDC
+
+        # Check if USDC balance is worth more than $1 (assuming 1 USDC ≈ $1)
+        if usdc_balance_decimal < 1:
+            logging.info(f"USDC balance ({usdc_balance_decimal}) is less than $1, skipping transfer")
+            return True
+
+        # Estimate gas for USDC transfer
+        usdc_transfer_tx = usdc_contract.functions.transfer(
+            kraken_address,
+            usdc_balance
+        ).build_transaction({
+            'from': address,
+            'nonce': web3.eth.get_transaction_count(address),
+            'gasPrice': web3.eth.gas_price
+        })
+        gas_estimate = web3.eth.estimate_gas(usdc_transfer_tx)
+        gas_estimate_buffered = int(gas_estimate * 1.15)  # Increase gas estimate by 15%
+        gas_price = web3.eth.gas_price  # Current gas price in wei
+        gas_cost_wei = gas_estimate_buffered * gas_price  # Use buffered gas for cost
+        gas_cost_eth = web3.from_wei(gas_cost_wei, 'ether')
+
+        # Get ETH balance
+        eth_balance = web3.eth.get_balance(address)
+        eth_balance_decimal = web3.from_wei(eth_balance, 'ether')
+
+        # Check if enough ETH for gas with buffer
+        if eth_balance < gas_cost_wei:
+            logging.error(f"Insufficient ETH for gas: {eth_balance_decimal} ETH available, {gas_cost_eth} ETH needed (with 15% buffer)")
+            return False
+
+        # Build and sign USDC transfer transaction with buffered gas
+        usdc_transfer_tx['gas'] = gas_estimate_buffered  # Use buffered gas for transaction
+        signed_tx = web3.eth.account.sign_transaction(usdc_transfer_tx, private_key)
+        tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        logging.info(f"USDC transfer sent: {tx_hash.hex()}")
+
+        # Wait for transaction confirmation
+        web3.eth.wait_for_transaction_receipt(tx_hash)
+        return True
+
+    except Exception as e:
+        logging.error(f"Error during USDC transfer: {e}")
+        return False
+
+def disable_wallet(wallet_email, wallet_name, wallets_file="wallets.enc", key_file="encryption_key.txt"):
+    wallets = get_wallets(wallets_file, key_file)
+    for wallet in wallets:
+        if (wallet["email"] == wallet_email or wallet["name"] == wallet_name) and wallet.get("enabled", True):
+
+            if transfer_usdc_if_above_one(wallet["address"], wallet["private_key"]):
+                logging.info(f"Transferred USDC from {wallet['address']} to master wallet before disabling")
+            
+            wallet["enabled"] = False
+            logging.info(f"Disabled wallet for email: {wallet_email}")
+
+            # Save wallets securely
+            data = {
+                "metadata": {
+                    "mnemonic": wallet["mnemonic"]
+                },
+                "wallets": wallets
+            }
+            key = Fernet.generate_key()
+            cipher = Fernet(key)
+            with open(wallets_file, "wb") as f:
+                f.write(cipher.encrypt(json.dumps(data).encode()))
+            with open(key_file, "wb") as f:
+                f.write(key)
+            if wallet["name"] == wallet_name:
+                logging.info(f"Disabled wallet for name: {wallet_name}")
+            elif wallet["email"] == wallet_email:
+                logging.info(f"Disabled wallet for email: {wallet_email}")
+            return True
+    logging.info(f"No valid matching wallet found for email: {wallet_email} or name: {wallet_name}")
+    return False #Couldn't find wallet
+
+# Schedule transfers
+def main():
+    # Set up logging
+    logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+
+    #generate_wallets(num_wallets=1)
+    wallets = get_wallets()
+
+    logging.info(jsonify_walletBalances(wallets_file="wallets.enc", key_file="encryption_key.txt", wallets=wallets))
+
+
+
+    #for wallet in wallets:
+    #    logging.info(f"Wallet: {wallet['address']} - {wallet['name']} ({wallet['email']}) - Balance: {usdc_contract.functions.balanceOf(wallet['address']).call() / 10**6} USDC")
 
 if __name__ == "__main__":
     try:

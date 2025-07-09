@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import time
 import sys, os
+import logging
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet
@@ -99,4 +100,7 @@ async def action():
 #    return "<h1>Menu 2 Page</h1><p>This is Menu 2 content.</p><a href='/'>Go Back</a>"
 
 if __name__ == '__main__':
+    # Set up logging
+    logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
+                        format='%(asctime)s - %(levelname)s - %(message)s')
     app.run(debug=True)

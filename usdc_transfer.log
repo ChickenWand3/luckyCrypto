@@ -1,6 +1,74 @@
-2025-07-07 23:56:31,206 - INFO - Generating wallets...
-2025-07-07 23:56:31,206 - INFO - Generating new wallets
-2025-07-07 23:56:31,219 - INFO - Generated mnemonic: situate always margin wheel surge property shallow cluster curve guard number ready
-2025-07-07 23:56:31,228 - INFO - Generated wallet with address_index 0: 0x2da1fCFE9e303A39866D76399D80eC37C5adf8E6
-2025-07-07 23:56:31,230 - INFO - Loaded 1 wallets from file
-2025-07-07 23:56:31,473 - INFO - Wallet: 0x2da1fCFE9e303A39866D76399D80eC37C5adf8E6 - Ashton (cgservicesofficial@gmail.com) - Balance: 0.0 USDC
+2025-07-08 16:32:07,697 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 16:32:07,697 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 16:32:07,698 - INFO -  * Restarting with stat
+2025-07-08 16:32:08,373 - WARNING -  * Debugger is active!
+2025-07-08 16:32:08,375 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:32:17,543 - INFO - 127.0.0.1 - - [08/Jul/2025 16:32:17] "GET / HTTP/1.1" 200 -
+2025-07-08 16:33:24,318 - ERROR - Wallets file or key file does not exist
+2025-07-08 16:33:24,318 - INFO - 127.0.0.1 - - [08/Jul/2025 16:33:24] "[33mPOST /api/action HTTP/1.1[0m" 404 -
+2025-07-08 16:33:39,541 - INFO - Generating wallets...
+2025-07-08 16:33:39,541 - INFO - Generating new wallets
+2025-07-08 16:33:39,553 - INFO - Generated mnemonic: diesel sunny tragic armed settle game image element grow hidden chronic saddle
+2025-07-08 16:33:39,561 - INFO - Generated wallet with address_index 0: 0x7a3c3A976a5AbE4b5d1099C28C2d2450973CC7dE
+2025-07-08 16:33:39,563 - INFO - 127.0.0.1 - - [08/Jul/2025 16:33:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:33:43,724 - INFO - Loaded 1 wallets from file
+2025-07-08 16:33:43,725 - INFO - 127.0.0.1 - - [08/Jul/2025 16:33:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:34:09,378 - INFO - Generating wallets...
+2025-07-08 16:34:09,378 - INFO - Loading existing wallets
+2025-07-08 16:34:09,378 - INFO - Appending 1 new wallets starting at address_index 1
+2025-07-08 16:34:09,388 - INFO - Generated new wallet with address_index 1: 0x8605345894643B4da93000f4E8A5BEe037218324
+2025-07-08 16:34:09,388 - INFO - 127.0.0.1 - - [08/Jul/2025 16:34:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:34:11,071 - INFO - Loaded 2 wallets from file
+2025-07-08 16:34:11,071 - INFO - 127.0.0.1 - - [08/Jul/2025 16:34:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:34:40,188 - INFO - Loaded 2 wallets from file
+2025-07-08 16:34:40,771 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-08 16:34:40,771 - INFO - Transferred USDC from 0x8605345894643B4da93000f4E8A5BEe037218324 to master wallet before disabling
+2025-07-08 16:34:40,771 - INFO - Disabled wallet for email: None
+2025-07-08 16:34:40,771 - INFO - Disabled wallet for name: Nico
+2025-07-08 16:34:40,772 - INFO - 127.0.0.1 - - [08/Jul/2025 16:34:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:35:01,104 - INFO - Loaded 2 wallets from file
+2025-07-08 16:35:01,105 - INFO - 127.0.0.1 - - [08/Jul/2025 16:35:01] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:35:13,944 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:35:14,013 - INFO -  * Restarting with stat
+2025-07-08 16:35:14,679 - WARNING -  * Debugger is active!
+2025-07-08 16:35:14,681 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:36:08,049 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:36:08,116 - INFO -  * Restarting with stat
+2025-07-08 16:36:08,801 - WARNING -  * Debugger is active!
+2025-07-08 16:36:08,803 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:36:17,484 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:36:17,552 - INFO -  * Restarting with stat
+2025-07-08 16:36:18,216 - WARNING -  * Debugger is active!
+2025-07-08 16:36:18,218 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:37:00,096 - INFO - Loaded 2 wallets from file
+2025-07-08 16:37:00,676 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-08 16:37:00,676 - INFO - Transferred USDC from 0x8605345894643B4da93000f4E8A5BEe037218324 to master wallet before disabling
+2025-07-08 16:37:00,676 - INFO - Disabled wallet for email: None
+2025-07-08 16:37:00,677 - INFO - Disabled wallet for name: Nico
+2025-07-08 16:37:00,677 - INFO - 127.0.0.1 - - [08/Jul/2025 16:37:00] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 16:37:42,474 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:37:42,536 - INFO -  * Restarting with stat
+2025-07-08 16:37:43,197 - WARNING -  * Debugger is active!
+2025-07-08 16:37:43,199 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:37:53,995 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:37:54,063 - INFO -  * Restarting with stat
+2025-07-08 16:37:54,740 - WARNING -  * Debugger is active!
+2025-07-08 16:37:54,742 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:38:32,145 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:38:32,204 - INFO -  * Restarting with stat
+2025-07-08 16:38:32,857 - WARNING -  * Debugger is active!
+2025-07-08 16:38:32,858 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:38:57,483 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:38:57,541 - INFO -  * Restarting with stat
+2025-07-08 16:38:58,187 - WARNING -  * Debugger is active!
+2025-07-08 16:38:58,189 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:39:03,635 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-08 16:39:03,691 - INFO -  * Restarting with stat
+2025-07-08 16:39:04,359 - WARNING -  * Debugger is active!
+2025-07-08 16:39:04,361 - INFO -  * Debugger PIN: 752-584-554
+2025-07-08 16:39:12,688 - INFO - Loaded 2 wallets from file
+2025-07-08 16:39:12,688 - INFO - No valid matching wallet found for email: None or name: Nico
+2025-07-08 16:39:12,689 - INFO - 127.0.0.1 - - [08/Jul/2025 16:39:12] "[33mPOST /api/action HTTP/1.1[0m" 404 -
+2025-07-08 16:40:20,192 - INFO - Loaded 2 wallets from file
+2025-07-08 16:40:20,193 - INFO - 127.0.0.1 - - [08/Jul/2025 16:40:20] "POST /api/action HTTP/1.1" 200 -
