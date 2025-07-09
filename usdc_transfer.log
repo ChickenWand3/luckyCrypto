@@ -212,3 +212,33 @@ TypeError: verifyUserData() missing 2 required positional arguments: 'highest_in
 2025-07-08 21:37:08,066 - INFO -  * Debugger PIN: 752-584-554
 2025-07-08 21:37:11,830 - INFO - Loaded 2 wallets from file
 2025-07-08 21:37:12,808 - INFO - 127.0.0.1 - - [08/Jul/2025 21:37:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:18:23,433 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 23:18:23,434 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 23:18:23,439 - INFO -  * Restarting with stat
+2025-07-08 23:18:25,928 - WARNING -  * Debugger is active!
+2025-07-08 23:18:25,934 - INFO -  * Debugger PIN: 107-621-425
+2025-07-08 23:18:26,166 - INFO - 127.0.0.1 - - [08/Jul/2025 23:18:26] "GET / HTTP/1.1" 200 -
+2025-07-08 23:18:34,359 - INFO - Loaded 2 wallets from file
+2025-07-08 23:18:34,360 - INFO - 127.0.0.1 - - [08/Jul/2025 23:18:34] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:19:37,727 - INFO - Loaded 2 wallets from file
+2025-07-08 23:19:39,307 - INFO - 127.0.0.1 - - [08/Jul/2025 23:19:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:19:48,838 - INFO - Loaded 2 wallets from file
+2025-07-08 23:19:48,840 - INFO - 127.0.0.1 - - [08/Jul/2025 23:19:48] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:21:02,430 - INFO - Generating wallets...
+2025-07-08 23:21:02,430 - INFO - Loading existing wallets
+2025-07-08 23:21:02,431 - INFO - Appending 1 new wallets starting at address_index 2
+2025-07-08 23:21:02,519 - INFO - Generated new wallet with address_index 2: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb
+2025-07-08 23:21:02,520 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:02] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:21:05,072 - INFO - Loaded 3 wallets from file
+2025-07-08 23:21:05,072 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:05] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:21:34,550 - INFO - Loaded 3 wallets from file
+2025-07-08 23:21:35,541 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-08 23:21:35,542 - INFO - Transferred USDC from 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb to master wallet before disabling
+2025-07-08 23:21:35,542 - INFO - Disabled wallet for email: None
+2025-07-08 23:21:35,542 - INFO - Disabled wallet for name: test1
+2025-07-08 23:21:35,543 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:35] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:21:37,733 - INFO - Loaded 3 wallets from file
+2025-07-08 23:21:37,733 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:37] "POST /api/action HTTP/1.1" 200 -
+2025-07-08 23:30:02,556 - INFO - Loaded 3 wallets from file
+2025-07-08 23:30:04,418 - INFO - 127.0.0.1 - - [08/Jul/2025 23:30:04] "POST /api/action HTTP/1.1" 200 -
