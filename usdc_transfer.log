@@ -1,244 +1,338 @@
-2025-07-08 19:12:50,833 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:15:56,478 - INFO - Loaded 3 wallets from file
+2025-07-10 12:15:56,478 - INFO - Loaded 3 wallets from file
+2025-07-10 12:15:56,478 - INFO - Loading existing wallets
+2025-07-10 12:15:57,047 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-10 12:15:57,047 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-10 12:15:57,916 - ERROR - Error during ETH transfer: unsupported operand type(s) for +: 'float' and 'decimal.Decimal'
+2025-07-10 12:15:57,916 - INFO - Disabled wallet for email: None
+2025-07-10 12:15:57,916 - INFO - Saving wallets securely...
+2025-07-10 12:15:57,917 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-10 12:15:57,917 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:15:57,917 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:15:57,917 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:18:33,490 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 19:12:50,833 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 19:12:50,835 - INFO -  * Restarting with stat
-2025-07-08 19:12:51,594 - WARNING -  * Debugger is active!
-2025-07-08 19:12:51,596 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:12:52,701 - INFO - 127.0.0.1 - - [08/Jul/2025 19:12:52] "GET / HTTP/1.1" 200 -
-2025-07-08 19:12:53,148 - INFO - 127.0.0.1 - - [08/Jul/2025 19:12:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-07-08 19:12:56,670 - INFO - Loaded 2 wallets from file
-2025-07-08 19:12:57,648 - INFO - 127.0.0.1 - - [08/Jul/2025 19:12:57] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:13:13,632 - INFO - Loaded 2 wallets from file
-2025-07-08 19:13:13,632 - INFO - 127.0.0.1 - - [08/Jul/2025 19:13:13] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:14:26,050 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
-2025-07-08 19:14:26,139 - INFO -  * Restarting with stat
-2025-07-08 19:14:26,902 - WARNING -  * Debugger is active!
-2025-07-08 19:14:26,904 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:17:27,383 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
-2025-07-08 19:17:27,474 - INFO -  * Restarting with stat
-2025-07-08 19:17:28,308 - WARNING -  * Debugger is active!
-2025-07-08 19:17:28,310 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:19:18,356 - INFO - Loaded 2 wallets from file
-2025-07-08 19:19:19,328 - INFO - 127.0.0.1 - - [08/Jul/2025 19:19:19] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:20:26,474 - INFO - Loaded 2 wallets from file
-2025-07-08 19:20:27,444 - INFO - 127.0.0.1 - - [08/Jul/2025 19:20:27] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:20:34,766 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
-2025-07-08 19:20:34,843 - INFO -  * Restarting with stat
-2025-07-08 19:20:35,532 - WARNING -  * Debugger is active!
-2025-07-08 19:20:35,535 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:20:44,953 - INFO - Starting gas distribution script
-2025-07-08 19:20:45,255 - INFO - Loaded 2 wallets from file
-2025-07-08 19:20:45,399 - ERROR - Error checking balance for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
-2025-07-08 19:20:45,504 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: 0.000000 ETH ($0.00), Below $5: True
-2025-07-08 19:20:45,540 - INFO - Preparing to send 0.001917 ETH to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 via Kraken account 'Wallet#1'
-2025-07-08 19:20:45,785 - ERROR - Kraken API error for 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: ['EFunding:Unknown withdraw key']
-2025-07-08 19:20:45,785 - ERROR - Failed to initiate gas transfer to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
-2025-07-08 19:22:43,170 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:18:33,490 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:18:33,491 - INFO -  * Restarting with stat
+2025-07-10 12:18:34,153 - WARNING -  * Debugger is active!
+2025-07-10 12:18:34,155 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:18:39,485 - INFO - Loaded 3 wallets from file
+2025-07-10 12:18:40,808 - INFO - 127.0.0.1 - - [10/Jul/2025 12:18:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:18:42,345 - INFO - Loaded 3 wallets from file
+2025-07-10 12:18:42,346 - INFO - 127.0.0.1 - - [10/Jul/2025 12:18:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:18:47,046 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 12:18:47,102 - INFO -  * Restarting with stat
+2025-07-10 12:18:47,790 - WARNING -  * Debugger is active!
+2025-07-10 12:18:47,791 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:18:51,110 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 12:18:51,170 - INFO -  * Restarting with stat
+2025-07-10 12:18:51,826 - WARNING -  * Debugger is active!
+2025-07-10 12:18:51,828 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:19:00,474 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:19:00,535 - INFO -  * Restarting with stat
+2025-07-10 12:19:01,229 - WARNING -  * Debugger is active!
+2025-07-10 12:19:01,231 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:19:04,541 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:19:04,597 - INFO -  * Restarting with stat
+2025-07-10 12:19:05,247 - WARNING -  * Debugger is active!
+2025-07-10 12:19:05,249 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:19:18,149 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:19:18,208 - INFO -  * Restarting with stat
+2025-07-10 12:19:18,891 - WARNING -  * Debugger is active!
+2025-07-10 12:19:18,893 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:19:22,043 - INFO - Loaded 3 wallets from file
+2025-07-10 12:19:22,044 - INFO - Loaded 3 wallets from file
+2025-07-10 12:19:22,044 - INFO - Loading existing wallets
+2025-07-10 12:19:22,044 - INFO - Saving wallets securely...
+2025-07-10 12:19:22,044 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-10 12:19:22,044 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:19:22,044 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:19:22,044 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:19:40,466 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 19:22:43,170 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 19:22:43,171 - INFO -  * Restarting with stat
-2025-07-08 19:22:43,839 - WARNING -  * Debugger is active!
-2025-07-08 19:22:43,840 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:22:45,626 - INFO - Loaded 2 wallets from file
-2025-07-08 19:22:46,588 - INFO - 127.0.0.1 - - [08/Jul/2025 19:22:46] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:25:53,307 - INFO - Starting gas distribution script
-2025-07-08 19:25:53,627 - INFO - Loaded 2 wallets from file
-2025-07-08 19:25:53,780 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.000790 ETH ($2.06), Below $5: True
-2025-07-08 19:25:53,826 - INFO - Preparing to send 0.001920 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D via Kraken account 'Wallet#0'
-2025-07-08 19:25:54,057 - ERROR - Kraken API error for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: ['EFunding:Invalid withdrawal address']
-2025-07-08 19:25:54,058 - ERROR - Failed to initiate gas transfer to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D
-2025-07-08 19:25:56,178 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: 0.000000 ETH ($0.00), Below $5: True
-2025-07-08 19:25:56,210 - INFO - Preparing to send 0.001920 ETH to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 via Kraken account 'Wallet#1'
-2025-07-08 19:25:56,387 - ERROR - Kraken API error for 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: ['EFunding:Unknown withdraw key']
-2025-07-08 19:25:56,387 - ERROR - Failed to initiate gas transfer to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
-2025-07-08 19:37:00,162 - INFO - Starting gas distribution script
-2025-07-08 19:37:00,499 - INFO - Loaded 2 wallets from file
-2025-07-08 19:37:00,678 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.000790 ETH ($2.06), Below $5: True
-2025-07-08 19:37:00,707 - INFO - Preparing to send 0.001919 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D via Kraken account 'Wallet#0'
-2025-07-08 19:37:00,978 - INFO - Initiated withdrawal of 0.001919 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D, Ref ID: FTVg0ik-LbJtN5ondcBh6LVzaCPry6
-2025-07-08 19:37:00,978 - INFO - Successfully initiated gas transfer to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Owner: Ashton Hulsey (cgservicesofficial@gmail.com)
-2025-07-08 19:37:03,102 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: 0.000000 ETH ($0.00), Below $5: True
-2025-07-08 19:37:03,138 - INFO - Preparing to send 0.001919 ETH to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 via Kraken account 'Wallet#1'
-2025-07-08 19:37:03,319 - ERROR - Kraken API error for 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: ['EFunding:Unknown withdraw key']
-2025-07-08 19:37:03,320 - ERROR - Failed to initiate gas transfer to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
-2025-07-08 19:37:23,355 - INFO - Starting gas distribution script
-2025-07-08 19:37:23,675 - INFO - Loaded 2 wallets from file
-2025-07-08 19:37:23,824 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.000790 ETH ($2.06), Below $5: True
-2025-07-08 19:38:18,174 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:19:40,466 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:19:40,467 - INFO -  * Restarting with stat
+2025-07-10 12:19:41,135 - WARNING -  * Debugger is active!
+2025-07-10 12:19:41,137 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:19:42,582 - INFO - Loaded 3 wallets from file
+2025-07-10 12:19:42,583 - INFO - 127.0.0.1 - - [10/Jul/2025 12:19:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:19:56,401 - INFO - Loaded 3 wallets from file
+2025-07-10 12:19:56,402 - INFO - Loaded 3 wallets from file
+2025-07-10 12:19:56,402 - INFO - Loading existing wallets
+2025-07-10 12:19:56,969 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-10 12:19:56,969 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-10 12:19:57,857 - ERROR - Error during ETH transfer: unsupported operand type(s) for +: 'float' and 'decimal.Decimal'
+2025-07-10 12:19:57,857 - INFO - Disabled wallet for email: None
+2025-07-10 12:19:57,857 - INFO - Saving wallets securely...
+2025-07-10 12:19:57,857 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-10 12:19:57,857 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:19:57,857 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:19:57,858 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:21:26,910 - INFO - Loaded 3 wallets from file
+2025-07-10 12:21:26,910 - INFO - Loaded 3 wallets from file
+2025-07-10 12:21:26,910 - INFO - Loading existing wallets
+2025-07-10 12:21:26,910 - INFO - Saving wallets securely...
+2025-07-10 12:21:26,911 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-10 12:21:26,911 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:21:26,911 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:21:26,911 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:21:34,919 - INFO - Loaded 3 wallets from file
+2025-07-10 12:21:34,921 - INFO - Loaded 3 wallets from file
+2025-07-10 12:21:34,921 - INFO - Loading existing wallets
+2025-07-10 12:21:35,520 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-10 12:21:35,520 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-10 12:21:36,577 - ERROR - Error during ETH transfer: Transaction had invalid fields: {'value': 2489390013067980.0, 'gas': 21000.0, 'maxFeePerGas': 3741120792.0}
+2025-07-10 12:21:36,577 - INFO - Disabled wallet for email: None
+2025-07-10 12:21:36,577 - INFO - Saving wallets securely...
+2025-07-10 12:21:36,578 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-10 12:21:36,578 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:21:36,578 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:21:36,578 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:32:37,595 - INFO - Loaded 3 wallets from file
+2025-07-10 12:32:37,595 - INFO - Loaded 3 wallets from file
+2025-07-10 12:32:37,595 - INFO - Loading existing wallets
+2025-07-10 12:32:37,596 - INFO - Saving wallets securely...
+2025-07-10 12:32:37,596 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-10 12:32:37,596 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:32:37,596 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:32:37,596 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:32:41,002 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 19:38:18,175 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 19:38:18,175 - INFO -  * Restarting with stat
-2025-07-08 19:38:18,905 - WARNING -  * Debugger is active!
-2025-07-08 19:38:18,907 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:38:23,734 - INFO - 127.0.0.1 - - [08/Jul/2025 19:38:23] "GET / HTTP/1.1" 200 -
-2025-07-08 19:38:24,185 - INFO - 127.0.0.1 - - [08/Jul/2025 19:38:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-07-08 19:38:26,604 - INFO - Loaded 2 wallets from file
-2025-07-08 19:38:27,591 - INFO - 127.0.0.1 - - [08/Jul/2025 19:38:27] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:38:45,486 - INFO - Loaded 2 wallets from file
-2025-07-08 19:38:46,434 - INFO - 127.0.0.1 - - [08/Jul/2025 19:38:46] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:40:46,326 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
-2025-07-08 19:40:46,385 - INFO -  * Restarting with stat
-2025-07-08 19:40:47,093 - WARNING -  * Debugger is active!
-2025-07-08 19:40:47,094 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:40:55,737 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
-2025-07-08 19:40:55,804 - INFO -  * Restarting with stat
-2025-07-08 19:40:56,508 - WARNING -  * Debugger is active!
-2025-07-08 19:40:56,510 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:41:08,706 - INFO - Starting gas distribution script
-2025-07-08 19:41:09,019 - INFO - Loaded 2 wallets from file
-2025-07-08 19:41:09,186 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.002599 ETH ($6.77), Below $5: False
-2025-07-08 19:41:09,307 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: 0.000000 ETH ($0.00), Below $5: True
-2025-07-08 19:41:09,343 - INFO - Preparing to send 0.001919 ETH to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 via Kraken account 'Wallet#1'
-2025-07-08 19:41:09,565 - ERROR - Kraken API error for 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: ['EFunding:Unknown withdraw key']
-2025-07-08 19:41:09,565 - ERROR - Failed to initiate gas transfer to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
-2025-07-08 19:41:39,638 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:32:41,002 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:32:41,003 - INFO -  * Restarting with stat
+2025-07-10 12:32:41,670 - WARNING -  * Debugger is active!
+2025-07-10 12:32:41,672 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:32:43,087 - INFO - Loaded 3 wallets from file
+2025-07-10 12:32:44,354 - INFO - 127.0.0.1 - - [10/Jul/2025 12:32:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:39:45,578 - INFO - Loaded 3 wallets from file
+2025-07-10 12:39:46,224 - INFO - 127.0.0.1 - - [10/Jul/2025 12:39:46] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:39:48,247 - INFO - Loaded 3 wallets from file
+2025-07-10 12:39:49,523 - INFO - 127.0.0.1 - - [10/Jul/2025 12:39:49] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:40:02,641 - INFO - Loaded 3 wallets from file
+2025-07-10 12:40:02,641 - INFO - Loaded 3 wallets from file
+2025-07-10 12:40:02,641 - INFO - Loading existing wallets
+2025-07-10 12:40:03,202 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-10 12:40:03,202 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-10 12:40:04,059 - INFO - ETH balance (0.002568 ETH) is less than minimum transfer (0.005 ETH) + gas cost (0.000081 ETH), skipping transfer
+2025-07-10 12:40:04,059 - INFO - Transferred ETH from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to Kraken wallet before disabling
+2025-07-10 12:40:04,059 - INFO - Disabled wallet for email: None
+2025-07-10 12:40:04,059 - INFO - Saving wallets securely...
+2025-07-10 12:40:04,060 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-10 12:40:04,061 - INFO - Loaded 3 wallets from file
+2025-07-10 12:40:04,061 - INFO - Loading existing wallets
+2025-07-10 12:40:04,061 - INFO - Saving wallets securely...
+2025-07-10 12:40:04,061 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-10 12:40:04,061 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:40:04,061 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:40:04,061 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:42:18,689 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 19:41:39,638 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 19:41:39,639 - INFO -  * Restarting with stat
-2025-07-08 19:41:40,309 - WARNING -  * Debugger is active!
-2025-07-08 19:41:40,311 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:41:40,959 - INFO - Loaded 2 wallets from file
-2025-07-08 19:41:40,959 - INFO - 127.0.0.1 - - [08/Jul/2025 19:41:40] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:41:53,159 - INFO - Loaded 2 wallets from file
-2025-07-08 19:41:53,725 - INFO - USDC balance (0.0) is less than $1, skipping transfer
-2025-07-08 19:41:53,725 - INFO - Transferred USDC from 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 to master wallet before disabling
-2025-07-08 19:41:53,725 - INFO - Disabled wallet for email: None
-2025-07-08 19:41:53,726 - INFO - Disabled wallet for name: Nico Galli
-2025-07-08 19:41:53,726 - INFO - 127.0.0.1 - - [08/Jul/2025 19:41:53] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:41:54,913 - INFO - Loaded 2 wallets from file
-2025-07-08 19:41:54,913 - INFO - 127.0.0.1 - - [08/Jul/2025 19:41:54] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:42:02,028 - INFO - Starting gas distribution script
-2025-07-08 19:42:02,357 - INFO - Loaded 2 wallets from file
-2025-07-08 19:42:02,591 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.002599 ETH ($6.77), Below $5: False
-2025-07-08 19:52:05,201 - INFO - Starting USDC sweep script
-2025-07-08 19:52:05,529 - INFO - Gathering wallets
-2025-07-08 19:52:05,531 - INFO - Loaded 2 wallets from file
-2025-07-08 19:52:48,736 - INFO - Starting USDC sweep script
-2025-07-08 19:52:49,055 - INFO - Gathering wallets
-2025-07-08 19:52:49,056 - INFO - Loaded 2 wallets from file
-2025-07-08 19:52:49,056 - INFO - Found 1 valid and enabled wallets
-2025-07-08 19:52:49,058 - ERROR - Error processing wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: verifyUserData() missing 2 required positional arguments: 'highest_index' and 'num_wallets'
-2025-07-08 19:52:49,058 - ERROR - Traceback (most recent call last):
-  File "c:\Users\Ashton\Documents\GitHub\luckyCrypto\sweep_to_main.py", line 112, in transfer_usdc
-    if not verifyUserData(wallet):
-           ^^^^^^^^^^^^^^^^^^^^^^
-TypeError: verifyUserData() missing 2 required positional arguments: 'highest_index' and 'num_wallets'
-
-2025-07-08 19:52:49,058 - INFO - USDC sweep completed
-2025-07-08 19:53:19,749 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:42:18,689 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:42:18,689 - INFO -  * Restarting with stat
+2025-07-10 12:42:19,333 - WARNING -  * Debugger is active!
+2025-07-10 12:42:19,335 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:42:41,939 - INFO - Loaded 3 wallets from file
+2025-07-10 12:42:41,939 - INFO - Loaded 3 wallets from file
+2025-07-10 12:42:41,939 - INFO - Loading existing wallets
+2025-07-10 12:42:41,940 - INFO - Saving wallets securely...
+2025-07-10 12:42:41,940 - INFO - Enabled wallet for name: Nico Galli
+2025-07-10 12:42:41,940 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:42:41,940 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:42:41,940 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:42:46,192 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 19:53:19,751 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 19:53:19,751 - INFO -  * Restarting with stat
-2025-07-08 19:53:20,413 - WARNING -  * Debugger is active!
-2025-07-08 19:53:20,415 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 19:53:26,330 - INFO - Loaded 2 wallets from file
-2025-07-08 19:53:27,303 - INFO - 127.0.0.1 - - [08/Jul/2025 19:53:27] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:54:00,674 - INFO - 127.0.0.1 - - [08/Jul/2025 19:54:00] "GET / HTTP/1.1" 200 -
-2025-07-08 19:54:00,708 - INFO - 127.0.0.1 - - [08/Jul/2025 19:54:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-07-08 19:54:07,200 - INFO - Loaded 2 wallets from file
-2025-07-08 19:54:08,174 - INFO - 127.0.0.1 - - [08/Jul/2025 19:54:08] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 19:54:17,495 - INFO - Loaded 2 wallets from file
-2025-07-08 19:54:18,416 - INFO - 127.0.0.1 - - [08/Jul/2025 19:54:18] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 20:07:03,406 - INFO - Starting USDC sweep script
-2025-07-08 20:07:04,160 - INFO - Gathering wallets
-2025-07-08 20:07:04,160 - INFO - Loaded 2 wallets from file
-2025-07-08 20:07:04,176 - INFO - Found 1 valid and enabled wallets
-2025-07-08 20:07:04,176 - ERROR - Error processing wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: verifyUserData() missing 2 required positional arguments: 'highest_index' and 'num_wallets'
-2025-07-08 20:07:04,176 - ERROR - Traceback (most recent call last):
-  File "c:\Users\nicol\Documents\GitHub\luckyCrypto\sweep_to_main.py", line 112, in transfer_usdc
-    if not verifyUserData(wallet):
-           ^^^^^^^^^^^^^^^^^^^^^^
-TypeError: verifyUserData() missing 2 required positional arguments: 'highest_index' and 'num_wallets'
-
-2025-07-08 20:07:04,176 - INFO - USDC sweep completed
-2025-07-08 20:13:53,520 - INFO - Starting USDC sweep script
-2025-07-08 20:13:54,037 - INFO - Gathering wallets
-2025-07-08 20:13:54,037 - INFO - Loaded 2 wallets from file
-2025-07-08 20:13:54,037 - INFO - Found 1 valid and enabled wallets
-2025-07-08 20:13:54,769 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 3.000000 USDC
-2025-07-08 20:13:55,714 - WARNING - Retrying transfer for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D (attempt 1) due to error: 'SignedTransaction' object has no attribute 'rawTransaction'
-2025-07-08 20:13:56,717 - WARNING - Retrying transfer for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D (attempt 2) due to error: 'SignedTransaction' object has no attribute 'rawTransaction'
-2025-07-08 20:13:58,733 - ERROR - Failed to transfer from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D after 3 attempts: 'SignedTransaction' object has no attribute 'rawTransaction'
-2025-07-08 20:13:58,733 - INFO - USDC sweep completed
-2025-07-08 20:17:27,391 - INFO - Starting USDC sweep script
-2025-07-08 20:17:28,091 - INFO - Gathering wallets
-2025-07-08 20:17:28,100 - INFO - Loaded 2 wallets from file
-2025-07-08 20:17:28,100 - INFO - Found 1 valid and enabled wallets
-2025-07-08 20:17:28,853 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 3.000000 USDC
-2025-07-08 20:17:38,872 - INFO - Transferred 3.000000 USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x41eebB38301e8D06E44f135cBFEA876630E60e27. Tx: 4cb0a91c8d55c03e1e51cad11943ee6e2aaa8a82eb62103e11a0d3d639d14032
-2025-07-08 20:17:38,872 - INFO - USDC sweep completed
-2025-07-08 20:18:10,332 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:42:46,192 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:42:46,193 - INFO -  * Restarting with stat
+2025-07-10 12:42:46,861 - WARNING -  * Debugger is active!
+2025-07-10 12:42:46,863 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:42:51,076 - INFO - Loaded 3 wallets from file
+2025-07-10 12:42:52,079 - INFO - 127.0.0.1 - - [10/Jul/2025 12:42:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:45:41,840 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:45:41,901 - INFO -  * Restarting with stat
+2025-07-10 12:45:42,584 - WARNING -  * Debugger is active!
+2025-07-10 12:45:42,587 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:45:52,284 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:45:52,346 - INFO -  * Restarting with stat
+2025-07-10 12:45:53,008 - WARNING -  * Debugger is active!
+2025-07-10 12:45:53,010 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:45:59,517 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:45:59,571 - INFO -  * Restarting with stat
+2025-07-10 12:46:00,222 - WARNING -  * Debugger is active!
+2025-07-10 12:46:00,225 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:46:36,549 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:46:36,639 - INFO -  * Restarting with stat
+2025-07-10 12:46:37,317 - WARNING -  * Debugger is active!
+2025-07-10 12:46:37,319 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:46:43,836 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:46:43,896 - INFO -  * Restarting with stat
+2025-07-10 12:46:44,565 - WARNING -  * Debugger is active!
+2025-07-10 12:46:44,568 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:46:46,819 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:46:46,879 - INFO -  * Restarting with stat
+2025-07-10 12:46:47,539 - WARNING -  * Debugger is active!
+2025-07-10 12:46:47,541 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:47:17,460 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:47:17,519 - INFO -  * Restarting with stat
+2025-07-10 12:47:18,188 - WARNING -  * Debugger is active!
+2025-07-10 12:47:18,190 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:47:23,646 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:47:23,706 - INFO -  * Restarting with stat
+2025-07-10 12:47:24,375 - WARNING -  * Debugger is active!
+2025-07-10 12:47:24,377 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:47:51,141 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:47:51,196 - INFO -  * Restarting with stat
+2025-07-10 12:47:51,858 - WARNING -  * Debugger is active!
+2025-07-10 12:47:51,860 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:47:53,048 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:47:53,102 - INFO -  * Restarting with stat
+2025-07-10 12:47:53,755 - WARNING -  * Debugger is active!
+2025-07-10 12:47:53,757 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:47:54,949 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:47:55,005 - INFO -  * Restarting with stat
+2025-07-10 12:47:55,652 - WARNING -  * Debugger is active!
+2025-07-10 12:47:55,654 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:48:23,456 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:48:23,536 - INFO -  * Restarting with stat
+2025-07-10 12:48:24,190 - WARNING -  * Debugger is active!
+2025-07-10 12:48:24,192 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:49:30,338 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:49:30,396 - INFO -  * Restarting with stat
+2025-07-10 12:49:31,058 - WARNING -  * Debugger is active!
+2025-07-10 12:49:31,060 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:49:33,308 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:49:33,366 - INFO -  * Restarting with stat
+2025-07-10 12:49:34,016 - WARNING -  * Debugger is active!
+2025-07-10 12:49:34,018 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:49:36,269 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:49:36,328 - INFO -  * Restarting with stat
+2025-07-10 12:49:36,985 - WARNING -  * Debugger is active!
+2025-07-10 12:49:36,988 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:49:41,361 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:49:41,417 - INFO -  * Restarting with stat
+2025-07-10 12:49:42,074 - WARNING -  * Debugger is active!
+2025-07-10 12:49:42,075 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:49:48,579 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:49:48,633 - INFO -  * Restarting with stat
+2025-07-10 12:49:49,289 - WARNING -  * Debugger is active!
+2025-07-10 12:49:49,291 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:20,270 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:20,335 - INFO -  * Restarting with stat
+2025-07-10 12:50:21,000 - WARNING -  * Debugger is active!
+2025-07-10 12:50:21,002 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:22,183 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:22,245 - INFO -  * Restarting with stat
+2025-07-10 12:50:22,899 - WARNING -  * Debugger is active!
+2025-07-10 12:50:22,901 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:37,909 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:37,965 - INFO -  * Restarting with stat
+2025-07-10 12:50:38,616 - WARNING -  * Debugger is active!
+2025-07-10 12:50:38,618 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:51,500 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:51,558 - INFO -  * Restarting with stat
+2025-07-10 12:50:52,215 - WARNING -  * Debugger is active!
+2025-07-10 12:50:52,217 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:53,399 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:53,457 - INFO -  * Restarting with stat
+2025-07-10 12:50:54,121 - WARNING -  * Debugger is active!
+2025-07-10 12:50:54,122 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:55,308 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:55,362 - INFO -  * Restarting with stat
+2025-07-10 12:50:56,000 - WARNING -  * Debugger is active!
+2025-07-10 12:50:56,002 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:50:57,191 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:50:57,263 - INFO -  * Restarting with stat
+2025-07-10 12:50:57,928 - WARNING -  * Debugger is active!
+2025-07-10 12:50:57,929 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:04,433 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:51:04,490 - INFO -  * Restarting with stat
+2025-07-10 12:51:05,140 - WARNING -  * Debugger is active!
+2025-07-10 12:51:05,142 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:07,395 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:51:07,458 - INFO -  * Restarting with stat
+2025-07-10 12:51:08,110 - WARNING -  * Debugger is active!
+2025-07-10 12:51:08,112 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:10,361 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:51:10,413 - INFO -  * Restarting with stat
+2025-07-10 12:51:11,054 - WARNING -  * Debugger is active!
+2025-07-10 12:51:11,056 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:16,499 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:51:16,553 - INFO -  * Restarting with stat
+2025-07-10 12:51:17,211 - WARNING -  * Debugger is active!
+2025-07-10 12:51:17,213 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:30,122 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:51:30,177 - INFO -  * Restarting with stat
+2025-07-10 12:51:30,839 - WARNING -  * Debugger is active!
+2025-07-10 12:51:30,841 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:39,492 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 12:51:40,409 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 20:18:10,332 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 20:18:10,332 - INFO -  * Restarting with stat
-2025-07-08 20:18:12,827 - WARNING -  * Debugger is active!
-2025-07-08 20:18:12,832 - INFO -  * Debugger PIN: 584-074-894
-2025-07-08 20:18:15,219 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:15] "GET / HTTP/1.1" 200 -
-2025-07-08 20:18:15,604 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-07-08 20:18:19,605 - INFO - Loaded 2 wallets from file
-2025-07-08 20:18:21,078 - INFO - 127.0.0.1 - - [08/Jul/2025 20:18:21] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 20:57:53,232 - INFO - Loaded 2 wallets from file
-2025-07-08 20:57:55,329 - INFO - 127.0.0.1 - - [08/Jul/2025 20:57:55] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 21:29:14,663 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-07-10 12:51:40,409 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:51:40,410 - INFO -  * Restarting with stat
+2025-07-10 12:51:41,093 - WARNING -  * Debugger is active!
+2025-07-10 12:51:41,095 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:51:43,542 - INFO - Loaded 3 wallets from file
+2025-07-10 12:51:44,499 - INFO - 127.0.0.1 - - [10/Jul/2025 12:51:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:52:40,249 - INFO - Loaded 3 wallets from file
+2025-07-10 12:52:40,249 - INFO - Loaded 3 wallets from file
+2025-07-10 12:52:40,249 - INFO - Loading existing wallets
+2025-07-10 12:52:40,823 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-10 12:52:40,823 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-10 12:52:41,116 - INFO - Transferring ETH from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
+2025-07-10 12:52:41,197 - INFO - Source wallet balance: 2567953549699980 wei (0.002568 ETH)
+2025-07-10 12:52:41,446 - INFO - Gas price: 3.20 Gwei (base: 3.20, priority: 0.00)
+2025-07-10 12:52:41,682 - INFO - Gas limit: 21000, Gas cost: 0.000067 ETH
+2025-07-10 12:52:41,682 - ERROR - Error during ETH transfer: unsupported operand type(s) for +: 'float' and 'decimal.Decimal'
+2025-07-10 12:52:41,682 - INFO - Disabled wallet for email: None
+2025-07-10 12:52:41,682 - INFO - Saving wallets securely...
+2025-07-10 12:52:41,683 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-10 12:52:41,684 - INFO - Loaded 3 wallets from file
+2025-07-10 12:52:41,684 - INFO - Loading existing wallets
+2025-07-10 12:52:41,684 - INFO - Saving wallets securely...
+2025-07-10 12:52:41,684 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-10 12:52:41,684 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:52:41,684 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:52:41,684 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:53:49,740 - INFO - Loaded 3 wallets from file
+2025-07-10 12:53:49,741 - INFO - Loaded 3 wallets from file
+2025-07-10 12:53:49,741 - INFO - Loading existing wallets
+2025-07-10 12:53:50,311 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-10 12:53:50,312 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-10 12:53:50,613 - INFO - Transferring ETH from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
+2025-07-10 12:53:50,696 - INFO - Source wallet balance: 2567953549699980 wei (0.002568 ETH)
+2025-07-10 12:53:50,938 - INFO - Gas price: 3.04 Gwei (base: 3.04, priority: 0.00)
+2025-07-10 12:53:51,176 - INFO - Gas limit: 21000, Gas cost: 0.000064 ETH
+2025-07-10 12:53:51,176 - INFO - Transferring 0.002504 ETH to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
+2025-07-10 12:53:51,775 - INFO - ETH transfer sent: 2070545c4ac62bdda65fddafe5287a1878554ebb60ce3a1e4954f31ffe2390e9, transferring 0.002504 ETH with gas price 3.04 Gwei
+2025-07-10 12:53:51,775 - INFO - Transferred ETH from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to Kraken wallet before disabling
+2025-07-10 12:53:51,775 - INFO - Disabled wallet for email: None
+2025-07-10 12:53:51,775 - INFO - Saving wallets securely...
+2025-07-10 12:53:51,776 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-10 12:53:51,776 - INFO - Loaded 3 wallets from file
+2025-07-10 12:53:51,776 - INFO - Loading existing wallets
+2025-07-10 12:53:51,776 - INFO - Saving wallets securely...
+2025-07-10 12:53:51,777 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-10 12:53:51,777 - INFO - Wallet: 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Ashton Hulsey (cgservicesofficial@gmail.com) - Nickname:Wallet#0 
+2025-07-10 12:53:51,777 - INFO - Wallet: 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 - Nico Galli (Nickman@gmail.com) - Nickname:Wallet#1 
+2025-07-10 12:53:51,777 - INFO - Wallet: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - test1 (test@test.com) - Nickname:Wallet#2 
+2025-07-10 12:54:18,678 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-07-08 21:29:14,663 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 21:29:14,664 - INFO -  * Restarting with stat
-2025-07-08 21:29:15,350 - WARNING -  * Debugger is active!
-2025-07-08 21:29:15,353 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 21:29:16,619 - INFO - Loaded 2 wallets from file
-2025-07-08 21:29:17,593 - INFO - 127.0.0.1 - - [08/Jul/2025 21:29:17] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 21:33:35,267 - INFO - Loaded 2 wallets from file
-2025-07-08 21:33:36,206 - INFO - 127.0.0.1 - - [08/Jul/2025 21:33:36] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 21:35:39,201 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
-2025-07-08 21:35:39,273 - INFO -  * Restarting with stat
-2025-07-08 21:35:39,945 - WARNING -  * Debugger is active!
-2025-07-08 21:35:39,947 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 21:35:48,591 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
-2025-07-08 21:35:48,667 - INFO -  * Restarting with stat
-2025-07-08 21:35:49,368 - WARNING -  * Debugger is active!
-2025-07-08 21:35:49,370 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 21:36:02,349 - INFO - Starting USDC sweep script
-2025-07-08 21:36:02,660 - INFO - Gathering wallets
-2025-07-08 21:36:02,663 - INFO - Loaded 2 wallets from file
-2025-07-08 21:36:02,663 - INFO - Found 1 valid and enabled wallets
-2025-07-08 21:36:03,124 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 10.100000 USDC
-2025-07-08 21:36:23,974 - INFO - Transferred 10.100000 USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x41eebB38301e8D06E44f135cBFEA876630E60e27. Tx: ebebbfb1c2dfac32e320f16f8862f0e83c15bb80fdd05ff8fab609b47c1aad84
-2025-07-08 21:36:23,974 - INFO - USDC sweep completed
-2025-07-08 21:37:07,342 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2025-07-08 21:37:07,342 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 21:37:07,343 - INFO -  * Restarting with stat
-2025-07-08 21:37:08,063 - WARNING -  * Debugger is active!
-2025-07-08 21:37:08,066 - INFO -  * Debugger PIN: 752-584-554
-2025-07-08 21:37:11,830 - INFO - Loaded 2 wallets from file
-2025-07-08 21:37:12,808 - INFO - 127.0.0.1 - - [08/Jul/2025 21:37:12] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:18:23,433 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2025-07-08 23:18:23,434 - INFO - [33mPress CTRL+C to quit[0m
-2025-07-08 23:18:23,439 - INFO -  * Restarting with stat
-2025-07-08 23:18:25,928 - WARNING -  * Debugger is active!
-2025-07-08 23:18:25,934 - INFO -  * Debugger PIN: 107-621-425
-2025-07-08 23:18:26,166 - INFO - 127.0.0.1 - - [08/Jul/2025 23:18:26] "GET / HTTP/1.1" 200 -
-2025-07-08 23:18:34,359 - INFO - Loaded 2 wallets from file
-2025-07-08 23:18:34,360 - INFO - 127.0.0.1 - - [08/Jul/2025 23:18:34] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:19:37,727 - INFO - Loaded 2 wallets from file
-2025-07-08 23:19:39,307 - INFO - 127.0.0.1 - - [08/Jul/2025 23:19:39] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:19:48,838 - INFO - Loaded 2 wallets from file
-2025-07-08 23:19:48,840 - INFO - 127.0.0.1 - - [08/Jul/2025 23:19:48] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:21:02,430 - INFO - Generating wallets...
-2025-07-08 23:21:02,430 - INFO - Loading existing wallets
-2025-07-08 23:21:02,431 - INFO - Appending 1 new wallets starting at address_index 2
-2025-07-08 23:21:02,519 - INFO - Generated new wallet with address_index 2: 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb
-2025-07-08 23:21:02,520 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:02] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:21:05,072 - INFO - Loaded 3 wallets from file
-2025-07-08 23:21:05,072 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:05] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:21:34,550 - INFO - Loaded 3 wallets from file
-2025-07-08 23:21:35,541 - INFO - USDC balance (0.0) is less than $1, skipping transfer
-2025-07-08 23:21:35,542 - INFO - Transferred USDC from 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb to master wallet before disabling
-2025-07-08 23:21:35,542 - INFO - Disabled wallet for email: None
-2025-07-08 23:21:35,542 - INFO - Disabled wallet for name: test1
-2025-07-08 23:21:35,543 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:35] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:21:37,733 - INFO - Loaded 3 wallets from file
-2025-07-08 23:21:37,733 - INFO - 127.0.0.1 - - [08/Jul/2025 23:21:37] "POST /api/action HTTP/1.1" 200 -
-2025-07-08 23:30:02,556 - INFO - Loaded 3 wallets from file
-2025-07-08 23:30:04,418 - INFO - 127.0.0.1 - - [08/Jul/2025 23:30:04] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:54:18,678 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 12:54:18,679 - INFO -  * Restarting with stat
+2025-07-10 12:54:19,336 - WARNING -  * Debugger is active!
+2025-07-10 12:54:19,338 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:54:22,462 - INFO - Loaded 3 wallets from file
+2025-07-10 12:54:23,448 - INFO - 127.0.0.1 - - [10/Jul/2025 12:54:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:55:11,741 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:55:11,800 - INFO -  * Restarting with stat
+2025-07-10 12:55:12,477 - WARNING -  * Debugger is active!
+2025-07-10 12:55:12,479 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:55:17,938 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:55:18,006 - INFO -  * Restarting with stat
+2025-07-10 12:55:18,704 - WARNING -  * Debugger is active!
+2025-07-10 12:55:18,706 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 12:55:20,087 - INFO - Loaded 3 wallets from file
+2025-07-10 12:55:21,041 - INFO - 127.0.0.1 - - [10/Jul/2025 12:55:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 12:58:34,849 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\funcs.py', reloading
+2025-07-10 12:58:34,910 - INFO -  * Restarting with stat
+2025-07-10 12:58:35,630 - WARNING -  * Debugger is active!
+2025-07-10 12:58:35,632 - INFO -  * Debugger PIN: 659-786-708
