@@ -9,7 +9,7 @@ import krakenex
 
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances
+from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances, get_mnemonic
 
 from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
@@ -130,6 +130,15 @@ async def action():
            return jsonify({"result": "Gas refill operation started"}), 200
        except Exception as e:
            return jsonify({"result": f"An internal error occurred during gas refill: {str(e)}"}), 500
+    elif button_clicked == "get_mnemonic":
+        try:
+            mnemonic = get_mnemonic()
+            if mnemonic:
+                return jsonify({"result": f"--- {str(mnemonic)} ---"})
+            else:
+                return jsonify({"result": "No mnemonic found."})
+        except Exception as e:
+            return jsonify({"result": f"An internal error occurred: {str(e)}"})
     return jsonify({"result": "Undefined Action"}), 400
 
 

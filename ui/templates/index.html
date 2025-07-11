@@ -78,6 +78,7 @@
     <button class="btn btn-outline-success" onclick="showForm(event, 'refill_gas')">Refill Gas</button>
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'list_all')">List All Wallets</button>
     <button class="btn btn-outline-primary" onclick="showForm(event, 'list_all_balances')">List Wallets With Balances</button>
+    <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'get_mnemonic')">Get Mnemonic</button>
     <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'delete')">Delete (disable) Wallet</button>
     <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search Wallet</button>
   </div>
@@ -194,6 +195,8 @@
         scopeSelectGroup.classList.remove('d-none');
         actionDesc.textContent = "This action will refill gas for the selected wallets. This will take a while to execute.";
         break;
+      case 'get_mnemonic':
+        action.Desc.textContent = "This action will return the mnemonic used to create the wallets.";
     }
   }
 

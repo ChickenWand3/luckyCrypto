@@ -336,3 +336,44 @@
 2025-07-10 12:58:34,910 - INFO -  * Restarting with stat
 2025-07-10 12:58:35,630 - WARNING -  * Debugger is active!
 2025-07-10 12:58:35,632 - INFO -  * Debugger PIN: 659-786-708
+2025-07-10 23:36:33,579 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-10 23:36:33,579 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-10 23:36:33,589 - INFO -  * Restarting with stat
+2025-07-10 23:36:36,476 - WARNING -  * Debugger is active!
+2025-07-10 23:36:36,492 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:36:39,070 - INFO - 127.0.0.1 - - [10/Jul/2025 23:36:39] "GET / HTTP/1.1" 200 -
+2025-07-10 23:38:31,142 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:38:31,325 - INFO -  * Restarting with stat
+2025-07-10 23:38:34,509 - WARNING -  * Debugger is active!
+2025-07-10 23:38:34,509 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:39:15,606 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:39:15,931 - INFO -  * Restarting with stat
+2025-07-10 23:39:18,679 - WARNING -  * Debugger is active!
+2025-07-10 23:39:18,679 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:40:44,841 - INFO - 127.0.0.1 - - [10/Jul/2025 23:40:44] "GET / HTTP/1.1" 200 -
+2025-07-10 23:40:50,988 - INFO - 127.0.0.1 - - [10/Jul/2025 23:40:50] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 23:41:20,260 - INFO - 127.0.0.1 - - [10/Jul/2025 23:41:20] "GET / HTTP/1.1" 200 -
+2025-07-10 23:41:23,554 - INFO - 127.0.0.1 - - [10/Jul/2025 23:41:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 23:41:48,807 - INFO -  * Detected change in 'C:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:41:48,992 - INFO -  * Restarting with stat
+2025-07-10 23:41:51,710 - WARNING -  * Debugger is active!
+2025-07-10 23:41:51,710 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:43:11,742 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:43:11,905 - INFO -  * Restarting with stat
+2025-07-10 23:43:14,259 - WARNING -  * Debugger is active!
+2025-07-10 23:43:14,275 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:43:47,454 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:43:47,623 - INFO -  * Restarting with stat
+2025-07-10 23:43:50,273 - WARNING -  * Debugger is active!
+2025-07-10 23:43:50,283 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:44:00,509 - INFO -  * Detected change in 'C:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:44:00,708 - INFO -  * Restarting with stat
+2025-07-10 23:44:03,357 - WARNING -  * Debugger is active!
+2025-07-10 23:44:03,361 - INFO -  * Debugger PIN: 584-074-894
+2025-07-10 23:44:08,023 - INFO - Loading existing wallets
+2025-07-10 23:44:08,023 - INFO - 127.0.0.1 - - [10/Jul/2025 23:44:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-10 23:44:32,807 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-10 23:44:32,975 - INFO -  * Restarting with stat
+2025-07-10 23:44:35,688 - WARNING -  * Debugger is active!
+2025-07-10 23:44:35,698 - INFO -  * Debugger PIN: 584-074-894
