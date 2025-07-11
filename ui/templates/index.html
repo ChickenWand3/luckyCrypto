@@ -29,6 +29,11 @@
       box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.5);
       font-weight: bold;
     }
+    #actionButtons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem; /* vertical and horizontal spacing between buttons */
+    }
   </style>
 </head>
 <body class="p-4">
@@ -81,7 +86,7 @@
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'get_mnemonic')">Get Mnemonic</button>
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'read_logs')">Read Recent Logs</button>
     <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'delete')">Delete (disable) Wallet</button>
-    <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search Wallet</button>
+    <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search For Wallet</button>
   </div>
 
   <!-- Dynamic action description -->

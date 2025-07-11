@@ -14,6 +14,12 @@ from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet,
 from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
 
+# TODO
+# Add enable button/functionality
+# Add edit button/functionality
+# Display sum of totals in list balances (js side)
+# Add get status of operation for sweep to main and refill gas
+
 app = Flask(__name__)
 
 async def sweep_to_main_async():
