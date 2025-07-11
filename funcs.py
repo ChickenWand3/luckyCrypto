@@ -430,6 +430,61 @@ def enable_wallet(wallet_email, wallet_name, wallets_file="wallets.enc", key_fil
     logging.info(f"No valid matching wallet found for email: {wallet_email} or name: {wallet_name}")
     return False #Couldn't find wallet
 
+
+class CustomFileReader:
+    def __init__(self, file_path, mode='rb', encoding='utf-8'):
+        self.file_path = file_path
+        self.mode = mode
+        self.encoding = encoding
+        self.file = None
+
+    def __enter__(self):
+        if 'b' in self.mode:
+            self.file = open(self.file_path, self.mode)  # Binary mode: no encoding
+        else:
+            self.file = open(self.file_path, self.mode, encoding=self.encoding)  # Text mode
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file:
+            self.file.close()
+
+    def read(self):
+        return self.file.read()
+
+    def readline(self):
+        return self.file.readline()
+
+    def readlines(self):
+        return self.file.readlines()
+    
+    def read_last_n_lines(self, n):
+        # If n is more than number of lines total, it will return all lines
+        if self.file:
+            # Go to end of file
+            self.file.seek(0, 2)
+
+            # Get position
+            pos = self.file.tell()
+            # Initialize num lines, result lines
+            num_lines = 0
+            result_lines = []
+            while pos > 0: # While not at beginning of file (prevent going backwards too far)
+                # Move position of file pointer backwards and read 1 byte. Compare is newline
+                pos -= 1
+                self.file.seek(pos)
+                if self.file.read(1) == b'\n':
+                    num_lines += 1
+                    if num_lines == n: # If we reached our goal of going back n lines, return the lines decoded. File must be opened in binary mode
+                        for line in self.readlines():
+                                result_lines.append(line.decode())
+                        return result_lines
+        else:
+            return None
+def read_last_n_lines(num_lines: int, file_name="usdc_transfer.log"):
+    with CustomFileReader(file_name, "rb") as f:
+        return f.read_last_n_lines(num_lines)
+
 # Schedule transfers
 def main():
     # Set up logging

@@ -9,7 +9,7 @@ import krakenex
 
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances, get_mnemonic
+from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances, get_mnemonic, read_last_n_lines
 
 from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
@@ -139,6 +139,16 @@ async def action():
                 return jsonify({"result": "No mnemonic found."})
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"})
+    elif button_clicked == "read_logs":
+        try:
+            num_lines = 250
+            lines = read_last_n_lines(num_lines)
+            if lines:
+                return jsonify({"result": lines[::-1]}) # Reverse list so that most recent is on top
+            else:
+                return jsonify({"result": "No logs found."})
+        except Exception as e:
+            return jsonify({"result": f"Internal error occurred: {str(e)}"})
     return jsonify({"result": "Undefined Action"}), 400
 
 

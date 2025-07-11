@@ -79,6 +79,7 @@
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'list_all')">List All Wallets</button>
     <button class="btn btn-outline-primary" onclick="showForm(event, 'list_all_balances')">List Wallets With Balances</button>
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'get_mnemonic')">Get Mnemonic</button>
+    <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'read_logs')">Read Recent Logs</button>
     <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'delete')">Delete (disable) Wallet</button>
     <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search Wallet</button>
   </div>
@@ -197,6 +198,8 @@
         break;
       case 'get_mnemonic':
         action.Desc.textContent = "This action will return the mnemonic used to create the wallets.";
+      case 'read_logs':
+        action.Desc.textContent = "This action will return the last 250 logs from the wallets' actions."
     }
   }
 
@@ -307,7 +310,22 @@
     .then(data => {
       if (Array.isArray(data.result)) {
         // If result is an array, render as table
-        resultDiv.innerHTML = renderTable(data.result);
+        if (currentAction !== "read_logs") {
+        resultDiv.innerHTML = renderTable(data.result); }
+        else {
+          // For read_logs, show each line as a <pre> block in a table row
+          const logRows = data.result.map(line => `
+            <tr><td style="white-space: pre-wrap; font-family: monospace;">${escapeHtml(String(line))}</td></tr>
+          `).join('');
+          
+          resultDiv.innerHTML = `
+            <div class="table-responsive">
+              <table class="table table-dark table-striped table-hover">
+                <tbody>${logRows}</tbody>
+              </table>
+            </div>
+          `;
+        }
       } else {
         // Otherwise just show text
         resultDiv.textContent = "✅ Server response: " + data.result;
