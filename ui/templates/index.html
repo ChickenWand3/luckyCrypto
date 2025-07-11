@@ -79,6 +79,7 @@
   <!-- Action buttons -->
   <div class="mb-3" id="actionButtons">
     <button class="btn btn-outline-success me-2" onclick="showForm(event, 'generate')">Generate New Wallet</button>
+    <button class="btn btn-outline-success me-2" onclick="showForm(event, 'enable')">Re-Enable Wallet</button>
     <button class="btn btn-outline-success" onclick="showForm(event, 'force_sweep')">Sweep Wallets To Main Now</button>
     <button class="btn btn-outline-success" onclick="showForm(event, 'refill_gas')">Refill Gas</button>
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'list_all')">List All Wallets</button>
@@ -181,6 +182,10 @@
       case 'generate':
         extraInputs.classList.remove('d-none');
         break;
+      case 'enable':
+        selectInputGroup.classList.remove('d-none');
+        updateSearchPlaceholder();
+        break;
       case 'delete':
       case 'search_one':
         selectInputGroup.classList.remove('d-none');
@@ -228,7 +233,7 @@
       return showValidationError();
     }
 
-    if ((currentAction === 'delete' || currentAction === 'search_one') && !userInput) {
+    if ((currentAction === 'delete' || currentAction === 'search_one' || currentAction === 'enable') && !userInput) {
       return showValidationError();
     }
 
@@ -298,7 +303,7 @@
   } else if (currentAction === 'delete') {
     payload.searchType = pendingInput?.searchType || 'name';
     payload.value = pendingInput?.value || '';
-  } else if (currentAction === 'search_one') {
+  } else if (currentAction === 'search_one' || currentAction === 'enable') {
     payload[pendingSearchType] = document.getElementById('userInput').value.trim();
   } else if (currentAction === 'list_all' || currentAction === 'list_all_balances') {
     payload.scope = document.getElementById('scopeSelect').value;

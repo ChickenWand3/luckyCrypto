@@ -431,3 +431,69 @@
 2025-07-11 00:20:24,049 - INFO - 127.0.0.1 - - [11/Jul/2025 00:20:24] "GET / HTTP/1.1" 200 -
 2025-07-11 00:20:26,243 - INFO - 127.0.0.1 - - [11/Jul/2025 00:20:26] "POST /api/action HTTP/1.1" 200 -
 2025-07-11 00:21:09,357 - INFO - 127.0.0.1 - - [11/Jul/2025 00:21:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-11 16:30:32,969 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-11 16:30:32,971 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-11 16:30:32,974 - INFO -  * Restarting with stat
+2025-07-11 16:30:36,028 - WARNING -  * Debugger is active!
+2025-07-11 16:30:36,028 - INFO -  * Debugger PIN: 584-074-894
+2025-07-11 16:30:38,432 - INFO - 127.0.0.1 - - [11/Jul/2025 16:30:38] "GET / HTTP/1.1" 200 -
+2025-07-11 16:30:38,542 - INFO - 127.0.0.1 - - [11/Jul/2025 16:30:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-11 16:30:49,564 - INFO - 127.0.0.1 - - [11/Jul/2025 16:30:49] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-11 16:33:45,207 - INFO - 127.0.0.1 - - [11/Jul/2025 16:33:45] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-11 16:33:50,676 - INFO - 127.0.0.1 - - [11/Jul/2025 16:33:50] "GET / HTTP/1.1" 200 -
+2025-07-11 16:33:55,763 - INFO - 127.0.0.1 - - [11/Jul/2025 16:33:55] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-11 16:38:20,977 - INFO - 127.0.0.1 - - [11/Jul/2025 16:38:20] "GET / HTTP/1.1" 200 -
+2025-07-11 16:38:34,220 - INFO - 127.0.0.1 - - [11/Jul/2025 16:38:34] "GET / HTTP/1.1" 200 -
+2025-07-11 16:38:39,611 - INFO - 127.0.0.1 - - [11/Jul/2025 16:38:39] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-11 16:42:33,980 - INFO - Loaded 3 wallets from file
+2025-07-11 16:42:33,980 - INFO - No wallets found matching search criteria
+2025-07-11 16:42:33,982 - INFO - 127.0.0.1 - - [11/Jul/2025 16:42:33] "[33mPOST /api/action HTTP/1.1[0m" 404 -
+2025-07-11 16:42:59,498 - INFO - 127.0.0.1 - - [11/Jul/2025 16:42:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-11 16:45:39,620 - INFO - Loaded 3 wallets from file
+2025-07-11 16:45:39,620 - INFO - No wallets found matching search criteria
+2025-07-11 16:45:39,620 - INFO - 127.0.0.1 - - [11/Jul/2025 16:45:39] "[33mPOST /api/action HTTP/1.1[0m" 404 -
+2025-07-11 16:48:03,292 - INFO - 127.0.0.1 - - [11/Jul/2025 16:48:03] "GET / HTTP/1.1" 200 -
+2025-07-11 16:48:03,414 - INFO - 127.0.0.1 - - [11/Jul/2025 16:48:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-11 16:48:08,734 - INFO - 127.0.0.1 - - [11/Jul/2025 16:48:08] "[31m[1mPOST /api/action HTTP/1.1[0m" 400 -
+2025-07-11 16:49:50,458 - INFO -  * Detected change in 'C:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-11 16:49:50,692 - INFO -  * Restarting with stat
+2025-07-11 16:49:55,490 - WARNING -  * Debugger is active!
+2025-07-11 16:49:55,490 - INFO -  * Debugger PIN: 584-074-894
+2025-07-11 16:50:13,108 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-11 16:50:13,351 - INFO -  * Restarting with stat
+2025-07-11 16:50:15,944 - WARNING -  * Debugger is active!
+2025-07-11 16:50:15,944 - INFO -  * Debugger PIN: 584-074-894
+2025-07-11 16:50:24,721 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-11 16:50:24,916 - INFO -  * Restarting with stat
+2025-07-11 16:50:27,164 - WARNING -  * Debugger is active!
+2025-07-11 16:50:27,182 - INFO -  * Debugger PIN: 584-074-894
+2025-07-11 16:50:38,364 - INFO - 127.0.0.1 - - [11/Jul/2025 16:50:38] "GET / HTTP/1.1" 200 -
+2025-07-11 16:50:38,421 - INFO - 127.0.0.1 - - [11/Jul/2025 16:50:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-11 16:50:43,186 - INFO - Loaded 3 wallets from file
+2025-07-11 16:50:43,186 - INFO - Loading existing wallets
+2025-07-11 16:50:43,186 - INFO - No valid matching wallet found for email: None or name: 123
+2025-07-11 16:50:43,195 - INFO - 127.0.0.1 - - [11/Jul/2025 16:50:43] "[33mPOST /api/action HTTP/1.1[0m" 404 -
+2025-07-11 16:50:51,004 - INFO - Loaded 3 wallets from file
+2025-07-11 16:50:51,004 - INFO - 127.0.0.1 - - [11/Jul/2025 16:50:51] "POST /api/action HTTP/1.1" 200 -
+2025-07-11 16:50:59,061 - INFO - 127.0.0.1 - - [11/Jul/2025 16:50:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-11 16:50:59,387 - INFO - 127.0.0.1 - - [11/Jul/2025 16:50:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-11 16:51:36,874 - INFO - Loaded 3 wallets from file
+2025-07-11 16:51:36,874 - INFO - Loading existing wallets
+2025-07-11 16:51:36,874 - INFO - Saving wallets securely...
+2025-07-11 16:51:36,881 - INFO - Enabled wallet for name: test1
+2025-07-11 16:51:36,884 - INFO - 127.0.0.1 - - [11/Jul/2025 16:51:36] "POST /api/action HTTP/1.1" 200 -
+2025-07-11 16:51:41,791 - INFO - Loaded 3 wallets from file
+2025-07-11 16:51:41,791 - INFO - 127.0.0.1 - - [11/Jul/2025 16:51:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-11 16:51:50,911 - INFO - Loaded 3 wallets from file
+2025-07-11 16:51:50,911 - INFO - Loading existing wallets
+2025-07-11 16:51:51,741 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-11 16:51:51,741 - INFO - Transferred USDC from 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb to master wallet before disabling
+2025-07-11 16:51:52,143 - INFO - Transferring ETH from 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D
+2025-07-11 16:51:52,254 - INFO - Source wallet balance: 0 wei (0.000000 ETH)
+2025-07-11 16:51:52,254 - INFO - No ETH to transfer from 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb
+2025-07-11 16:51:52,254 - INFO - Transferred ETH from 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb to other wallet before disabling
+2025-07-11 16:51:52,254 - INFO - Disabled wallet for email: None
+2025-07-11 16:51:52,254 - INFO - Saving wallets securely...
+2025-07-11 16:51:52,254 - INFO - Disabled wallet for name: test1
+2025-07-11 16:51:52,254 - INFO - 127.0.0.1 - - [11/Jul/2025 16:51:52] "POST /api/action HTTP/1.1" 200 -

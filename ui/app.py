@@ -9,16 +9,16 @@ import krakenex
 
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, jsonify_walletBalances, get_mnemonic, read_last_n_lines
+from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, enable_wallet, jsonify_walletBalances, get_mnemonic, read_last_n_lines
 
 from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
 
 # TODO
-# Add enable button/functionality
+# Add enable button/functionality - Done
 # Add edit button/functionality
-# Display sum of totals in list balances (js side)
-# Add get status of operation for sweep to main and refill gas
+# Display sum of totals in list balances (js side) 
+# Add get status of operation for sweep to main and refill gas 
 
 app = Flask(__name__)
 
@@ -89,6 +89,19 @@ async def action():
                 return jsonify({"result": "Wallet disabled successfully"}), 200
             else:
                 return jsonify({"result": "No matching wallet found to disable"}), 404
+        except Exception as e:
+            return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
+    elif button_clicked == "enable":
+        name = data.get('name', None)
+        email = data.get('email', None)
+        if not name and not email:
+            return jsonify({"result": "At least one of name or email is required for deletion"}), 400
+        try:
+            enabled = enable_wallet(wallet_email=email, wallet_name=name)
+            if enabled:
+                return jsonify({"result": "Wallet enabled successfully"}), 200
+            else:
+                return jsonify({"result": "No matching wallet found to enable"}), 404
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "list_all":
