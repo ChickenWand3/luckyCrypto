@@ -24,10 +24,10 @@ def log_transaction(transaction_data):
         # Assuming transaction_data is a dict like: {"amount": 100.50, "recipient": "John Doe", "status": "Success"}
         row = [
             datetime.datetime.now().isoformat(),  # Timestamp
-            transaction_data.get("amount", ""),
             transaction_data.get("recipient", ""),
-            transaction_data.get("status", ""),
-            transaction_data.get("transaction_id", "")  # Optional: add more fields as needed
+            transaction_data.get("email", ""),
+            transaction_data.get("address", ""),
+            transaction_data.get("amount", "")
         ]
 
         # Append the row to the Google Sheet
@@ -41,10 +41,10 @@ def log_transaction(transaction_data):
 if __name__ == "__main__":
     # Example transaction data from your payment program
     sample_transaction = {
-        "amount": 100.50,
         "recipient": "John Doe",
-        "status": "Success",
-        "transaction_id": "TXN123456"
+        "email": "johndoe@gmail.com",
+        "address": "0x1234567890abcdef1234567890abcdef12345678",
+        "amount": 1300.50
     }
 
     log_transaction(sample_transaction)
