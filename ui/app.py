@@ -17,7 +17,7 @@ from sweep_to_main import main as sweep_to_main
 # TODO
 # Add enable button/functionality - Done
 # Add edit button/functionality
-# Display sum of totals in list balances (js side) 
+# Display sum of totals in list balances (js side) - Done
 # Add get status of operation for sweep to main and refill gas 
 
 app = Flask(__name__)

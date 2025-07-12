@@ -319,8 +319,18 @@
     .then(res => res.json())
     .then(data => {
       if (Array.isArray(data.result)) {
-        // If result is an array, render as table
-        if (currentAction !== "read_logs") {
+        if (currentAction === "list_all_balances") {
+          const totals = calculateTotals(data.result);
+          resultDiv.innerHTML = `
+            <div class="mb-3">
+              <h5>Totals:</h5>
+              <p><strong>ETH:</strong> ${totals.eth.toFixed(6)}<br>
+                 <strong>USDC:</strong> ${totals.usdc.toFixed(2)}</p>
+            </div>
+            ${renderTable(data.result)}
+          `;
+        } 
+        else if (currentAction !== "read_logs") {
         resultDiv.innerHTML = renderTable(data.result); }
         else {
           // For read_logs, show each line as a <pre> block in a table row
@@ -449,6 +459,23 @@ function escapeHtml(text) {
       "'": '&#39;'
     })[m];
   });
+}
+
+function calculateTotals(dataArray) {
+  let totalEth = 0;
+  let totalUsdc = 0;
+
+  for (const item of dataArray) {
+    const eth = parseFloat(item.eth) || 0;
+    const usdc = parseFloat(item.usdc) || 0;
+    totalEth += eth;
+    totalUsdc += usdc;
+  }
+
+  return {
+    eth: totalEth,
+    usdc: totalUsdc
+  };
 }
 </script>
 
