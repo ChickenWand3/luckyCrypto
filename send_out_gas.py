@@ -96,6 +96,7 @@ def refillGas():
                     logging.error(f"Failed to initiate gas transfer to {wallet['address']}")
                 # Avoid rate limiting
                 time.sleep(2)
+    return True # If successful
 
 if __name__ == "__main__":
     refillGas()
