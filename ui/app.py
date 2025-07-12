@@ -15,21 +15,40 @@ from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
 
 # TODO
-# Add enable button/functionality - Done
 # Add edit button/functionality
-# Display sum of totals in list balances (js side) - Done
-# Add get status of operation for sweep to main and refill gas 
-
 app = Flask(__name__)
 
-async def sweep_to_main_async():
-    return await sweep_to_main()
-def run_refill_gas_async():
+operation_status = "Uninitialized"
+
+
+def sweep_to_main_async():
+    global operation_status
+    operation_status = "Started Sweeping To Main"
     try:
-        refillGas()
-        logging.info("Gas refill completed.")
+        sweep = sweep_to_main()
+        if sweep:
+            logging.info("Sweeping of wallets completed.")
+            operation_status = "Finished Sweeping To Main"
+        else:
+            logging.info("Sweeping of wallets failed!")
+            operation_status = "Error sweeping to main!"
+    except Exception as e:
+        logging.error(f"Error sweeping to main: {str(e)}")
+        operation_status = f"Internal Error During Sweep To Main: {str(e)}"
+def run_refill_gas_async():
+    global operation_status
+    operation_status = "Started Refilling Gas"
+    try:
+        refill = refillGas()
+        if refill:
+            logging.info("Gas refill completed.")
+            operation_status = "Finished Refilling Gas Successfully"
+        else:
+            logging.info("Gas refill failed!")
+            operation_status = "Error Refilling Gas!"
     except Exception as e:
         logging.error(f"Error during refillGas: {str(e)}")
+        operation_status = f"Internal Error During Refill Gas: {str(e)}"
 
 
 @app.route('/')
@@ -120,11 +139,9 @@ async def action():
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "force_sweep":
         try:
-            swept = await sweep_to_main_async()
-            if swept:
-                return jsonify({"result": "Sweep operation completed successfully"}), 200
-            else:
-                return jsonify({"result": "Sweep operation failed"}), 500
+            thread = threading.Thread(target=sweep_to_main_async)
+            thread.start()
+            return jsonify({"result": "Sweep wallets to main wallet operation started."}), 200
         except Exception as e:
             return jsonify({"result": f"An internal error occurred during sweep: {str(e)}"}), 500
     elif button_clicked == "list_all_balances":
@@ -170,6 +187,15 @@ async def action():
             return jsonify({"result": f"Internal error occurred: {str(e)}"})
     return jsonify({"result": "Undefined Action"}), 400
 
+@app.route('/api/status', methods=['GET'])
+def status():
+    global operation_status
+    if "finished" in operation_status.lower() or "error" in operation_status.lower(): # If done, reset
+        operation_status_copy = operation_status
+        operation_status = "Uninitialized"
+        return jsonify({"result": f"Status: {operation_status_copy}"})
+    else:
+        return jsonify({"result": f"Status: {operation_status}"})
 
 if __name__ == '__main__':
     # Set up logging
