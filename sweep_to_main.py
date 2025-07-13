@@ -9,6 +9,10 @@ from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
 from funcs import get_wallets, verifyUserData
 
+import gspread
+from google.oauth2.service_account import Credentials
+import datetime
+
 
 # This script sweeps USDC from many individual wallets to a master wallet.
 # To be ran at 12:00 midnight PST every day using a cron job
@@ -16,6 +20,40 @@ from funcs import get_wallets, verifyUserData
 # Set up logging
 logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+# Define the scope and load credentials
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+CREDS_FILE = "credentials.json"
+SHEET_ID = "1UjPoBYo40jJEtRU8wkZxeawonxccuXjypuR0-Iayr4o"  # Found in the Google Sheet URL: https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit
+SHEET_NAME = "Transactions"  # Name of the worksheet in your Google Sheet
+
+def log_transaction(transaction_data):
+    try:
+        # Authenticate with Google Sheets API
+        creds = Credentials.from_service_account_file(CREDS_FILE, scopes=SCOPES)
+        client = gspread.authorize(creds)
+
+        # Open the Google Sheet
+        spreadsheet = client.open_by_key(SHEET_ID)
+        worksheet = spreadsheet.worksheet(SHEET_NAME)
+
+        # Prepare transaction data (example format)
+        # Assuming transaction_data is a dict like: {"amount": 100.50, "recipient": "John Doe", "status": "Success"}
+        row = [
+            datetime.datetime.now().isoformat(),  # Timestamp
+            transaction_data.get("recipient", ""),
+            transaction_data.get("email", ""),
+            transaction_data.get("address", ""),
+            transaction_data.get("amount", "")
+        ]
+
+        # Append the row to the Google Sheet
+        worksheet.append_row(row)
+        print("Transaction logged successfully!")
+
+    except Exception as e:
+        print(f"Error logging transaction: {e}")
 
 # Load environment variables
 load_dotenv()
@@ -41,6 +79,8 @@ USDC_ABI = [
         "type": "function",
     },
 ]
+
+
 
 # Setup Web3 and Contract
 web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
@@ -138,6 +178,14 @@ async def transfer_usdc(wallet, max_attempts=3):
                     print(5)
                     if receipt["status"] == 1:
                         logging.info(f"Transferred {balance_usdc:.6f} USDC from {address} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
+                        #'''
+                        log_transaction({
+                        "recipient": wallet.get("name", "Unknown"),
+                        "email": wallet.get("email", "Unknown"),
+                        "address": address,
+                        "amount": balance_usdc
+                        })
+                        #'''
                         return
                     else:
                         logging.error(f"Transaction failed for {address}. Tx: {tx_hash.hex()}")

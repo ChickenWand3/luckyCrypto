@@ -711,3 +711,533 @@
 2025-07-11 22:47:14,890 - INFO -  * Restarting with stat
 2025-07-11 22:47:17,389 - WARNING -  * Debugger is active!
 2025-07-11 22:47:17,389 - INFO -  * Debugger PIN: 584-074-894
+2025-07-12 17:50:12,194 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-12 17:50:12,194 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-12 17:50:12,195 - INFO -  * Restarting with stat
+2025-07-12 17:50:12,893 - WARNING -  * Debugger is active!
+2025-07-12 17:50:12,895 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 17:50:15,030 - INFO - 127.0.0.1 - - [12/Jul/2025 17:50:15] "GET / HTTP/1.1" 200 -
+2025-07-12 17:50:15,429 - INFO - 127.0.0.1 - - [12/Jul/2025 17:50:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-12 17:50:21,397 - INFO - Loaded 3 wallets from file
+2025-07-12 17:50:21,398 - INFO - 127.0.0.1 - - [12/Jul/2025 17:50:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 17:50:42,788 - INFO - Generating wallets...
+2025-07-12 17:50:42,789 - INFO - Loading existing wallets
+2025-07-12 17:50:42,789 - INFO - Appending 1 new wallets starting at address_index 3
+2025-07-12 17:50:42,807 - INFO - Generated new wallet with address_index 3: 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd
+2025-07-12 17:50:42,807 - INFO - Saving wallets securely...
+2025-07-12 17:50:42,808 - INFO - 127.0.0.1 - - [12/Jul/2025 17:50:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 17:50:44,917 - INFO - Loaded 4 wallets from file
+2025-07-12 17:50:44,917 - INFO - 127.0.0.1 - - [12/Jul/2025 17:50:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 17:51:05,496 - INFO - Loading existing wallets
+2025-07-12 17:51:05,496 - INFO - 127.0.0.1 - - [12/Jul/2025 17:51:05] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 17:52:20,709 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 17:52:20,763 - INFO -  * Restarting with stat
+2025-07-12 17:52:21,450 - WARNING -  * Debugger is active!
+2025-07-12 17:52:21,452 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 17:52:33,803 - INFO - 127.0.0.1 - - [12/Jul/2025 17:52:33] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:19,039 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:19] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:19,972 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:19] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:20,608 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:20] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:21,043 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:21,368 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:21,586 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:21,719 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:21,889 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,050 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,210 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,351 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,492 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,655 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,804 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:22,959 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:23,110 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:23,276 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:23,423 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:23,563 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:23,719 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:23,865 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,018 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,157 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,330 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,452 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,601 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,772 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:24,913 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:24] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,050 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,201 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,366 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,495 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,636 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,784 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:25,924 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,075 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,212 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,348 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,515 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,662 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,797 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:26,979 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:27,144 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:27,331 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:27,466 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:27,654 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:27,804 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:27,968 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:28,111 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:28] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:28,281 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:28] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:28,450 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:28] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:28,621 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:28] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:28,738 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:28] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:28,876 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:28] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,025 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,164 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,321 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,458 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,610 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,762 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:29,897 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:30,048 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:30] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:30,185 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:30] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:30,335 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:30] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:37,604 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:37] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:37,698 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:37] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:37,825 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:37] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:37,921 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:37] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,009 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,139 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,291 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,391 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,472 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,612 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,702 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,789 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,881 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:38,957 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:38] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,042 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,117 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,194 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,315 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,392 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,590 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,772 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:39,948 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:39] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,047 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,139 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,229 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,312 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,403 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,507 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,599 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,684 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,772 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,857 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:40,943 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,030 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,122 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,209 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,305 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,400 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,469 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,635 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,712 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,806 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:41,920 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,065 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,245 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,343 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,430 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,537 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,616 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,719 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,808 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,902 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:42,986 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,100 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,209 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,310 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,385 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,469 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,596 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,648 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,709 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,823 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:43,895 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,010 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,202 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,290 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,401 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,489 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,599 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,701 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,813 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:44,903 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:44] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:45,017 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:45] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:45,099 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:45] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:45,206 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:45] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:45,336 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:45] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:52,615 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:52,697 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:52,778 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:52,860 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:52,962 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,046 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,090 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,266 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,332 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,429 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,515 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,628 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,714 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,795 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:53,938 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:54,006 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:54] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:54,198 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:54] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:54,302 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:54] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:00:54,383 - INFO - 127.0.0.1 - - [12/Jul/2025 18:00:54] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,314 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,401 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,471 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,553 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,642 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,773 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,855 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:08,935 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:08] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,014 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,095 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,220 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,281 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,414 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,518 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,608 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,686 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,823 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:09,914 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,007 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,085 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,205 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,596 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,701 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,797 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,875 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:10,962 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:10] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,103 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,180 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,282 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,381 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,456 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,532 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,647 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,730 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,824 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:11,913 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,036 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,188 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,286 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,363 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,479 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,632 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,823 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:12,918 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,002 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,096 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,171 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,273 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,360 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,460 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,555 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,718 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,814 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,893 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:13,966 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:14,066 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:14] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:14,167 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:14] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:27,855 - INFO - Loaded 4 wallets from file
+2025-07-12 18:01:27,855 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:27] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:01:32,128 - INFO - Loaded 4 wallets from file
+2025-07-12 18:01:33,761 - INFO - 127.0.0.1 - - [12/Jul/2025 18:01:33] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:03:35,434 - INFO - Starting gas distribution script
+2025-07-12 18:03:35,435 - INFO - 127.0.0.1 - - [12/Jul/2025 18:03:35] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:03:35,759 - INFO - Loaded 4 wallets from file
+2025-07-12 18:03:35,950 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.000001 ETH ($0.00), Below $5: True
+2025-07-12 18:03:35,991 - INFO - Preparing to send 0.001697 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D via Kraken account 'Wallet#0'
+2025-07-12 18:03:36,290 - INFO - Initiated withdrawal of 0.001697 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D, Ref ID: FTceD1k-Km6bhb3CIV8QhmDZJArgNN
+2025-07-12 18:03:36,290 - INFO - Successfully initiated gas transfer to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Owner: Ashton Hulsey (cgservicesofficial@gmail.com)
+2025-07-12 18:03:38,441 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: 0.002504 ETH ($7.38), Below $5: False
+2025-07-12 18:03:38,555 - INFO - Loaded 4 wallets from file
+2025-07-12 18:03:38,601 - INFO - Wallet 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd: 0.000000 ETH ($0.00), Below $5: True
+2025-07-12 18:03:38,665 - INFO - Preparing to send 0.001697 ETH to 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd via Kraken account 'Wallet#3'
+2025-07-12 18:03:38,859 - ERROR - Kraken API error for 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd: ['EFunding:Unknown withdraw key']
+2025-07-12 18:03:38,859 - ERROR - Failed to initiate gas transfer to 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd
+2025-07-12 18:03:40,172 - INFO - 127.0.0.1 - - [12/Jul/2025 18:03:40] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:03:40,860 - INFO - Gas refill completed.
+2025-07-12 18:05:15,073 - INFO - Loaded 4 wallets from file
+2025-07-12 18:05:16,704 - INFO - 127.0.0.1 - - [12/Jul/2025 18:05:16] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:05:39,688 - INFO - Loaded 4 wallets from file
+2025-07-12 18:05:41,256 - INFO - 127.0.0.1 - - [12/Jul/2025 18:05:41] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:06:06,203 - INFO - Loaded 4 wallets from file
+2025-07-12 18:06:07,767 - INFO - 127.0.0.1 - - [12/Jul/2025 18:06:07] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:06:10,855 - INFO - Loaded 4 wallets from file
+2025-07-12 18:06:12,378 - INFO - 127.0.0.1 - - [12/Jul/2025 18:06:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:07:09,768 - INFO - 127.0.0.1 - - [12/Jul/2025 18:07:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:08:44,202 - INFO - Loaded 4 wallets from file
+2025-07-12 18:08:45,812 - INFO - 127.0.0.1 - - [12/Jul/2025 18:08:45] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:09:38,650 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:09:38,743 - INFO -  * Restarting with stat
+2025-07-12 18:09:39,453 - WARNING -  * Debugger is active!
+2025-07-12 18:09:39,455 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:09:57,714 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:09:57,769 - INFO -  * Restarting with stat
+2025-07-12 18:09:58,429 - WARNING -  * Debugger is active!
+2025-07-12 18:09:58,431 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:11:33,331 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:11:33,408 - INFO -  * Restarting with stat
+2025-07-12 18:11:34,100 - WARNING -  * Debugger is active!
+2025-07-12 18:11:34,102 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:11:36,356 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:11:36,414 - INFO -  * Restarting with stat
+2025-07-12 18:11:37,089 - WARNING -  * Debugger is active!
+2025-07-12 18:11:37,091 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:11:40,405 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:11:40,463 - INFO -  * Restarting with stat
+2025-07-12 18:11:41,127 - WARNING -  * Debugger is active!
+2025-07-12 18:11:41,129 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:11:52,998 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:11:53,072 - INFO -  * Restarting with stat
+2025-07-12 18:11:53,766 - WARNING -  * Debugger is active!
+2025-07-12 18:11:53,768 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:11:53,893 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:11:53,949 - INFO -  * Restarting with stat
+2025-07-12 18:11:54,618 - WARNING -  * Debugger is active!
+2025-07-12 18:11:54,619 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:12:02,552 - INFO - Loaded 4 wallets from file
+2025-07-12 18:12:02,552 - INFO - 127.0.0.1 - - [12/Jul/2025 18:12:02] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:12:51,416 - INFO - Loaded 4 wallets from file
+2025-07-12 18:12:53,028 - INFO - 127.0.0.1 - - [12/Jul/2025 18:12:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:13:02,959 - INFO - Loaded 4 wallets from file
+2025-07-12 18:13:02,959 - INFO - Loading existing wallets
+2025-07-12 18:13:03,498 - INFO - USDC balance (0.0) is less than $1, skipping transfer
+2025-07-12 18:13:03,499 - INFO - Transferred USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to master wallet before disabling
+2025-07-12 18:13:03,791 - INFO - Transferring ETH from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
+2025-07-12 18:13:03,871 - INFO - Source wallet balance: 1568083592822000 wei (0.001568 ETH)
+2025-07-12 18:13:04,123 - INFO - Gas price: 0.45 Gwei (base: 0.45, priority: 0.00)
+2025-07-12 18:13:04,354 - INFO - Gas limit: 21000, Gas cost: 0.000009 ETH
+2025-07-12 18:13:04,354 - INFO - Transferring 0.001559 ETH to 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
+2025-07-12 18:13:04,919 - INFO - ETH transfer sent: c094be13dc004a1de04ff01514cce9c994e12bfb25043a5e8265a74737b013ea, transferring 0.001559 ETH with gas price 0.45 Gwei
+2025-07-12 18:13:04,919 - INFO - Transferred ETH from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to other wallet before disabling
+2025-07-12 18:13:04,919 - INFO - Disabled wallet for email: None
+2025-07-12 18:13:04,919 - INFO - Saving wallets securely...
+2025-07-12 18:13:04,919 - INFO - Disabled wallet for name: Ashton Hulsey
+2025-07-12 18:13:04,920 - INFO - 127.0.0.1 - - [12/Jul/2025 18:13:04] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:13:13,030 - INFO - 127.0.0.1 - - [12/Jul/2025 18:13:13] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:13:41,359 - INFO - Loaded 4 wallets from file
+2025-07-12 18:13:42,965 - INFO - 127.0.0.1 - - [12/Jul/2025 18:13:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:13:52,238 - INFO - Loaded 4 wallets from file
+2025-07-12 18:13:52,238 - INFO - Loading existing wallets
+2025-07-12 18:13:52,238 - INFO - Saving wallets securely...
+2025-07-12 18:13:52,238 - INFO - Enabled wallet for name: Ashton Hulsey
+2025-07-12 18:13:52,239 - INFO - 127.0.0.1 - - [12/Jul/2025 18:13:52] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:13:58,586 - INFO - Loaded 4 wallets from file
+2025-07-12 18:13:58,587 - INFO - 127.0.0.1 - - [12/Jul/2025 18:13:58] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:14:20,451 - INFO - Loaded 4 wallets from file
+2025-07-12 18:14:20,451 - INFO - Loading existing wallets
+2025-07-12 18:14:20,451 - INFO - Saving wallets securely...
+2025-07-12 18:14:20,453 - INFO - Enabled wallet for name: test1
+2025-07-12 18:14:20,453 - INFO - 127.0.0.1 - - [12/Jul/2025 18:14:20] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:15:02,223 - INFO - Loaded 4 wallets from file
+2025-07-12 18:15:03,805 - INFO - 127.0.0.1 - - [12/Jul/2025 18:15:03] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:15:09,554 - INFO - Loaded 4 wallets from file
+2025-07-12 18:15:09,555 - INFO - 127.0.0.1 - - [12/Jul/2025 18:15:09] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:18:53,385 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:18:53,473 - INFO -  * Restarting with stat
+2025-07-12 18:18:54,162 - WARNING -  * Debugger is active!
+2025-07-12 18:18:54,164 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:18:57,484 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:18:57,558 - INFO -  * Restarting with stat
+2025-07-12 18:18:58,269 - WARNING -  * Debugger is active!
+2025-07-12 18:18:58,272 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:19:13,347 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 18:19:13,422 - INFO -  * Restarting with stat
+2025-07-12 18:19:14,152 - WARNING -  * Debugger is active!
+2025-07-12 18:19:14,154 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:19:15,355 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:19:15,418 - INFO -  * Restarting with stat
+2025-07-12 18:19:16,092 - WARNING -  * Debugger is active!
+2025-07-12 18:19:16,094 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:19:18,347 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:19:18,419 - INFO -  * Restarting with stat
+2025-07-12 18:19:19,116 - WARNING -  * Debugger is active!
+2025-07-12 18:19:19,118 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:19:20,316 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:19:20,390 - INFO -  * Restarting with stat
+2025-07-12 18:19:21,107 - WARNING -  * Debugger is active!
+2025-07-12 18:19:21,109 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:20:12,952 - INFO - Loaded 4 wallets from file
+2025-07-12 18:20:12,953 - INFO - 127.0.0.1 - - [12/Jul/2025 18:20:12] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:20:15,312 - INFO - Loaded 4 wallets from file
+2025-07-12 18:20:16,899 - INFO - 127.0.0.1 - - [12/Jul/2025 18:20:16] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:20:29,497 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:20:29,554 - INFO -  * Restarting with stat
+2025-07-12 18:20:30,198 - WARNING -  * Debugger is active!
+2025-07-12 18:20:30,200 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:20:33,518 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:20:33,585 - INFO -  * Restarting with stat
+2025-07-12 18:20:37,633 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-12 18:20:37,633 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-12 18:20:37,634 - INFO -  * Restarting with stat
+2025-07-12 18:20:38,297 - WARNING -  * Debugger is active!
+2025-07-12 18:20:38,299 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 18:20:41,732 - INFO - Loaded 4 wallets from file
+2025-07-12 18:20:43,301 - INFO - 127.0.0.1 - - [12/Jul/2025 18:20:43] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:20:51,514 - INFO - Starting gas distribution script
+2025-07-12 18:20:51,515 - INFO - 127.0.0.1 - - [12/Jul/2025 18:20:51] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:20:51,824 - INFO - Loaded 4 wallets from file
+2025-07-12 18:20:51,969 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D: 0.000001 ETH ($0.00), Below $4: True
+2025-07-12 18:20:52,009 - INFO - Preparing to send 0.001697 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D via Kraken account 'Wallet#0'
+2025-07-12 18:20:52,275 - INFO - Initiated withdrawal of 0.001697 ETH to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D, Ref ID: FTSxNwT-GtCUUkXH6Bzg2q8q0QUL6n
+2025-07-12 18:20:52,275 - INFO - Successfully initiated gas transfer to 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D - Owner: Ashton Hulsey (cgservicesofficial@gmail.com)
+2025-07-12 18:20:54,396 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70: 0.004063 ETH ($11.97), Below $4: False
+2025-07-12 18:20:54,510 - INFO - Wallet 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb: 0.000000 ETH ($0.00), Below $4: True
+2025-07-12 18:20:54,545 - INFO - Preparing to send 0.001697 ETH to 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb via Kraken account 'Wallet#2'
+2025-07-12 18:20:54,779 - INFO - Initiated withdrawal of 0.001697 ETH to 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb, Ref ID: FTSgimQ-23JaKnyvPBlm2jEKMMt6ax
+2025-07-12 18:20:54,779 - INFO - Successfully initiated gas transfer to 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb - Owner: test1 (test@test.com)
+2025-07-12 18:21:02,053 - INFO - 127.0.0.1 - - [12/Jul/2025 18:21:02] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:21:11,811 - INFO - 127.0.0.1 - - [12/Jul/2025 18:21:11] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:21:25,988 - INFO - 127.0.0.1 - - [12/Jul/2025 18:21:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:21:30,849 - INFO - Loaded 4 wallets from file
+2025-07-12 18:21:30,849 - INFO - 127.0.0.1 - - [12/Jul/2025 18:21:30] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:21:40,466 - INFO - Loaded 4 wallets from file
+2025-07-12 18:21:42,045 - INFO - 127.0.0.1 - - [12/Jul/2025 18:21:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:21:56,917 - INFO - Wallet 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd: 0.000000 ETH ($0.00), Below $4: True
+2025-07-12 18:21:56,953 - INFO - Preparing to send 0.001698 ETH to 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd via Kraken account 'Wallet#3'
+2025-07-12 18:21:57,190 - INFO - Initiated withdrawal of 0.001698 ETH to 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd, Ref ID: FTiFu0D-gtNlKaAuAptz8EHXRKRLBw
+2025-07-12 18:21:57,190 - INFO - Successfully initiated gas transfer to 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd - Owner: bob (bobsemail@yahoo.com)
+2025-07-12 18:21:59,191 - INFO - Gas refill completed.
+2025-07-12 18:25:04,876 - INFO - Loaded 4 wallets from file
+2025-07-12 18:25:06,470 - INFO - 127.0.0.1 - - [12/Jul/2025 18:25:06] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:25:17,205 - INFO - 127.0.0.1 - - [12/Jul/2025 18:25:17] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:25:25,944 - INFO - Loaded 4 wallets from file
+2025-07-12 18:25:25,944 - INFO - 127.0.0.1 - - [12/Jul/2025 18:25:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:28:30,274 - INFO - Loaded 4 wallets from file
+2025-07-12 18:28:31,902 - INFO - 127.0.0.1 - - [12/Jul/2025 18:28:31] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 18:28:51,805 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 18:28:51,881 - INFO -  * Restarting with stat
+2025-07-12 18:28:52,559 - WARNING -  * Debugger is active!
+2025-07-12 18:28:52,561 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:23:02,011 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\send_out_gas.py', reloading
+2025-07-12 19:23:02,070 - INFO -  * Restarting with stat
+2025-07-12 19:23:02,774 - WARNING -  * Debugger is active!
+2025-07-12 19:23:02,776 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:23:26,623 - INFO - Loaded 4 wallets from file
+2025-07-12 19:23:26,623 - INFO - 127.0.0.1 - - [12/Jul/2025 19:23:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 19:24:51,537 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:24:51,597 - INFO -  * Restarting with stat
+2025-07-12 19:24:52,285 - WARNING -  * Debugger is active!
+2025-07-12 19:24:52,288 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:25:17,988 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:25:18,056 - INFO -  * Restarting with stat
+2025-07-12 19:25:18,734 - WARNING -  * Debugger is active!
+2025-07-12 19:25:18,736 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:25:28,436 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:25:28,492 - INFO -  * Restarting with stat
+2025-07-12 19:25:29,171 - WARNING -  * Debugger is active!
+2025-07-12 19:25:29,174 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:25:52,732 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:25:52,795 - INFO -  * Restarting with stat
+2025-07-12 19:25:53,472 - WARNING -  * Debugger is active!
+2025-07-12 19:25:53,475 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:26:03,179 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:26:03,255 - INFO -  * Restarting with stat
+2025-07-12 19:26:03,935 - WARNING -  * Debugger is active!
+2025-07-12 19:26:03,937 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:26:33,880 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:26:33,943 - INFO -  * Restarting with stat
+2025-07-12 19:26:34,590 - WARNING -  * Debugger is active!
+2025-07-12 19:26:34,591 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:26:57,056 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:26:57,114 - INFO -  * Restarting with stat
+2025-07-12 19:26:57,772 - WARNING -  * Debugger is active!
+2025-07-12 19:26:57,774 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:26:58,955 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:26:59,007 - INFO -  * Restarting with stat
+2025-07-12 19:26:59,648 - WARNING -  * Debugger is active!
+2025-07-12 19:26:59,649 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:27:38,090 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:27:38,147 - INFO -  * Restarting with stat
+2025-07-12 19:27:38,918 - WARNING -  * Debugger is active!
+2025-07-12 19:27:38,920 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:28:02,557 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:28:02,625 - INFO -  * Restarting with stat
+2025-07-12 19:28:03,358 - WARNING -  * Debugger is active!
+2025-07-12 19:28:03,361 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 19:43:15,515 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 19:43:15,582 - INFO -  * Restarting with stat
+2025-07-12 19:43:16,310 - WARNING -  * Debugger is active!
+2025-07-12 19:43:16,312 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:12:18,631 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:12:18,718 - INFO -  * Restarting with stat
+2025-07-12 20:12:19,541 - WARNING -  * Debugger is active!
+2025-07-12 20:12:19,543 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:12:24,739 - INFO - Loaded 4 wallets from file
+2025-07-12 20:12:26,402 - INFO - 127.0.0.1 - - [12/Jul/2025 20:12:26] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:13:28,127 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-12 20:13:28,127 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-12 20:13:28,128 - INFO -  * Restarting with stat
+2025-07-12 20:13:28,888 - WARNING -  * Debugger is active!
+2025-07-12 20:13:28,889 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:13:46,118 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-12 20:13:46,196 - INFO -  * Restarting with stat
+2025-07-12 20:13:46,927 - WARNING -  * Debugger is active!
+2025-07-12 20:13:46,929 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:13:49,198 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-12 20:13:49,269 - INFO -  * Restarting with stat
+2025-07-12 20:13:49,992 - WARNING -  * Debugger is active!
+2025-07-12 20:13:49,994 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:13:52,770 - INFO - Loaded 4 wallets from file
+2025-07-12 20:13:54,363 - INFO - 127.0.0.1 - - [12/Jul/2025 20:13:54] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:14:06,674 - INFO - Sweeping of wallets completed.
+2025-07-12 20:14:06,674 - INFO - 127.0.0.1 - - [12/Jul/2025 20:14:06] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:15:05,492 - INFO - Loaded 4 wallets from file
+2025-07-12 20:15:07,101 - INFO - 127.0.0.1 - - [12/Jul/2025 20:15:07] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:15:24,263 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:15:24,330 - INFO -  * Restarting with stat
+2025-07-12 20:15:25,022 - WARNING -  * Debugger is active!
+2025-07-12 20:15:25,024 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:16:23,808 - INFO - Sweeping of wallets completed.
+2025-07-12 20:16:23,809 - INFO - 127.0.0.1 - - [12/Jul/2025 20:16:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:16:34,587 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:16:34,670 - INFO -  * Restarting with stat
+2025-07-12 20:16:35,404 - WARNING -  * Debugger is active!
+2025-07-12 20:16:35,406 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:16:35,541 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:16:35,604 - INFO -  * Restarting with stat
+2025-07-12 20:16:36,297 - WARNING -  * Debugger is active!
+2025-07-12 20:16:36,299 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:16:53,526 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:16:53,609 - INFO -  * Restarting with stat
+2025-07-12 20:16:54,320 - WARNING -  * Debugger is active!
+2025-07-12 20:16:54,324 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:16:59,814 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:16:59,897 - INFO -  * Restarting with stat
+2025-07-12 20:17:00,657 - WARNING -  * Debugger is active!
+2025-07-12 20:17:00,659 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:17:04,076 - INFO - Sweeping of wallets completed.
+2025-07-12 20:17:04,077 - INFO - 127.0.0.1 - - [12/Jul/2025 20:17:04] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:17:18,918 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-12 20:17:18,918 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-12 20:17:18,919 - INFO -  * Restarting with stat
+2025-07-12 20:17:19,661 - WARNING -  * Debugger is active!
+2025-07-12 20:17:19,663 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:17:22,205 - INFO - Sweeping of wallets completed.
+2025-07-12 20:17:22,206 - INFO - 127.0.0.1 - - [12/Jul/2025 20:17:22] "POST /api/action HTTP/1.1" 200 -
+2025-07-12 20:18:58,120 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:18:58,183 - INFO -  * Restarting with stat
+2025-07-12 20:18:58,921 - WARNING -  * Debugger is active!
+2025-07-12 20:18:58,923 - INFO -  * Debugger PIN: 659-786-708
+2025-07-12 20:20:50,167 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-12 20:20:50,241 - INFO -  * Restarting with stat
+2025-07-12 20:20:50,984 - WARNING -  * Debugger is active!
+2025-07-12 20:20:50,986 - INFO -  * Debugger PIN: 659-786-708

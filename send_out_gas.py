@@ -27,7 +27,7 @@ cg = CoinGeckoAPI()
 kraken = krakenex.API(key=KRAKEN_API_KEY, secret=KRAKEN_API_SECRET)
 
 def needGas(wallet):
-    """Check if wallet balance is less than $5 worth of ETH."""
+    """Check if wallet balance is less than $4 worth of ETH."""
     try:
         address = web3.to_checksum_address(wallet['address'])
         balance_wei = web3.eth.get_balance(address)
@@ -37,27 +37,27 @@ def needGas(wallet):
         eth_price_usd = eth_price_data['ethereum']['usd']
 
         balance_usd = float(balance_eth) * eth_price_usd
-        is_below_5_usd = balance_usd < 5.0
-        logging.info(f"Wallet {address}: {balance_eth:.6f} ETH (${balance_usd:.2f}), Below $5: {is_below_5_usd}")
-        return is_below_5_usd
+        is_below_4_usd = balance_usd < 4.0
+        logging.info(f"Wallet {address}: {balance_eth:.6f} ETH (${balance_usd:.2f}), Below $4: {is_below_4_usd}")
+        return is_below_4_usd
     except Exception as e:
         logging.error(f"Error checking balance for {wallet['address']}: {str(e)}")
         return False
 
-def sendGas(to_address, nickname, usd_amount=5.0):
-    """Send ETH equivalent to ~$5 USD from Kraken account."""
+def sendGas(to_address, nickname, usd_amount=6.0):
+    """Send ETH equivalent to ~$6 USD from Kraken account."""
     try:
         # Get ETH price
         eth_price_data = cg.get_price(ids='ethereum', vs_currencies='usd')
         eth_price_usd = eth_price_data['ethereum']['usd']
 
-        # Calculate ETH amount (~$5)
+        # Calculate ETH amount (~$6 USD)
         eth_amount = usd_amount / eth_price_usd
 
         # Initiate withdrawal via Kraken API
         withdrawal_info = {
             'asset': 'ETH',
-            'key': str(nickname)+"!",  # Withdrawal key name configured in Kraken
+            'key': str(nickname),#+"!",  # Withdrawal key name configured in Kraken
             'amount': str(eth_amount),
             'address': str(to_address).lower()
         }
@@ -89,7 +89,7 @@ def refillGas():
     for wallet in wallets:
         if wallet.get("enabled", False):
             if needGas(wallet):
-                success = sendGas(wallet["address"], wallet["kraken_nickname"], 5.0)
+                success = sendGas(wallet["address"], wallet["kraken_nickname"], 6.0)
                 if success:
                     logging.info(f"Successfully initiated gas transfer to {wallet['address']} - Owner: {wallet['name']} ({wallet['email']})")
                 else:
