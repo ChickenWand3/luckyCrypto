@@ -711,6 +711,7 @@
 2025-07-11 22:47:14,890 - INFO -  * Restarting with stat
 2025-07-11 22:47:17,389 - WARNING -  * Debugger is active!
 2025-07-11 22:47:17,389 - INFO -  * Debugger PIN: 584-074-894
+<<<<<<< Updated upstream
 2025-07-12 17:50:12,194 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
 2025-07-12 17:50:12,194 - INFO - [33mPress CTRL+C to quit[0m
@@ -1241,3 +1242,67 @@
 2025-07-12 20:20:50,241 - INFO -  * Restarting with stat
 2025-07-12 20:20:50,984 - WARNING -  * Debugger is active!
 2025-07-12 20:20:50,986 - INFO -  * Debugger PIN: 659-786-708
+=======
+2025-07-13 17:37:05,709 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-13 17:37:05,714 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-13 17:37:05,719 - INFO -  * Restarting with stat
+2025-07-13 17:37:08,069 - WARNING -  * Debugger is active!
+2025-07-13 17:37:08,075 - INFO -  * Debugger PIN: 584-074-894
+2025-07-13 17:37:13,787 - INFO - 127.0.0.1 - - [13/Jul/2025 17:37:13] "GET / HTTP/1.1" 200 -
+2025-07-13 17:37:13,892 - INFO - 127.0.0.1 - - [13/Jul/2025 17:37:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-13 17:37:17,047 - INFO - Loaded 3 wallets from file
+2025-07-13 17:37:18,807 - INFO - 127.0.0.1 - - [13/Jul/2025 17:37:18] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:38:13,387 - INFO - 127.0.0.1 - - [13/Jul/2025 17:38:13] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-13 17:38:21,508 - INFO - Loaded 3 wallets from file
+2025-07-13 17:38:23,306 - INFO - 127.0.0.1 - - [13/Jul/2025 17:38:23] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:38:30,026 - INFO - Loaded 3 wallets from file
+2025-07-13 17:38:31,942 - INFO - 127.0.0.1 - - [13/Jul/2025 17:38:31] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:38:36,234 - INFO - 127.0.0.1 - - [13/Jul/2025 17:38:36] "GET / HTTP/1.1" 200 -
+2025-07-13 17:38:36,269 - INFO - 127.0.0.1 - - [13/Jul/2025 17:38:36] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-13 17:38:41,264 - INFO - Loaded 3 wallets from file
+2025-07-13 17:38:42,941 - INFO - 127.0.0.1 - - [13/Jul/2025 17:38:42] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:39:24,854 - INFO - 127.0.0.1 - - [13/Jul/2025 17:39:24] "GET / HTTP/1.1" 200 -
+2025-07-13 17:39:24,897 - INFO - 127.0.0.1 - - [13/Jul/2025 17:39:24] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-13 17:39:27,578 - INFO - Loaded 3 wallets from file
+2025-07-13 17:39:29,298 - INFO - 127.0.0.1 - - [13/Jul/2025 17:39:29] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:40:00,544 - INFO - 127.0.0.1 - - [13/Jul/2025 17:40:00] "GET / HTTP/1.1" 200 -
+2025-07-13 17:40:00,596 - INFO - 127.0.0.1 - - [13/Jul/2025 17:40:00] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-13 17:40:03,063 - INFO - Loaded 3 wallets from file
+2025-07-13 17:40:05,018 - INFO - 127.0.0.1 - - [13/Jul/2025 17:40:05] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:40:14,597 - INFO - Sweeping of wallets completed.
+2025-07-13 17:40:14,597 - INFO - 127.0.0.1 - - [13/Jul/2025 17:40:14] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:40:17,246 - INFO - 127.0.0.1 - - [13/Jul/2025 17:40:17] "GET /api/status HTTP/1.1" 200 -
+2025-07-13 17:41:33,711 - INFO -  * Detected change in 'C:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-13 17:41:33,913 - INFO -  * Restarting with stat
+2025-07-13 17:41:36,796 - WARNING -  * Debugger is active!
+2025-07-13 17:41:36,813 - INFO -  * Debugger PIN: 584-074-894
+2025-07-13 17:41:40,242 - INFO -  * Detected change in 'c:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-13 17:41:40,435 - INFO -  * Restarting with stat
+2025-07-13 17:41:43,099 - WARNING -  * Debugger is active!
+2025-07-13 17:41:43,107 - INFO -  * Debugger PIN: 584-074-894
+2025-07-13 17:43:16,622 - INFO -  * Detected change in 'C:\\Users\\nicol\\Documents\\GitHub\\luckyCrypto\\ui\\app.py', reloading
+2025-07-13 17:43:16,802 - INFO -  * Restarting with stat
+2025-07-13 17:49:53,072 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-13 17:49:53,072 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-13 17:49:53,072 - INFO -  * Restarting with stat
+2025-07-13 17:49:55,150 - WARNING -  * Debugger is active!
+2025-07-13 17:49:55,154 - INFO -  * Debugger PIN: 584-074-894
+2025-07-13 17:49:56,382 - INFO - 127.0.0.1 - - [13/Jul/2025 17:49:56] "GET / HTTP/1.1" 200 -
+2025-07-13 17:49:56,423 - INFO - 127.0.0.1 - - [13/Jul/2025 17:49:56] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-13 17:49:56,596 - INFO - 127.0.0.1 - - [13/Jul/2025 17:49:56] "GET / HTTP/1.1" 200 -
+2025-07-13 17:49:56,848 - INFO - 127.0.0.1 - - [13/Jul/2025 17:49:56] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-13 17:50:00,304 - INFO - Loaded 3 wallets from file
+2025-07-13 17:50:02,184 - INFO - 127.0.0.1 - - [13/Jul/2025 17:50:02] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:50:07,617 - INFO - 127.0.0.1 - - [13/Jul/2025 17:50:07] "POST /api/action HTTP/1.1" 200 -
+2025-07-13 17:50:08,071 - INFO - Gathering wallets
+2025-07-13 17:50:08,071 - INFO - Loaded 3 wallets from file
+2025-07-13 17:50:08,071 - INFO - Found 2 valid and enabled wallets
+2025-07-13 17:50:08,744 - INFO - No USDC in wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70
+2025-07-13 17:50:08,744 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 7.000000 USDC
+2025-07-13 17:50:08,744 - INFO - Skipping transfer for 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D due to low balance: 7.000000 USDC
+2025-07-13 17:50:08,744 - INFO - USDC sweep completed
+2025-07-13 17:50:08,744 - INFO - Sweeping of wallets completed.
+2025-07-13 17:50:11,855 - INFO - 127.0.0.1 - - [13/Jul/2025 17:50:11] "GET /api/status HTTP/1.1" 200 -
+>>>>>>> Stashed changes
