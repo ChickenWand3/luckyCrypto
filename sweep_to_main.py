@@ -152,30 +152,30 @@ async def transfer_usdc(wallet, max_attempts=3):
             #if not verifyUserData(wallet):
             #    logging.error(f"Invalid wallet data for {wallet.get('address', 'unknown')}")
             #    return
-            print(1)
+            #print(1)
             address = web3.to_checksum_address(wallet["address"])
             balance = await get_balance(address)
             if balance == 0:
                 logging.info(f"No USDC in wallet {address}")
                 return
-            print(2)
+            #print(2)
             balance_usdc = balance / 10**6  # Convert to USDC (6 decimals)
             logging.info(f"Wallet {address} has {balance_usdc:.6f} USDC")
 
             if balance_usdc < 8.0:  # Minimum transfer amount
                 logging.info(f"Skipping transfer for {address} due to low balance: {balance_usdc:.6f} USDC")
                 return
-            print(3)
+            #print(3)
             nonce = await get_nonce(address)
             gas_estimate = await estimate_gas(address, balance)
             tx = await build_transaction(address, nonce, gas_estimate, balance)
-            print(4)
+            #print(4)
             for attempt in range(max_attempts):
                 try:
                     signed_tx = await sign_transaction(tx, wallet["private_key"])
                     tx_hash = await send_transaction(signed_tx)
                     receipt = await wait_for_receipt(tx_hash)
-                    print(5)
+                    #print(5)
                     if receipt["status"] == 1:
                         logging.info(f"Transferred {balance_usdc:.6f} USDC from {address} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
                         #'''

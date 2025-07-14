@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from web3 import Web3
 from pycoingecko import CoinGeckoAPI
 import krakenex
+import asyncio
 
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -16,39 +17,26 @@ from sweep_to_main import main as sweep_to_main
 
 # TODO
 # Add edit button/functionality
+# Track errors in send out gas using global var?
 app = Flask(__name__)
 
 operation_status = "Uninitialized"
 
 
-def sweep_to_main_async():
+async def sweep_to_main_async():
     global operation_status
     operation_status = "Started Sweeping To Main"
     try:
-        sweep = sweep_to_main()
+        sweep = await sweep_to_main()
         if sweep:
             logging.info("Sweeping of wallets completed.")
             operation_status = "Finished Sweeping To Main"
         else:
-            logging.info("Sweeping of wallets failed!")
+            logging.info("Sweeping of wallets failed! (Couldn't find wallets/Couldn't connect to Ethereum network?)")
             operation_status = "Error sweeping to main!"
     except Exception as e:
         logging.error(f"Error sweeping to main: {str(e)}")
         operation_status = f"Internal Error During Sweep To Main: {str(e)}"
-def run_refill_gas_async():
-    global operation_status
-    operation_status = "Started Refilling Gas"
-    try:
-        refill = refillGas()
-        if refill:
-            logging.info("Gas refill completed.")
-            operation_status = "Finished Refilling Gas Successfully"
-        else:
-            logging.info("Gas refill failed!")
-            operation_status = "Error Refilling Gas!"
-    except Exception as e:
-        logging.error(f"Error during refillGas: {str(e)}")
-        operation_status = f"Internal Error During Refill Gas: {str(e)}"
 
 
 @app.route('/')
@@ -56,7 +44,7 @@ def home():
     return render_template('index.html')
 
 @app.route('/api/action', methods=['POST'])
-async def action():
+def action():
     print("Received request:", request.json)
     data = request.json
     if not data:
@@ -139,7 +127,10 @@ async def action():
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "force_sweep":
         try:
-            thread = threading.Thread(target=sweep_to_main_async)
+            def run_sweep_thread():
+                asyncio.run(sweep_to_main_async())
+
+            thread = threading.Thread(target=run_sweep_thread)
             thread.start()
             return jsonify({"result": "Sweep wallets to main wallet operation started."}), 200
         except Exception as e:
@@ -160,12 +151,15 @@ async def action():
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "refill_gas":
-       try:
-           thread = threading.Thread(target=run_refill_gas_async)
-           thread.start()
-           return jsonify({"result": "Gas refill operation started"}), 200
-       except Exception as e:
-           return jsonify({"result": f"An internal error occurred during gas refill: {str(e)}"}), 500
+        try:
+            def run_refill_thread():
+                refillGas()
+
+            thread = threading.Thread(target=run_refill_thread)
+            thread.start()
+            return jsonify({"result": "Gas refill operation started"}), 200
+        except Exception as e:
+            return jsonify({"result": f"An internal error occurred during gas refill: {str(e)}"}), 500
     elif button_clicked == "get_mnemonic":
         try:
             mnemonic = get_mnemonic()

@@ -366,7 +366,8 @@
       resultDiv.classList.remove('alert-info', 'alert-danger');
       resultDiv.classList.add('alert-success');
       resultDiv.classList.remove('d-none');
-      if (currentAction === 'refill_gas' || currentAction === 'force_sweep') {
+      //if (currentAction === 'refill_gas' || currentAction === 'force_sweep') {
+      if (currentAction === 'force_sweep') {
         showFloatingButton();        
       }
     })
@@ -480,10 +481,10 @@ function escapeHtml(text) {
 function calculateTotals(dataArray) {
   let totalEth = 0;
   let totalUsdc = 0;
-
+  console.log(dataArray);
   for (const item of dataArray) {
-    const eth = parseFloat(item.eth) || 0;
-    const usdc = parseFloat(item.usdc) || 0;
+    const eth = parseFloat(item.ETH) || 0;
+    const usdc = parseFloat(item.USDC) || 0;
     totalEth += eth;
     totalUsdc += usdc;
   }
