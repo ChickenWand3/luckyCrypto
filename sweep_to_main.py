@@ -8,6 +8,7 @@ from eth_account import Account
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
 from funcs import get_wallets, verifyUserData
+from pycoingecko import CoinGeckoAPI
 
 import gspread
 from google.oauth2.service_account import Credentials
@@ -45,7 +46,8 @@ def log_transaction(transaction_data):
             transaction_data.get("recipient", ""),
             transaction_data.get("email", ""),
             transaction_data.get("address", ""),
-            transaction_data.get("amount", "")
+            transaction_data.get("amount", ""),
+            transaction_data.get("gasUSD", ""),
         ]
 
         # Append the row to the Google Sheet
@@ -84,6 +86,7 @@ USDC_ABI = [
 
 # Setup Web3 and Contract
 web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
+cg = CoinGeckoAPI()
 USDC_CONTRACT = web3.eth.contract(address=web3.to_checksum_address(USDC_CONTRACT_ADDRESS), abi=USDC_ABI)
 MASTER_WALLET_ADDRESS = web3.to_checksum_address(KRAKEN_ADDRESS)
 
@@ -91,6 +94,18 @@ MASTER_WALLET_ADDRESS = web3.to_checksum_address(KRAKEN_ADDRESS)
 MAX_THREADS = 8
 executor = ThreadPoolExecutor(max_workers=MAX_THREADS)
 semaphore = asyncio.Semaphore(8)  # Limit number of concurrent transfers
+
+def convertEthToUSD(balance_eth):
+    """Get the ETH balance of an address in USD."""
+    try:
+        eth_price_data = cg.get_price(ids='ethereum', vs_currencies='usd')
+        eth_price_usd = eth_price_data['ethereum']['usd']
+        balance_usd = float(balance_eth) * eth_price_usd
+
+        return balance_usd
+    except Exception as e:
+        logging.error(f"Error getting balance for USD of {balance_eth} ETH: {str(e)}")
+        return 10.0
 
 # Async wrappers for blocking Web3 operations
 async def get_balance(address):
@@ -183,7 +198,8 @@ async def transfer_usdc(wallet, max_attempts=3):
                         "recipient": wallet.get("name", "Unknown"),
                         "email": wallet.get("email", "Unknown"),
                         "address": address,
-                        "amount": balance_usdc
+                        "amount": balance_usdc,
+                        "gasUSD": convertEthToUSD(receipt['gasUsed'] * receipt['effectiveGasPrice'] / 10**18)  # Convert gas cost to USD
                         })
                         #'''
                         return

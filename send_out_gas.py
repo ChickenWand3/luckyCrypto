@@ -26,19 +26,29 @@ web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
 cg = CoinGeckoAPI()
 kraken = krakenex.API(key=KRAKEN_API_KEY, secret=KRAKEN_API_SECRET)
 
-def needGas(wallet):
-    """Check if wallet balance is less than $4 worth of ETH."""
+def getEthBalanaceUSD(address):
+    """Get the ETH balance of an address in USD."""
     try:
-        address = web3.to_checksum_address(wallet['address'])
+        address = web3.to_checksum_address(address)
         balance_wei = web3.eth.get_balance(address)
         balance_eth = web3.from_wei(balance_wei, 'ether')
 
         eth_price_data = cg.get_price(ids='ethereum', vs_currencies='usd')
         eth_price_usd = eth_price_data['ethereum']['usd']
-
         balance_usd = float(balance_eth) * eth_price_usd
+
+        return balance_usd
+    except Exception as e:
+        logging.error(f"Error getting balance for {address}: {str(e)}")
+        return 10.0
+
+def needGas(wallet):
+    """Check if wallet balance is less than $4 worth of ETH."""
+    try:
+        address = wallet['address']
+        balance_usd = getEthBalanaceUSD(address)
         is_below_4_usd = balance_usd < 4.0
-        logging.info(f"Wallet {address}: {balance_eth:.6f} ETH (${balance_usd:.2f}), Below $4: {is_below_4_usd}")
+        logging.info(f"Wallet {address}: ETH (${balance_usd:.2f}), Below $4: {is_below_4_usd}")
         return is_below_4_usd
     except Exception as e:
         logging.error(f"Error checking balance for {wallet['address']}: {str(e)}")
