@@ -13,3 +13,97 @@
 2025-07-13 23:38:26,601 - INFO -  * Restarting with stat
 2025-07-13 23:38:27,359 - WARNING -  * Debugger is active!
 2025-07-13 23:38:27,361 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 18:49:15,028 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-14 18:49:15,028 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 18:49:15,030 - INFO -  * Restarting with stat
+2025-07-14 18:49:15,788 - WARNING -  * Debugger is active!
+2025-07-14 18:49:15,792 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 18:49:16,763 - INFO - 127.0.0.1 - - [14/Jul/2025 18:49:16] "GET / HTTP/1.1" 200 -
+2025-07-14 18:49:17,170 - INFO - 127.0.0.1 - - [14/Jul/2025 18:49:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-14 18:49:19,741 - INFO - Loaded 4 wallets from file
+2025-07-14 18:49:21,442 - INFO - 127.0.0.1 - - [14/Jul/2025 18:49:21] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:51:54,826 - INFO - Loaded 4 wallets from file
+2025-07-14 18:51:56,466 - INFO - 127.0.0.1 - - [14/Jul/2025 18:51:56] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:53:16,952 - INFO - Loaded 4 wallets from file
+2025-07-14 18:53:18,553 - INFO - 127.0.0.1 - - [14/Jul/2025 18:53:18] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:55:23,454 - INFO - Loaded 4 wallets from file
+2025-07-14 18:55:25,068 - INFO - 127.0.0.1 - - [14/Jul/2025 18:55:25] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:55:59,339 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-14 18:55:59,339 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-14 18:55:59,340 - INFO -  * Restarting with stat
+2025-07-14 18:56:00,083 - WARNING -  * Debugger is active!
+2025-07-14 18:56:00,086 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 18:56:01,043 - INFO - Loaded 4 wallets from file
+2025-07-14 18:56:02,618 - INFO - 127.0.0.1 - - [14/Jul/2025 18:56:02] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:56:14,789 - INFO - 127.0.0.1 - - [14/Jul/2025 18:56:14] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:56:15,104 - INFO - Gathering wallets
+2025-07-14 18:56:15,104 - INFO - Loaded 4 wallets from file
+2025-07-14 18:56:15,104 - INFO - Found 4 valid and enabled wallets
+2025-07-14 18:56:15,547 - INFO - No USDC in wallet 0x634755D832433Cc1EF50b9280100E5aBfBB3BDfd
+2025-07-14 18:56:15,551 - INFO - Wallet 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D has 18.000000 USDC
+2025-07-14 18:56:15,560 - INFO - No USDC in wallet 0x499cef0Ef5aCC6008D6BEbc8a15259E82cb11cbb
+2025-07-14 18:56:15,570 - INFO - Wallet 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 has 9.000000 USDC
+2025-07-14 18:56:31,584 - WARNING - Retrying transfer for 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 (attempt 1) due to error: 429 Client Error: Too Many Requests for url: https://mainnet.infura.io/v3/4a7c4978efbd4817aa07ed48de6842a0
+2025-07-14 18:56:47,167 - INFO - Transferred 18.000000 USDC from 0xe18f986B9FD463e049B0c8Bb4412f4c4F599EA3D to 0x41eebB38301e8D06E44f135cBFEA876630E60e27. Tx: 528744d48b2a95195add89a45b029846979a9d34a7d4b81e6132791ff6ac8e21
+2025-07-14 18:56:48,581 - WARNING - Retrying transfer for 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 (attempt 2) due to error: 429 Client Error: Too Many Requests for url: https://mainnet.infura.io/v3/4a7c4978efbd4817aa07ed48de6842a0
+2025-07-14 18:56:51,991 - ERROR - Failed to transfer from 0x93250AA9b11777d0eC16D59F166E2DBbdd7bAA70 after 3 attempts: {'code': -32000, 'message': 'nonce too low: next nonce 1, tx nonce 0'}
+2025-07-14 18:56:51,991 - INFO - USDC sweep completed
+2025-07-14 18:56:51,991 - INFO - Sweeping of wallets completed.
+2025-07-14 18:57:53,980 - INFO - Loaded 4 wallets from file
+2025-07-14 18:57:53,980 - INFO - 127.0.0.1 - - [14/Jul/2025 18:57:53] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 18:57:56,734 - INFO - Loaded 4 wallets from file
+2025-07-14 18:57:58,347 - INFO - 127.0.0.1 - - [14/Jul/2025 18:57:58] "POST /api/action HTTP/1.1" 200 -
+2025-07-14 19:01:35,666 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:01:35,732 - INFO -  * Restarting with stat
+2025-07-14 19:01:36,470 - WARNING -  * Debugger is active!
+2025-07-14 19:01:36,472 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:02:01,167 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:02:01,250 - INFO -  * Restarting with stat
+2025-07-14 19:02:01,995 - WARNING -  * Debugger is active!
+2025-07-14 19:02:01,999 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:02:17,099 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:02:17,193 - INFO -  * Restarting with stat
+2025-07-14 19:02:17,944 - WARNING -  * Debugger is active!
+2025-07-14 19:02:17,946 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:04,831 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:04,903 - INFO -  * Restarting with stat
+2025-07-14 19:04:05,614 - WARNING -  * Debugger is active!
+2025-07-14 19:04:05,616 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:21,793 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:21,861 - INFO -  * Restarting with stat
+2025-07-14 19:04:22,590 - WARNING -  * Debugger is active!
+2025-07-14 19:04:22,592 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:26,992 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:27,069 - INFO -  * Restarting with stat
+2025-07-14 19:04:27,797 - WARNING -  * Debugger is active!
+2025-07-14 19:04:27,799 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:28,990 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:29,055 - INFO -  * Restarting with stat
+2025-07-14 19:04:29,752 - WARNING -  * Debugger is active!
+2025-07-14 19:04:29,753 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:43,748 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:43,809 - INFO -  * Restarting with stat
+2025-07-14 19:04:44,498 - WARNING -  * Debugger is active!
+2025-07-14 19:04:44,501 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:47,833 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:47,898 - INFO -  * Restarting with stat
+2025-07-14 19:04:48,621 - WARNING -  * Debugger is active!
+2025-07-14 19:04:48,623 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:49,816 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:49,881 - INFO -  * Restarting with stat
+2025-07-14 19:04:50,577 - WARNING -  * Debugger is active!
+2025-07-14 19:04:50,580 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:51,771 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:51,835 - INFO -  * Restarting with stat
+2025-07-14 19:04:52,551 - WARNING -  * Debugger is active!
+2025-07-14 19:04:52,554 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:04:54,823 - INFO -  * Detected change in 'c:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:04:54,885 - INFO -  * Restarting with stat
+2025-07-14 19:04:55,581 - WARNING -  * Debugger is active!
+2025-07-14 19:04:55,583 - INFO -  * Debugger PIN: 659-786-708
+2025-07-14 19:06:53,348 - INFO -  * Detected change in 'C:\\Users\\Ashton\\Documents\\GitHub\\luckyCrypto\\sweep_to_main.py', reloading
+2025-07-14 19:06:53,433 - INFO -  * Restarting with stat
+2025-07-14 19:06:54,182 - WARNING -  * Debugger is active!
+2025-07-14 19:06:54,185 - INFO -  * Debugger PIN: 659-786-708

@@ -26,8 +26,14 @@ logging.basicConfig(filename='usdc_transfer.log', level=logging.INFO,
 # Define the scope and load credentials
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 CREDS_FILE = "credentials.json"
-SHEET_ID = "1UjPoBYo40jJEtRU8wkZxeawonxccuXjypuR0-Iayr4o"  # Found in the Google Sheet URL: https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit
-SHEET_NAME = "Transactions"  # Name of the worksheet in your Google Sheet
+
+# Load environment variables
+load_dotenv()
+INFURA_API_KEY = os.getenv("INFURA_API_KEY")
+KRAKEN_ADDRESS = os.getenv("KRAKEN_ADDRESS")
+SHEET_ID = os.getenv("SHEET_ID") # Found in the Google Sheet URL: https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit
+SHEET_NAME = os.getenv("Transactions")  # Name of the worksheet in your Google Sheet
+
 
 def log_transaction(transaction_data):
     try:
@@ -56,11 +62,6 @@ def log_transaction(transaction_data):
 
     except Exception as e:
         print(f"Error logging transaction: {e}")
-
-# Load environment variables
-load_dotenv()
-INFURA_API_KEY = os.getenv("INFURA_API_KEY")
-KRAKEN_ADDRESS = os.getenv("KRAKEN_ADDRESS")
 
 # Ethereum configuration
 MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
