@@ -463,7 +463,6 @@ class CustomFileReader:
         if self.file:
             # Go to end of file
             self.file.seek(0, 2)
-
             # Get position
             pos = self.file.tell()
             # Initialize num lines, result lines
@@ -479,6 +478,10 @@ class CustomFileReader:
                         for line in self.readlines():
                                 result_lines.append(line.decode())
                         return result_lines
+            # If less than n lines in file, return all lines
+            for line in self.readlines():
+                result_lines.append(line.decode())
+            return result_lines  # Return all lines if less than n lines in file
         else:
             return None
 def read_last_n_lines(num_lines: int, file_name="usdc_transfer.log"):

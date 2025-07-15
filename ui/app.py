@@ -207,4 +207,4 @@ if __name__ == '__main__':
     web3 = Web3(Web3.HTTPProvider(MAINNET_RPC_URL))
     cg = CoinGeckoAPI()
     kraken = krakenex.API(key=KRAKEN_API_KEY, secret=KRAKEN_API_SECRET)
-    app.run(host='0.0.0.0', port=5000,debug=True)
+    app.run(host='0.0.0.0', port=80,debug=True)
