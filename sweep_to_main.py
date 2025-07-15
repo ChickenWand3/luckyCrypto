@@ -106,7 +106,7 @@ def convertEthToUSD(balance_eth):
         return balance_usd
     except Exception as e:
         logging.error(f"Error getting balance for USD of {balance_eth} ETH: {str(e)}")
-        return 10.0
+        return 0.0
 
 # Async wrappers for blocking Web3 operations
 async def get_balance(address):
