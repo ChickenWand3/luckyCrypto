@@ -45,7 +45,7 @@ def home():
 
 @app.route('/api/action', methods=['POST'])
 def action():
-    print("Received request:", request.json)
+    #print("Received request:", request.json)
     data = request.json
     if not data:
         return jsonify({"result": "No data provided"}), 400
