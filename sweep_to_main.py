@@ -92,9 +92,9 @@ USDC_CONTRACT = web3.eth.contract(address=web3.to_checksum_address(USDC_CONTRACT
 MASTER_WALLET_ADDRESS = web3.to_checksum_address(KRAKEN_ADDRESS)
 
 # Thread pool and concurrency control
-MAX_THREADS = 8
+MAX_THREADS = 2
 executor = ThreadPoolExecutor(max_workers=MAX_THREADS)
-semaphore = asyncio.Semaphore(8)  # Limit number of concurrent transfers
+semaphore = asyncio.Semaphore(2)  # Limit number of concurrent transfers
 
 def convertEthToUSD(balance_eth):
     """Get the ETH balance of an address in USD."""
@@ -164,34 +164,26 @@ async def wait_for_receipt(tx_hash):
 async def transfer_usdc(wallet, max_attempts=3):
     async with semaphore:
         try:
-            # Validate wallet data
-            #if not verifyUserData(wallet):
-            #    logging.error(f"Invalid wallet data for {wallet.get('address', 'unknown')}")
-            #    return
-            #print(1)
             address = web3.to_checksum_address(wallet["address"])
             balance = await get_balance(address)
             if balance == 0:
                 logging.info(f"No USDC in wallet {address}")
                 return
-            #print(2)
             balance_usdc = balance / 10**6  # Convert to USDC (6 decimals)
             logging.info(f"Wallet {address} has {balance_usdc:.6f} USDC")
 
             if balance_usdc < 8.0:  # Minimum transfer amount
                 logging.info(f"Skipping transfer for {address} due to low balance: {balance_usdc:.6f} USDC")
                 return
-            #print(3)
             nonce = await get_nonce(address)
             gas_estimate = await estimate_gas(address, balance)
             tx = await build_transaction(address, nonce, gas_estimate, balance)
-            #print(4)
             for attempt in range(max_attempts):
                 try:
+                    await asyncio.sleep(1)
                     signed_tx = await sign_transaction(tx, wallet["private_key"])
                     tx_hash = await send_transaction(signed_tx)
                     receipt = await wait_for_receipt(tx_hash)
-                    #print(5)
                     if receipt["status"] == 1:
                         logging.info(f"Transferred {balance_usdc:.6f} USDC from {address} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
                         #'''
