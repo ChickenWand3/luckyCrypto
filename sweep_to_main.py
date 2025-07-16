@@ -126,11 +126,20 @@ async def estimate_gas(address, balance):
         {"from": address}
     )
 
-async def build_transaction(address, nonce, gas, balance):
+async def build_transaction(address, nonce, gas, balance, attempt):
     try:
         gas_price = web3.eth.gas_price
         # Use a multiplier for gas price to account for network fluctuations
-        adjusted_gas_price = int(gas_price * 1.2)
+        adjusted_gas_price = int(gas_price * 1.2 * (attempt * 0.2))  # Increase gas price with each attempt 20%
+
+        #Check eth
+        eth_balance = await web3.eth.get_balance(address)
+        eth_balance_eth = eth_balance / 10**18  # Convert wei to ETH
+
+        if eth_balance_eth < gas * adjusted_gas_price / 10**18:
+            logging.warning(f"Insufficient ETH for gas in wallet {address}. Required: {gas * adjusted_gas_price / 10**18} ETH, Available: {eth_balance_eth} ETH")
+            return None
+
         return await asyncio.get_event_loop().run_in_executor(
             executor,
             USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).build_transaction,
@@ -157,7 +166,7 @@ async def send_transaction(signed_tx):
 
 async def wait_for_receipt(tx_hash):
     return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 120
+        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 180
     )
 
 # Core transfer logic
@@ -166,6 +175,7 @@ async def transfer_usdc(wallet, max_attempts=3):
         try:
             address = web3.to_checksum_address(wallet["address"])
             balance = await get_balance(address)
+
             if balance == 0:
                 logging.info(f"No USDC in wallet {address}")
                 return
@@ -177,10 +187,13 @@ async def transfer_usdc(wallet, max_attempts=3):
                 return
             nonce = await get_nonce(address)
             gas_estimate = await estimate_gas(address, balance)
-            tx = await build_transaction(address, nonce, gas_estimate, balance)
             for attempt in range(max_attempts):
                 try:
                     await asyncio.sleep(1)
+                    tx = await build_transaction(address, nonce, gas_estimate, balance, attempt)
+                    if not tx:
+                        logging.error(f"Failed to build transaction for {address}. Insufficient ETH for gas.")
+                        return
                     signed_tx = await sign_transaction(tx, wallet["private_key"])
                     tx_hash = await send_transaction(signed_tx)
                     receipt = await wait_for_receipt(tx_hash)
