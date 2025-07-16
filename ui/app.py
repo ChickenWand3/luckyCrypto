@@ -115,12 +115,17 @@ def action():
         scope = data.get('scope', 'all')
         try:
             wallets = get_wallets()
+            # Remove private_key from each wallet dictionary
+            filtered_wallets = [
+                {key: wallet[key] for key in wallet if key != "private_key"}
+                for wallet in wallets
+            ]
             if scope.lower() == 'enabled':
-                wallets = [wallet for wallet in wallets if wallet.get("enabled", True)]  # Filter enabled wallets
+                filtered_wallets = [wallet for wallet in filtered_wallets if wallet.get("enabled", True)]
             elif scope.lower() == 'disabled':
-                wallets = [wallet for wallet in wallets if not wallet.get("enabled", True)]
-            if wallets:
-                return jsonify({"result": wallets}), 200
+                filtered_wallets = [wallet for wallet in filtered_wallets if not wallet.get("enabled", True)]
+            if filtered_wallets:
+                return jsonify({"result": filtered_wallets}), 200
             else:
                 return jsonify({"result": "No wallets found"}), 404
         except Exception as e:

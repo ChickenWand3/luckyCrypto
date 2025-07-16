@@ -8,3 +8,6 @@ __pycache__/*
 wallets.enc
 usdc_transfer.log
 encryption_key.txt
+credentials.json
+.env
+.env
