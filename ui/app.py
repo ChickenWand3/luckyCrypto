@@ -120,12 +120,15 @@ def action():
                 {key: wallet[key] for key in wallet if key != "private_key"}
                 for wallet in wallets
             ]
+
+            sorted_wallets = sorted(filtered_wallets, key=lambda wallet: wallet.get("name", "").lower())
+
             if scope.lower() == 'enabled':
-                filtered_wallets = [wallet for wallet in filtered_wallets if wallet.get("enabled", True)]
+                sorted_wallets = [wallet for wallet in sorted_wallets if wallet.get("enabled", True)]
             elif scope.lower() == 'disabled':
-                filtered_wallets = [wallet for wallet in filtered_wallets if not wallet.get("enabled", True)]
-            if filtered_wallets:
-                return jsonify({"result": filtered_wallets}), 200
+                sorted_wallets = [wallet for wallet in sorted_wallets if not wallet.get("enabled", True)]
+            if sorted_wallets:
+                return jsonify({"result": sorted_wallets}), 200
             else:
                 return jsonify({"result": "No wallets found"}), 404
         except Exception as e:
@@ -152,7 +155,8 @@ def action():
             if not wallets_balances["wallets"]:
                 return jsonify({"result": "No wallets found or no balances available"}), 404
             else:
-                return jsonify({"result": wallets_balances["wallets"]}), 200
+                sorted_wallets = sorted(wallets_balances["wallets"], key=lambda wallet: wallet.get("name", "").lower())
+                return jsonify({"result": sorted_wallets}), 200
         except Exception as e:
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "refill_gas":
