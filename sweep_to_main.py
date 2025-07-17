@@ -119,18 +119,40 @@ async def get_nonce(address):
         executor, web3.eth.get_transaction_count, address, 'pending'
     )
 
-async def estimate_gas(address, balance):
+async def estimate_gas(address, balance): #, nonce
     return await asyncio.get_event_loop().run_in_executor(
         executor,
         USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).estimate_gas,
         {"from": address}
     )
 
+    '''
+    # Amount to send (e.g., 10 USDC, USDC has 6 decimals)
+    logging.info(f"Estimating gas for {address} with balance {balance} USDC")
+
+    # Build transaction
+    tx = USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).build_transaction({
+    'from': address,
+    'nonce': nonce,
+    })
+
+    # Estimate gas
+    estimated_gas = web3.eth.estimate_gas(tx)
+    logging.info(f"Estimated gas for {address}: {estimated_gas}")
+    return estimated_gas
+    '''
+    
+
 async def build_transaction(address, nonce, gas, balance, attempt):
     try:
         gas_price = web3.eth.gas_price
+        logging.info(f"Current gas price (wei): {gas_price}")
         # Use a multiplier for gas price to account for network fluctuations
-        adjusted_gas_price = int(gas_price * 1.2 * (attempt * 0.2))  # Increase gas price with each attempt 20%
+        adjusted_gas_price = int(gas_price * 1.1 * (1 + attempt * 0.4))  # Increase gas price with each attempt 20%
+        logging.info(f"Adjusted gas price for attempt {attempt}: {adjusted_gas_price}")
+        total_gas_cost_eth = web3.from_wei(gas * adjusted_gas_price, 'ether')
+
+        logging.info(f"Building transaction for {address} with balance {balance} USDC, gas: {gas}, adjusted gas price: {adjusted_gas_price}, total cost in ETH: {total_gas_cost_eth}")
 
         #Check eth
         address = web3.to_checksum_address(address)
@@ -138,9 +160,11 @@ async def build_transaction(address, nonce, gas, balance, attempt):
         eth_balance_eth = web3.from_wei(balance_wei, 'ether')
 
 
-        if eth_balance_eth < gas * adjusted_gas_price / 10**18:
-            logging.warning(f"Insufficient ETH for gas in wallet {address}. Required: {gas * adjusted_gas_price / 10**18} ETH, Available: {eth_balance_eth} ETH")
+        if eth_balance_eth < total_gas_cost_eth:
+            logging.warning(f"Insufficient ETH for gas in wallet {address}. Required: {total_gas_cost_eth} ETH, Available: {eth_balance_eth} ETH")
             return None
+        else:
+            logging.info(f"Wallet {address} has sufficient ETH for gas: {eth_balance_eth} ETH")
 
         return await asyncio.get_event_loop().run_in_executor(
             executor,
@@ -168,7 +192,7 @@ async def send_transaction(signed_tx):
 
 async def wait_for_receipt(tx_hash):
     return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 180
+        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 90
     )
 
 # Core transfer logic
@@ -188,7 +212,7 @@ async def transfer_usdc(wallet, max_attempts=3):
                 logging.info(f"Skipping transfer for {address} due to low balance: {balance_usdc:.6f} USDC")
                 return
             nonce = await get_nonce(address)
-            gas_estimate = await estimate_gas(address, balance)
+            gas_estimate = await estimate_gas(address, balance) #, nonce
             for attempt in range(max_attempts):
                 try:
                     await asyncio.sleep(1)
