@@ -116,7 +116,7 @@ async def get_balance(address):
 
 async def get_nonce(address):
     return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.get_transaction_count, address, 'pending'
+        executor, web3.eth.get_transaction_count, address, 'latest' #Pending no longer used cause they pile up and cause issues
     )
 
 async def estimate_gas(address, balance): #, nonce
@@ -192,7 +192,7 @@ async def send_transaction(signed_tx):
 
 async def wait_for_receipt(tx_hash):
     return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 90
+        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 120
     )
 
 # Core transfer logic

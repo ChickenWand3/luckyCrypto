@@ -97,6 +97,7 @@
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'get_mnemonic')">Get Mnemonic</button>
     <button class="btn btn-outline-primary me-2" onclick="showForm(event, 'read_logs')">Read Recent Logs</button>
     <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'delete')">Delete (disable) Wallet</button>
+    <button class="btn btn-outline-danger me-2" onclick="showForm(event, 'cancel_pending')">Cancel Pending Transaction</button>
     <button class="btn btn-outline-warning me-2" onclick="showForm(event, 'search_one')">Search For Wallet</button>
   </div>
 
@@ -204,6 +205,11 @@
         selectInputGroup.classList.remove('d-none');
         updateSearchPlaceholder();
         break;
+      case 'cancel_pending':
+        selectInputGroup.classList.remove('d-none');
+        updateSearchPlaceholder();
+        actionDesc.textContent = "This will spend gas to cancel the oldest pending transaction for the selected wallet.";
+        break;
       case 'list_all':
         scopeSelectGroup.classList.remove('d-none');
         actionDesc.textContent = "This action will list wallets based on selected scope.";
@@ -246,7 +252,7 @@
       return showValidationError();
     }
 
-    if ((currentAction === 'delete' || currentAction === 'search_one' || currentAction === 'enable') && !userInput) {
+    if ((currentAction === 'delete' || currentAction === 'search_one' || currentAction === 'enable' || currentAction === 'cancel_pending') && !userInput) {
       return showValidationError();
     }
 
@@ -316,7 +322,7 @@
   } else if (currentAction === 'delete') {
     payload.searchType = pendingInput?.searchType || 'name';
     payload.value = pendingInput?.value || '';
-  } else if (currentAction === 'search_one' || currentAction === 'enable') {
+  } else if (currentAction === 'search_one' || currentAction === 'enable' || currentAction === 'cancel_pending') {
     payload[pendingSearchType] = document.getElementById('userInput').value.trim();
   } else if (currentAction === 'list_all' || currentAction === 'list_all_balances') {
     payload.scope = document.getElementById('scopeSelect').value;

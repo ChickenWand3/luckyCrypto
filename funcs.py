@@ -430,6 +430,65 @@ def enable_wallet(wallet_email, wallet_name, wallets_file="wallets.enc", key_fil
     logging.info(f"No valid matching wallet found for email: {wallet_email} or name: {wallet_name}")
     return False #Couldn't find wallet
 
+def get_pending_nonce(address, web3):
+    """Fetch the nonce of the first pending transaction for the sender."""
+    # Get the latest confirmed nonce
+    confirmed_nonce = web3.eth.get_transaction_count(address, 'latest')
+    # Get the pending nonce (includes pending transactions)
+    pending_nonce = web3.eth.get_transaction_count(address, 'pending')
+    
+    # If pending_nonce is greater than confirmed_nonce, there are pending transactions
+    if pending_nonce > confirmed_nonce:
+        return confirmed_nonce  # First pending transaction's nonce
+    else:
+        logging.info("No pending transactions found.")
+        return None
+    
+def cancel_pending_transaction(address, private_key, web3):
+    logging.info("Cancelling pending transaction...")
+    # Get the nonce of the first pending transaction
+    nonce = get_pending_nonce(address, web3)
+
+    if nonce is not None:
+        # Build a cancellation transaction (self-transfer of 0 ETH)
+        tx = {
+            'from': address,
+            'to': address,  # Self-transfer to cancel
+            'value': 0,  # No ETH sent
+            'nonce': nonce,
+            'gas': 21000,  # Standard gas limit for simple ETH transfer
+            'chainId': web3.eth.chain_id
+        }
+
+        # Get current gas price and increase it by 20% to ensure replacement
+        current_gas_price = web3.eth.gas_price
+        new_gas_price = int(current_gas_price * 1.2)  # 20% higher gas price
+
+        tx['gasPrice'] = new_gas_price
+
+        # Estimate gas (should be 21000 for a simple transfer, but confirm)
+        estimated_gas = web3.eth.estimate_gas(tx)
+        tx['gas'] = estimated_gas
+
+        # Sign the transaction
+        signed_tx = web3.eth.account.sign_transaction(tx, private_key)
+
+        # Send the transaction
+        tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        
+        # Calculate total cost in ETH
+        total_gas_cost_eth = web3.from_wei(estimated_gas * new_gas_price, 'ether')
+
+        logging.info(f"Cancel transaction sent. Transaction hash: {tx_hash.hex()}")
+        logging.info(f"Nonce used: {nonce}")
+        logging.info(f"Estimated gas: {estimated_gas}")
+        logging.info(f"New gas price (wei): {new_gas_price}")
+        logging.info(f"Total estimated cost in ETH: {total_gas_cost_eth}")
+        return True
+    else:
+        logging.info("No transaction to cancel.")
+        return False
+
 
 class CustomFileReader:
     def __init__(self, file_path, mode='rb', encoding='utf-8'):

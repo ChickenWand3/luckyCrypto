@@ -10,7 +10,7 @@ import asyncio
 
 sys.path.append("..")  # Adjust the path to import from the parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, enable_wallet, jsonify_walletBalances, get_mnemonic, read_last_n_lines
+from funcs import generate_wallets, search_wallets, get_wallets, disable_wallet, enable_wallet, jsonify_walletBalances, get_mnemonic, read_last_n_lines, cancel_pending_transaction
 
 from send_out_gas import refillGas
 from sweep_to_main import main as sweep_to_main
@@ -188,6 +188,22 @@ def action():
                 return jsonify({"result": "No logs found."})
         except Exception as e:
             return jsonify({"result": f"Internal error occurred: {str(e)}"})
+    elif button_clicked == "cancel_pending":
+        try:
+            logging.info("Cancel pending transaction request received")
+            name = data.get('name', None)
+            email = data.get('email', None)
+            
+            wallets = get_wallets()
+            for wallet in wallets:
+                if (wallet["email"] == email or wallet["name"] == name):
+                    cancel_pending_transaction(wallet["address"], wallet["private_key"], web3)
+                    return jsonify({"result": "Finished Canceling"}), 200
+                
+            return jsonify({"result": "No matching wallet found or wallet is enabled"}), 404
+
+        except Exception as e:
+            return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     return jsonify({"result": "Undefined Action"}), 400
 
 @app.route('/api/status', methods=['GET'])
