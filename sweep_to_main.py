@@ -133,8 +133,10 @@ async def build_transaction(address, nonce, gas, balance, attempt):
         adjusted_gas_price = int(gas_price * 1.2 * (attempt * 0.2))  # Increase gas price with each attempt 20%
 
         #Check eth
-        eth_balance = await web3.eth.get_balance(address)
-        eth_balance_eth = eth_balance / 10**18  # Convert wei to ETH
+        address = web3.to_checksum_address(address)
+        balance_wei = web3.eth.get_balance(address)
+        eth_balance_eth = web3.from_wei(balance_wei, 'ether')
+
 
         if eth_balance_eth < gas * adjusted_gas_price / 10**18:
             logging.warning(f"Insufficient ETH for gas in wallet {address}. Required: {gas * adjusted_gas_price / 10**18} ETH, Available: {eth_balance_eth} ETH")
