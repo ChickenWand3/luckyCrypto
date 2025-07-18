@@ -58,10 +58,10 @@ def log_transaction(transaction_data):
 
         # Append the row to the Google Sheet
         worksheet.append_row(row)
-        print("Transaction logged successfully!")
+        logging.info("Transaction logged successfully!")
 
     except Exception as e:
-        print(f"Error logging transaction: {e}")
+        logging.info(f"Error logging transaction: {e}")
 
 # Ethereum configuration
 MAINNET_RPC_URL = f"https://mainnet.infura.io/v3/{INFURA_API_KEY}"
