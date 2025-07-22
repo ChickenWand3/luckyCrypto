@@ -221,7 +221,9 @@ async def transfer_usdc(wallet, max_attempts=3):
                         logging.error(f"Failed to build transaction for {address}. Insufficient ETH for gas.")
                         return
                     signed_tx = await sign_transaction(tx, wallet["private_key"])
+                    await asyncio.sleep(1)  # Wait a bit before sending to avoid nonce issues
                     tx_hash = await send_transaction(signed_tx)
+                    await asyncio.sleep(1)  # Wait a bit before checking receipt should fix the failed transaction but actually went through
                     receipt = await wait_for_receipt(tx_hash)
                     if receipt["status"] == 1:
                         logging.info(f"Transferred {balance_usdc:.6f} USDC from {address} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
