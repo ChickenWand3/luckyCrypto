@@ -23,22 +23,6 @@ app = Flask(__name__)
 operation_status = "Uninitialized"
 
 
-async def sweep_to_main_async():
-    global operation_status
-    operation_status = "Started Sweeping To Main"
-    try:
-        sweep = await sweep_to_main()
-        if sweep:
-            logging.info("Sweeping of wallets completed.")
-            operation_status = "Finished Sweeping To Main"
-        else:
-            logging.info("Sweeping of wallets failed! (Couldn't find wallets/Couldn't connect to Ethereum network?)")
-            operation_status = "Error sweeping to main!"
-    except Exception as e:
-        logging.error(f"Error sweeping to main: {str(e)}")
-        operation_status = f"Internal Error During Sweep To Main: {str(e)}"
-
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -135,11 +119,7 @@ def action():
             return jsonify({"result": f"An internal error occurred: {str(e)}"}), 500
     elif button_clicked == "force_sweep":
         try:
-            def run_sweep_thread():
-                asyncio.run(sweep_to_main_async())
-
-            thread = threading.Thread(target=run_sweep_thread)
-            thread.start()
+            sweep_to_main()
             return jsonify({"result": "Sweep wallets to main wallet operation started."}), 200
         except Exception as e:
             return jsonify({"result": f"An internal error occurred during sweep: {str(e)}"}), 500

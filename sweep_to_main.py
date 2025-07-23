@@ -1,14 +1,11 @@
 import os
-import json
 import traceback
-import asyncio
 import logging
 from web3 import Web3
-from eth_account import Account
 from dotenv import load_dotenv
-from concurrent.futures import ThreadPoolExecutor
-from funcs import get_wallets, verifyUserData
+from funcs import get_wallets
 from pycoingecko import CoinGeckoAPI
+import time
 
 import gspread
 from google.oauth2.service_account import Credentials
@@ -32,7 +29,7 @@ load_dotenv()
 INFURA_API_KEY = os.getenv("INFURA_API_KEY")
 KRAKEN_ADDRESS = os.getenv("KRAKEN_ADDRESS")
 SHEET_ID = os.getenv("SHEET_ID") # Found in the Google Sheet URL: https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit
-SHEET_NAME = os.getenv("Transactions")  # Name of the worksheet in your Google Sheet
+SHEET_NAME = os.getenv("SHEET_NAME")  # Name of the worksheet in your Google Sheet
 
 
 def log_transaction(transaction_data):
@@ -91,11 +88,6 @@ cg = CoinGeckoAPI()
 USDC_CONTRACT = web3.eth.contract(address=web3.to_checksum_address(USDC_CONTRACT_ADDRESS), abi=USDC_ABI)
 MASTER_WALLET_ADDRESS = web3.to_checksum_address(KRAKEN_ADDRESS)
 
-# Thread pool and concurrency control
-MAX_THREADS = 2
-executor = ThreadPoolExecutor(max_workers=MAX_THREADS)
-semaphore = asyncio.Semaphore(2)  # Limit number of concurrent transfers
-
 def convertEthToUSD(balance_eth):
     """Get the ETH balance of an address in USD."""
     try:
@@ -108,42 +100,17 @@ def convertEthToUSD(balance_eth):
         logging.error(f"Error getting balance for USD of {balance_eth} ETH: {str(e)}")
         return 0.0
 
-# Async wrappers for blocking Web3 operations
-async def get_balance(address):
-    return await asyncio.get_event_loop().run_in_executor(
-        executor, USDC_CONTRACT.functions.balanceOf(address).call
-    )
+def get_balance(address):
+    return USDC_CONTRACT.functions.balanceOf(address).call()
 
-async def get_nonce(address):
-    return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.get_transaction_count, address, 'latest' #Pending no longer used cause they pile up and cause issues
-    )
+def get_nonce(address):
+    return web3.eth.get_transaction_count(address, 'latest')
 
-async def estimate_gas(address, balance): #, nonce
-    return await asyncio.get_event_loop().run_in_executor(
-        executor,
-        USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).estimate_gas,
-        {"from": address}
-    )
-
-    '''
-    # Amount to send (e.g., 10 USDC, USDC has 6 decimals)
-    logging.info(f"Estimating gas for {address} with balance {balance} USDC")
-
-    # Build transaction
-    tx = USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).build_transaction({
-    'from': address,
-    'nonce': nonce,
-    })
-
-    # Estimate gas
-    estimated_gas = web3.eth.estimate_gas(tx)
-    logging.info(f"Estimated gas for {address}: {estimated_gas}")
-    return estimated_gas
-    '''
+def estimate_gas(address, balance): #, nonce
+    return USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).estimate_gas({"from": address})
     
 
-async def build_transaction(address, nonce, gas, balance, attempt):
+def build_transaction(address, nonce, gas, balance, attempt):
     try:
         gas_price = web3.eth.gas_price
         logging.info(f"Current gas price (wei): {gas_price}")
@@ -166,91 +133,80 @@ async def build_transaction(address, nonce, gas, balance, attempt):
         else:
             logging.info(f"Wallet {address} has sufficient ETH for gas: {eth_balance_eth} ETH")
 
-        return await asyncio.get_event_loop().run_in_executor(
-            executor,
-            USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).build_transaction,
+        return USDC_CONTRACT.functions.transfer(MASTER_WALLET_ADDRESS, balance).build_transaction(
             {
                 "chainId": 1,
                 "gas": int(gas * 1.2),  # 20% buffer for gas limit
                 "gasPrice": adjusted_gas_price,
                 "nonce": nonce
-            }
-        )
+            })
     except Exception as e:
         logging.error(f"Error building transaction for {address}: {str(e)}")
         raise
 
-async def sign_transaction(tx, private_key):
-    return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.account.sign_transaction, tx, private_key
-    )
+def sign_transaction(tx, private_key):
+    return web3.eth.account.sign_transaction(tx, private_key)
 
-async def send_transaction(signed_tx):
-    return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.send_raw_transaction, signed_tx.raw_transaction
-    )
+def send_transaction(signed_tx):
+    return web3.eth.send_raw_transaction(signed_tx.raw_transaction)
 
-async def wait_for_receipt(tx_hash):
-    return await asyncio.get_event_loop().run_in_executor(
-        executor, web3.eth.wait_for_transaction_receipt, tx_hash, 120
-    )
-
+def wait_for_receipt(tx_hash):
+    return web3.eth.wait_for_transaction_receipt(tx_hash, 120)
 # Core transfer logic
-async def transfer_usdc(wallet, max_attempts=3):
-    async with semaphore:
-        try:
-            address = web3.to_checksum_address(wallet["address"])
-            balance = await get_balance(address)
+def transfer_usdc(wallet, max_attempts=3):
+    try:
+        address = web3.to_checksum_address(wallet["address"])
+        balance = get_balance(address)
 
-            if balance == 0:
-                logging.info(f"No USDC in wallet {address}")
-                return
-            balance_usdc = balance / 10**6  # Convert to USDC (6 decimals)
-            logging.info(f"Wallet {address} has {balance_usdc:.6f} USDC")
+        if balance == 0:
+            logging.info(f"No USDC in wallet {address}")
+            return
+        balance_usdc = balance / 10**6  # Convert to USDC (6 decimals)
+        logging.info(f"Wallet {address} has {balance_usdc:.6f} USDC")
 
-            if balance_usdc < 8.0:  # Minimum transfer amount
-                logging.info(f"Skipping transfer for {address} due to low balance: {balance_usdc:.6f} USDC")
-                return
-            nonce = await get_nonce(address)
-            gas_estimate = await estimate_gas(address, balance) #, nonce
-            for attempt in range(max_attempts):
-                try:
-                    await asyncio.sleep(1)
-                    tx = await build_transaction(address, nonce, gas_estimate, balance, attempt)
-                    if not tx:
-                        logging.error(f"Failed to build transaction for {address}. Insufficient ETH for gas.")
-                        return
-                    signed_tx = await sign_transaction(tx, wallet["private_key"])
-                    await asyncio.sleep(1)  # Wait a bit before sending to avoid nonce issues
-                    tx_hash = await send_transaction(signed_tx)
-                    await asyncio.sleep(1)  # Wait a bit before checking receipt should fix the failed transaction but actually went through
-                    receipt = await wait_for_receipt(tx_hash)
-                    if receipt["status"] == 1:
-                        logging.info(f"Transferred {balance_usdc:.6f} USDC from {address} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
-                        #'''
-                        log_transaction({
-                        "recipient": wallet.get("name", "Unknown"),
-                        "email": wallet.get("email", "Unknown"),
-                        "address": address,
-                        "amount": balance_usdc,
-                        "gasUSD": convertEthToUSD(receipt['gasUsed'] * receipt['effectiveGasPrice'] / 10**18)  # Convert gas cost to USD
-                        })
-                        #'''
-                        return
-                    else:
-                        logging.error(f"Transaction failed for {address}. Tx: {tx_hash.hex()}")
-                        return
-                except Exception as e:
-                    if attempt == max_attempts - 1:
-                        logging.error(f"Failed to transfer from {address} after {max_attempts} attempts: {str(e)}")
-                        return
-                    logging.warning(f"Retrying transfer for {address} (attempt {attempt + 1}) due to error: {str(e)}")
-                    await asyncio.sleep(2 ** attempt)
-        except Exception as e:
-            logging.error(f"Error processing wallet {wallet.get('address', 'unknown')}: {str(e)}")
-            logging.error(traceback.format_exc())
+        if balance_usdc < 8.0:  # Minimum transfer amount
+            logging.info(f"Skipping transfer for {address} due to low balance: {balance_usdc:.6f} USDC")
+            return
+        nonce = get_nonce(address)
+        gas_estimate = estimate_gas(address, balance) #, nonce
+        for attempt in range(max_attempts):
+            try:
+                time.sleep(1)
+                tx = build_transaction(address, nonce, gas_estimate, balance, attempt)
+                if not tx:
+                    logging.error(f"Failed to build transaction for {address}. Insufficient ETH for gas.")
+                    return
+                signed_tx = sign_transaction(tx, wallet["private_key"])
+                time.sleep(1)  # Wait a bit before sending to avoid nonce issues
+                tx_hash = send_transaction(signed_tx)
+                time.sleep(1)  # Wait a bit before checking receipt should fix the failed transaction but actually went through
+                receipt = wait_for_receipt(tx_hash)
+                if receipt["status"] == 1:
+                    logging.info(f"Transferred {balance_usdc:.6f} USDC from {address} to {MASTER_WALLET_ADDRESS}. Tx: {tx_hash.hex()}")
+                    #'''
+                    log_transaction({
+                    "recipient": wallet.get("name", "Unknown"),
+                    "email": wallet.get("email", "Unknown"),
+                    "address": address,
+                    "amount": balance_usdc,
+                    "gasUSD": convertEthToUSD(receipt['gasUsed'] * receipt['effectiveGasPrice'] / 10**18)  # Convert gas cost to USD
+                    })
+                    #'''
+                    return
+                else:
+                    logging.error(f"Transaction failed for {address}. Tx: {tx_hash.hex()}")
+                    return
+            except Exception as e:
+                if attempt == max_attempts - 1:
+                    logging.error(f"Failed to transfer from {address} after {max_attempts} attempts: {str(e)}")
+                    return
+                logging.warning(f"Retrying transfer for {address} (attempt {attempt + 1}) due to error: {str(e)}")
+                time.sleep(2 ** attempt)
+    except Exception as e:
+        logging.error(f"Error processing wallet {wallet.get('address', 'unknown')}: {str(e)}")
+        logging.error(traceback.format_exc())
 
-async def main():
+def main():
     # Check Web3 connectivity
     if not web3.is_connected():
         logging.error("Failed to connect to Ethereum network via Infura")
@@ -267,17 +223,11 @@ async def main():
     valid_wallets = [w for w in wallets if w.get("enabled", False)]
     logging.info(f"Found {len(valid_wallets)} valid and enabled wallets")
 
-    # Create tasks and run them concurrently
-    tasks = [transfer_usdc(wallet) for wallet in valid_wallets]
-    await asyncio.gather(*tasks)
+    for wallet in valid_wallets:
+        transfer_usdc(wallet)
     logging.info("USDC sweep completed")
     return True
 
 if __name__ == "__main__":
     logging.info("Starting USDC sweep script")
-    asyncio.run(main())
-
-
-
-# Optional improvement later down the road:
-    # Asyncio queue - might only be useful for a larger number of wallets
+    result = main()
