@@ -40,13 +40,13 @@ def main():
     if not BusinessUUID:
         raise ValueError("Business UUID could not be retrieved. Please check your API key and username.")
     
-    accountsList = fetchListPaymentCards(BusinessUUID)
-    printAccounts(accountsList)
+    #accountsList = fetchListPaymentCards(BusinessUUID)
+    #printAccounts(accountsList)
 
-    for account in accountsList:
-        fetchListPaymentCardTransactions(BusinessUUID, account.uuid)
+    #for account in accountsList:
+    #    fetchListPaymentCardTransactions(BusinessUUID, account.uuid)
 
-    #fetchAllTransactions(BusinessUUID)
+    fetchAllTransactions(BusinessUUID)
     
 
 
@@ -123,7 +123,7 @@ def fetchListPaymentCardTransactions(BusinessUUID, accountUUID):
 
     params = {
         "cardAccountUuid": BusinessUUID,
-        "virtualCardUUID": accountUUID,
+        "virtualCardUuid": accountUUID,
         "filterType": "PURCHASE",
         "startDate": start_date.isoformat(),
         "endDate": end_date.isoformat()
