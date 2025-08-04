@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import requests
 import os
 from datetime import datetime, timedelta
+import time
 
 
 #Add this to your .env file
@@ -40,14 +41,14 @@ def main():
     if not BusinessUUID:
         raise ValueError("Business UUID could not be retrieved. Please check your API key and username.")
     
-    #accountsList = fetchListPaymentCards(BusinessUUID)
-    #printAccounts(accountsList)
+    accountsList = fetchListPaymentCards(BusinessUUID)
+    printAccounts(accountsList)
 
-    #for account in accountsList:
-    #    fetchListPaymentCardTransactions(BusinessUUID, account.uuid)
+    for account in accountsList:
+        time.sleep(2)
+        fetchListPaymentCardTransactions(BusinessUUID, account.uuid)
 
-    fetchAllTransactions(BusinessUUID)
-    
+
 
 
 
@@ -112,11 +113,15 @@ def fetchListPaymentCardTransactions(BusinessUUID, accountUUID):
     now = datetime.now()
 
     # Calculate the previous day's start and end
-    start_date = (now - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
-    end_date = (now - timedelta(days=1)).replace(hour=23, minute=59, second=59, microsecond=999999)
+    start_date = (now - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=1)
+    end_date = (now).replace(hour=0, minute=0, second=0, microsecond=0)
 
-    #print("Start Date:", start_date)
-    #print("End Date:", end_date)
+    # For testing purposes
+    #start_date = now - timedelta(days=20)
+    #end_date = now
+
+    print("Start Date:", start_date)
+    print("End Date:", end_date)
 
     print("Fetching under business UUID:", BusinessUUID)
     print("Fetching transactions for account UUID:", accountUUID)
@@ -131,10 +136,14 @@ def fetchListPaymentCardTransactions(BusinessUUID, accountUUID):
     response = requests.get(url, params=params, headers=headers)
     if response.status_code == 200:
         print(response.json())
+        if response.json().get("transactions"):
+            for transaction in response.json().get("transactions"):
+                print("Found transaction of " + str(transaction.get("amount").get("amount_origin")) )
     else:
         print(f"Failed to fetch transactions: {response.status_code} - {response.text}")
 
 
+#CURRENTLY NOT WORKING
 def fetchAllTransactions(BusinessUUID):
     url = "https://app.taekus.com/api/banking/payment-cards/transactions/"
     headers = {
